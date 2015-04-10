@@ -1,6 +1,6 @@
-<%= form_tag submissions_path, multipart: true do %>
+<%= form_for @submission, multipart: true do |f| %>
   <div class="row">
-    Name: <%= text_field_tag 'submission[name]' %></br>
+    Name: <%= f.text_field :name %></br>
   </div>
 
   <div class="row">
@@ -17,13 +17,14 @@
 
   <div class="row">
     <div id="cover_letters" class="col-md-4">
-      File Upload <%= file_field_tag 'submission[cover_letter_attributes][0]', class: 'cover_letter' %>
+      <%= f.fields_for :document
+      File Upload <%= f.file_field :cover_letter_attributes, class: 'cover_letter' %>
     </div>
     <div id="resumes" class="col-md-4">
-      File Upload <%= file_field_tag 'submission[resume_attributes][0]', class: 'resume' %>
+      File Upload <%= f.file_field :resume_attributes, class: 'resume' %>
     </div>
     <div id="essays" class="col-md-4">
-      File Upload <%= file_field_tag 'submission[essay_attributes][0]', class: 'essay' %>
+      File Upload <%= f.file_field :essay_attributes, class: 'essay' %>
     </div>
   </div> 
 
@@ -41,7 +42,7 @@
 
   <div class="row">
     Total Price: <span id="total_price">0</span>
-    <%= hidden_field_tag 'submission[amount]', 0 %>
+    <%= f.hidden_field :amount %>
   </div>  
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
