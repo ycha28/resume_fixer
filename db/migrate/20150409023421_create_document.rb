@@ -5,6 +5,7 @@ class CreateDocument < ActiveRecord::Migration
       t.string :content_type
       t.binary :file_contents
       t.string :type
+      t.integer :submission_id
 
       t.timestamps
     end

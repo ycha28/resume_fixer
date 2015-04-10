@@ -17,8 +17,9 @@
 
   <div class="row">
     <div id="cover_letters" class="col-md-4">
-      <%= f.fields_for :document
-      File Upload <%= f.file_field :cover_letter_attributes, class: 'cover_letter' %>
+      <%= f.fields_for @cover_letter do |d| %>
+        File Upload <%= d.attachment_field :text_file, direct: true, class: 'cover_letter' %>
+      <% end %>
     </div>
     <div id="resumes" class="col-md-4">
       File Upload <%= f.file_field :resume_attributes, class: 'resume' %>
@@ -41,6 +42,7 @@
   </div> 
 
   <div class="row">
+    <%= image_tag attachment_url(@cover_letter, :text_file) %>
     Total Price: <span id="total_price">0</span>
     <%= f.hidden_field :amount %>
   </div>  

@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150410033458) do
     t.string   "content_type"
     t.binary   "file_contents"
     t.string   "type"
+    t.integer  "submission_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "text_file"
