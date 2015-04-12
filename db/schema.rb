@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150410033458) do
     t.integer  "submission_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "text_file"
+    t.string   "text_file_id"
   end
 
   create_table "submissions", force: true do |t|

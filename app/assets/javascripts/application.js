@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
-//= require refile
+//= require bootstrap-fileinput/js/fileinput
 //= require_tree .

@@ -31,8 +31,7 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'pg'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'virtus'
-gem "mini_magick"
-gem "refile", require: ["refile/rails", "refile/image_processing"]
+gem 'bower-rails', '~> 0.9.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

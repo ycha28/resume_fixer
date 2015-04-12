@@ -6,19 +6,27 @@ class SubmissionForm
   attribute :name, String
   attribute :email, String
   attribute :amount, Integer
-  attribute :cover_letter_attributes, Array
+  attribute :cover_letters, Array
+  attribute :resumes, Array
+  attribute :essays, Array
 
-  def build_cover_letters
+  def cover_letters_cost
+    cover_letters.length * 15
   end
 
-  def build_resumes
+  def resumes_cost
+    resumes.length * 10
   end
 
-  def build_essays
+  def essays_cost
+    essays.length * 5
+  end
+
+  def total_cost
+    cover_letters_cost + resumes_cost + essays_cost
   end
 
   def save
-    binding.pry
     if valid?
       persist!
       true

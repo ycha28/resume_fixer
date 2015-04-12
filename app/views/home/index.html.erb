@@ -17,38 +17,21 @@
 
   <div class="row">
     <div id="cover_letters" class="col-md-4">
-      <%= f.fields_for @cover_letter do |d| %>
-        File Upload <%= d.attachment_field :text_file, direct: true, class: 'cover_letter' %>
-      <% end %>
+      <%= f.file_field :cover_letters, multiple: true, type: :file, class: 'submission_file cover_letter' %>
     </div>
     <div id="resumes" class="col-md-4">
-      File Upload <%= f.file_field :resume_attributes, class: 'resume' %>
+      <%= f.file_field :resumes, multiple: true, type: :file, class: 'submission_file resume' %>
     </div>
     <div id="essays" class="col-md-4">
-      File Upload <%= f.file_field :essay_attributes, class: 'essay' %>
+      <%= f.file_field :essays, multiple: true, type: :file, class: 'submission_file essay' %>
     </div>
   </div> 
 
   <div class="row">
-    <div class="col-md-4">
-      <a id="add_cover_letter" href='#'>Add another</a>
-    </div>
-    <div class="col-md-4">
-      <a id="add_resume" href='#'>Add another</a>
-    </div>
-    <div class="col-md-4">
-      <a id="add_essay" href='#'>Add another</a>
-    </div>
-  </div> 
-
-  <div class="row">
-    <%= image_tag attachment_url(@cover_letter, :text_file) %>
     Total Price: <span id="total_price">0</span>
-    <%= f.hidden_field :amount %>
   </div>  
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"></script>
+          data-description="A month's subscription"></script>
 <% end %>

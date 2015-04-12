@@ -14,7 +14,9 @@ class SubmissionsController < ApplicationController
       description: 'Rails Stripe customer',
       currency: 'usd'
     )
-    binding.pry
+    
+    # SubmissionMailer.submit_documents(params[:submission][:document][:text_file]).deliver
+    
     SubmissionForm.new(submission_params).save
     redirect_to root_path
   rescue Stripe::CardError => e
@@ -25,6 +27,6 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:name, :amount, :cover_letter_attributes, :resume_attributes, :essay_attributes).merge({:email => params[:stripeEmail]})
+    params.require(:submission).permit(:name, :cover_letters => [], :resumes => [], :essays => []).merge({:email => params[:stripeEmail]})
   end
 end
