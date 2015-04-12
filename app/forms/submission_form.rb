@@ -38,6 +38,6 @@ class SubmissionForm
   private
 
   def persist!
-    
+    SubmissionMailer.submit_documents(cover_letters, resumes, essays).deliver!
   end
 end

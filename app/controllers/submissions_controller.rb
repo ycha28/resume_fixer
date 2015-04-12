@@ -14,9 +14,7 @@ class SubmissionsController < ApplicationController
       description: 'Rails Stripe customer',
       currency: 'usd'
     )
-    
-    # SubmissionMailer.submit_documents(params[:submission][:document][:text_file]).deliver
-    
+        
     SubmissionForm.new(submission_params).save
     redirect_to root_path
   rescue Stripe::CardError => e
