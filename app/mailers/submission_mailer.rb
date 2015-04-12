@@ -1,16 +1,17 @@
 class SubmissionMailer < ActionMailer::Base
-  default from: 'young.cha@hyfn.com'
+  default from: ENV['DEFAULT_FROM_EMAIL']
 
-  def submit_documents(cover_letters, resumes, essays)
-    @cover_letters = cover_letters
-    @resumes = resumes
-    @essays = essays
+  def submit_documents(submission_form)
+    @cover_letters = submission_form.cover_letters
+    @resumes = submission_form.resumes
+    @essays = submission_form.essays
+    @amount = submission_form.total_cost
 
-    files = cover_letters + resumes + essays
+    files = @cover_letters + @resumes + @essays
     files.each do |file|
       attachments[file.original_filename] = File.read(file.tempfile)
     end
-    
-    mail(to: 'youngcha3785@gmail.com', subject: 'Test email')
+
+    mail(to: ENV['DEFAULT_TO_EMAIL'], subject: 'A new submission from Beamdox')
   end
 end

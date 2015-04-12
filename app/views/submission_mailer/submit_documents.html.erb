@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h1>Hi Young, here's the documents</h1>
+    <h4>New submission from Beamdox!</h4>
+
+    <p>Here are the documents:</p>
+    <p>Cover letters: <%= @cover_letters.map(&:original_filename).join(', ') %></p>
+    <p>Resumes: <%= @resumes.map(&:original_filename).join(', ') %></p>
+    <p>Essays: <%= @essays.map(&:original_filename).join(', ') %></p>
+
+    <p>Total cost: <%= @amount %></p>
   </body>
 </html>

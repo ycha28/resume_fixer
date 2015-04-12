@@ -9,6 +9,7 @@ class SubmissionForm
   attribute :cover_letters, Array
   attribute :resumes, Array
   attribute :essays, Array
+  attribute :card, String
 
   def cover_letters_cost
     cover_letters.length * 15
@@ -26,6 +27,26 @@ class SubmissionForm
     cover_letters_cost + resumes_cost + essays_cost
   end
 
+  def formatted_cost
+    total_cost * 100
+  end
+
+  def customer
+    Stripe::Customer.create(
+      email: 'example@stripe.com',
+      card: card
+    )
+  end
+
+  def charge
+    Stripe::Charge.create(
+      customer: customer.id,
+      amount: formatted_cost,
+      description: 'Rails Stripe customer',
+      currency: 'usd'
+    )
+  end
+
   def save
     if valid?
       persist!
@@ -38,6 +59,9 @@ class SubmissionForm
   private
 
   def persist!
-    SubmissionMailer.submit_documents(cover_letters, resumes, essays).deliver!
+    ActiveRecord::Base.transaction do
+      charge
+      SubmissionMailer.submit_documents(self).deliver!
+    end
   end
-end
+end        
