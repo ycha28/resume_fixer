@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h4>New submission from <%= @name %>!</h4>
+    <h4>New submission from <%= @email %>!</h4>
 
-    <p><%= @name %> at <%= @email %> has submitted the following documents for review:</p>
+    <p><%= @email %> has submitted the following documents for review:</p>
 
     <p>Cover letters: <%= @cover_letters.map(&:original_filename).join(', ') %></p>
     <p>Resumes: <%= @resumes.map(&:original_filename).join(', ') %></p>

@@ -14,6 +14,6 @@ class SubmissionMailer < ActionMailer::Base
       attachments[file.original_filename] = File.read(file.tempfile)
     end
 
-    mail(to: ENV['DEFAULT_TO_EMAIL'], subject: "A new submission from #{@name}!")
+    mail(to: ENV['DEFAULT_TO_EMAIL'], subject: "A new submission from #{@email}!")
   end
 end
