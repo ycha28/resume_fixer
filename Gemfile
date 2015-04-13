@@ -29,6 +29,7 @@ gem 'pg'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'virtus'
 gem 'bower-rails', '~> 0.9.2'
+gem 'font-awesome-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
