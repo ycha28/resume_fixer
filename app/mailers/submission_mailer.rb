@@ -1,6 +1,4 @@
 class SubmissionMailer < ActionMailer::Base
-  default from: ENV['DEFAULT_FROM_EMAIL']
-
   def submit_documents(submission_form)
     @name = submission_form.name
     @email = submission_form.email
@@ -14,6 +12,6 @@ class SubmissionMailer < ActionMailer::Base
       attachments[file.original_filename] = File.read(file.tempfile)
     end
 
-    mail(to: ENV['DEFAULT_TO_EMAIL'], subject: "A new submission from #{@email}!")
+    mail(from: @email, to: ENV['DEFAULT_TO_EMAIL'], subject: "A new submission from #{@email}!")
   end
 end
