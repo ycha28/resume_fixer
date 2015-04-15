@@ -5,7 +5,7 @@
 
     <p><%= @email %> has submitted the following documents for review:</p>
 
-    <p>Cover letters: <%= @cover_letters.map(&:original_filename).join(', ') %></p>
+    <p>Cover Letters: <%= @cover_letters.map(&:original_filename).join(', ') %></p>
     <p>Resumes: <%= @resumes.map(&:original_filename).join(', ') %></p>
     <p>Essays: <%= @essays.map(&:original_filename).join(', ') %></p>
 
