@@ -10,6 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand page-scroll" href="#page-top">BeamDox</a>
+            <%= image_tag "icon/bolt.png"%>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -342,7 +343,7 @@
               <%= form_for @submission, multipart: true do |f| %>
                 <div class="row">
                   <div id="cover_letters" class="form-group">
-                    <%= f.label :cover_letters %>
+                    <%= f.label :cover_letters, "Cover Letters" %>
                     <%= f.file_field :cover_letters, multiple: true, type: :file, class: 'form-control submission_file cover_letter' %>
                   </div>
                   <div id="resumes" class="form-group">
