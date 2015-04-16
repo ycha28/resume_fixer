@@ -105,12 +105,14 @@
         </div>
         <div class="row">
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <div class="portfolio-hover">
-                    <div class="portfolio-hover-content">
-                        <i class="fa fa-plus fa-3x"></i>
+                <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
                     </div>
-                </div>
-                <%= image_tag 'portfolio/CL-thumb.png', class: 'img-responsive' %>
+                    <%= image_tag 'portfolio/CL-thumb.png', class: 'img-responsive' %>
+                </a>
                 <div class="portfolio-caption">
                     <h4>Cover Letter Editing</h4>
                     <p class="text-muted">Sample</p>
@@ -399,8 +401,9 @@
                 </ul>
             </div>
             <div class="col-md-4">
-                <ul class="list-inline quicklinks">
-                    <li><a href="#portfolioModal4">Privacy Policy</a>
+                <ul class="list-inline quicklinks" >
+
+                    <li><a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">Privacy Policy</a>
                     </li>
                     <li><a href="#portfolioModal5">Terms of Use</a>
                     </li>
@@ -409,6 +412,25 @@
         </div>
     </div>
 </footer>
+
+<!-- <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <%= image_tag 'portfolio/R-thumb.png', class: 'img-responsive' %>
+                </a>
+                <div class="portfolio-caption">
+                    <h4>Resume Design</h4>
+                    <p class="text-muted">Sample</p>
+                </div>
+            </div>
+ -->
+
+
+
 
 <!-- Portfolio Modals -->
 <!-- Use the modals below to showcase details about your portfolio projects! -->
