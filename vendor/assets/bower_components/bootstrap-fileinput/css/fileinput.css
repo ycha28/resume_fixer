@@ -118,7 +118,7 @@
 .file-preview-frame {
     display: table;
     margin: 8px;
-    height: 160px;
+    height: 80px;
     border: 1px solid #ddd;
     box-shadow: 1px 1px 5px 0px #a2958a;
     padding: 6px;
@@ -132,7 +132,7 @@
 }
 
 .file-preview-image {
-    height: 160px;
+    height: 100%;
     vertical-align: text-center;
 }
 
