@@ -692,7 +692,7 @@ section#contact .form-group textarea {
 }
 
 section#contact .form-group input.form-control {
-    height: 25px;
+    height: auto;
 }
 
 section#contact .form-group textarea.form-control {
@@ -919,7 +919,7 @@ body {
     text-align:center;
 }
 
-.terms h2{
+.terms h3{
     font-weight: bold;
 }
 
