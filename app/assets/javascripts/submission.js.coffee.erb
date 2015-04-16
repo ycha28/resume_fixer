@@ -1,9 +1,9 @@
 $(document).ready ->
-  STYLE_SETTING = 'style="width:60px;height:50px;"'
+  STYLE_SETTING = 'style="width:60px;height:50px;margin-bottom:50px"'
   templates = {
     text: '<div class="file-preview-frame" id="{previewId}" data-fileindex="{fileindex}" style="width:60px;height:50px">\n' +
       '   <div class="file-preview-text" title="{caption}" ' + STYLE_SETTING + '>\n' +
-      "       <img src='<%= asset_url('icon/doc_icon.png') %>'/>" + 
+      "       <img src='<%= asset_url('logos/doc_icon.png') %>'/>" + 
       '   </div>\n' + 
       '   {footer}\n' +
       '</div>\n'
