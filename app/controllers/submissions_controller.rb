@@ -13,6 +13,7 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:name, :cover_letters => [], :resumes => [], :essays => []).merge({:email => params[:stripeEmail], :card => params[:stripeToken]})
+    params.require(:submission).permit(:name, :phone_number, :cover_letter_description, :resume_description, :essay_description, :cover_letters => [], :resumes => [], :essays => [])
+                               .merge({:email => params[:stripeEmail], :card => params[:stripeToken]})
   end
 end

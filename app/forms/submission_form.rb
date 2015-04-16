@@ -4,11 +4,15 @@ class SubmissionForm
   include ActiveModel::Validations
 
   attribute :name, String
+  attribute :phone_number, String
   attribute :email, String
   attribute :amount, Integer
   attribute :cover_letters, Array
   attribute :resumes, Array
   attribute :essays, Array
+  attribute :cover_letter_description, String
+  attribute :resume_description, String
+  attribute :essay_description, String
   attribute :card, String
 
   def cover_letters_cost

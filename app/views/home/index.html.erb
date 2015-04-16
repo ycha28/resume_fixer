@@ -344,17 +344,25 @@
             <div class="col-md-6 col-md-offset-3"> 
               <%= form_for @submission, multipart: true do |f| %>
                 <div class="row">
+                  <div id="phone_number" class="form-group">
+                    <%= f.label :phone_number, "Phone Number" %>
+                    <%= f.text_field :phone_number, class: 'form-control' %>
+                  </div>
+
                   <div id="cover_letters" class="form-group">
                     <%= f.label :cover_letters, "Cover Letters" %>
                     <%= f.file_field :cover_letters, multiple: true, type: :file, class: 'form-control submission_file cover_letter' %>
+                    <%= f.text_area :cover_letter_description, class: 'form-control', placeholder: "Enter details about the cover letters you have attached here..." %>
                   </div>
                   <div id="resumes" class="form-group">
                     <%= f.label :resumes %>
                     <%= f.file_field :resumes, multiple: true, type: :file, class: 'form-control submission_file resume' %>
+                    <%= f.text_area :resume_description, class: 'form-control', placeholder: "Enter details about the resumes you have attached here..." %>
                   </div>
                   <div id="essays" class="form-group">
                     <%= f.label :essays %>
                     <%= f.file_field :essays, multiple: true, type: :file, class: 'form-control submission_file essay' %>
+                    <%= f.text_area :essay_description, class: 'form-control', placeholder: "Enter details about the essays you have attached here..." %>
                   </div>
                 </div>
 

@@ -6,8 +6,15 @@
     <p><%= @email %> has submitted the following documents for review:</p>
 
     <p>Cover Letters: <%= @cover_letters.map(&:original_filename).join(', ') %></p>
+    <p>Cover letter description: <%= @cover_letter_description %></p>
+
     <p>Resumes: <%= @resumes.map(&:original_filename).join(', ') %></p>
+    <p>Resume description: <%= @resume_description %></p>
+
     <p>Essays: <%= @essays.map(&:original_filename).join(', ') %></p>
+    <p>Essay description: <%= @essay_description %></p>
+
+    <p>Phone number: <%= @phone_number %></p>
 
     <p>Total cost: <%= @amount %></p>
   </body>
