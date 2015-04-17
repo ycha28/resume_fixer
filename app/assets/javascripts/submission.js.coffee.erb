@@ -11,7 +11,7 @@ $(document).ready ->
       '</div>\n'
   }
 
-  $('.submission_file').fileinput({'showUpload': false, 'allowedFileTypes': ['text', 'doc', 'pdf'], 'maxFileCount': 5, 'previewTemplates': templates})
+  $('.submission_file').fileinput({'showUpload': false, 'allowedFileExtensions': ['txt', 'doc', 'pdf', 'rtf', 'docx'], 'maxFileCount': 5, 'previewTemplates': templates})
 
   $('.submission_file').on('fileloaded', (event, file) ->
     cover_letters_cost = $('#cover_letters .file-preview-frame').length * 200
