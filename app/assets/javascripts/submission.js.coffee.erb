@@ -18,9 +18,9 @@ $(document).ready ->
   $('.submission_file').fileinput({'showUpload': false, 'allowedFileTypes': ['text', 'doc', 'pdf'], 'maxFileCount': 5, 'previewTemplates': templates})
 
   $('.submission_file').on('fileloaded', (event, file) ->
-    cover_letters_cost = $('#cover_letters .file-preview-frame').length * 15
-    resumes_cost = $('#resumes .file-preview-frame').length * 10
-    essays_cost = $('#essays .file-preview-frame').length * 5
+    cover_letters_cost = $('#cover_letters .file-preview-frame').length * 200
+    resumes_cost = $('#resumes .file-preview-frame').length * 250
+    essays_cost = $('#essays .file-preview-frame').length * 500
   )
 
   $('.submission_file').on('fileimageloaded', (event, file) ->
