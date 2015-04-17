@@ -15,4 +15,6 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require bootstrap-fileinput/js/fileinput
+//= require prettyphoto/js/jquery.prettyPhoto
+//= require turnjs/turn
 //= require_tree .
