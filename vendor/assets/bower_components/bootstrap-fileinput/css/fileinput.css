@@ -143,6 +143,10 @@
     text-align: center;
 }
 
+.file-preview-text img{
+    max-width:100%;
+}
+
 .file-preview-other {
     padding-top: 48px;
     text-align: center;
