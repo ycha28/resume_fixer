@@ -19,10 +19,3 @@ $(document).ready ->
     essays_cost = $('#essays .file-preview-frame').length * 500
   )
 
-  $('.submission_file').on('fileimageloaded', (event, file) ->
-    $('.file-caption-name').css('width', '100%')
-    caption = $('.file-caption-name').text()
-    $('.file-caption-name').text(caption.substring(0, 5) + '...')
-  )
-
-
