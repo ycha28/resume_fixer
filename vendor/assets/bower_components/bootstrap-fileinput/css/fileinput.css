@@ -144,7 +144,7 @@
 }
 
 .file-preview-text img{
-    max-height:100%;
+    vertical-align: middle;
 }
 
 .file-preview-other {
