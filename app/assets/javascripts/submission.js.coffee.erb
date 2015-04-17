@@ -18,6 +18,14 @@ $(document).ready ->
     resumes_cost = $('#resumes .file-preview-frame').length * 250
     essays_cost = $('#essays .file-preview-frame').length * 500
 
-    $('#total_price').text(cover_letters_cost + resumes_cost + essays_cost)
+    $('#total_price').text(cover_letters_cost + resumes_cost + essays_cost)    
+  )
+
+  $('.submission_file').on('filecleared', (event, file) ->
+    cover_letters_cost = $('#cover_letters .file-preview-frame').length * 200
+    resumes_cost = $('#resumes .file-preview-frame').length * 250
+    essays_cost = $('#essays .file-preview-frame').length * 500
+
+    $('#total_price').text(cover_letters_cost + resumes_cost + essays_cost)    
   )
 
