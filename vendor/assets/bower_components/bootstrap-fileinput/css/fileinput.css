@@ -127,6 +127,11 @@
     vertical-align: middle;
 }
 
+.file-preview-frame img{
+    max-height:100%;
+}
+
+
 .file-preview-frame:hover {
     box-shadow: 3px 3px 5px 0px #333;
 }
