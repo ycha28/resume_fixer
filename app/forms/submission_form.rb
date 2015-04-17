@@ -16,15 +16,15 @@ class SubmissionForm
   attribute :card, String
 
   def cover_letters_cost
-    cover_letters.length * 200
+    cover_letters.length * 15
   end
 
   def resumes_cost
-    resumes.length * 250
+    resumes.length * 10
   end
 
   def essays_cost
-    essays.length * 500
+    essays.length * 5
   end
 
   def total_cost
