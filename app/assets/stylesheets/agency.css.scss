@@ -901,10 +901,6 @@ body {
     margin: 0 auto;
 }
 
-.brand-relative{
-    position:relative;
-    
-}
 
 .terms{
     text-align: justify;
@@ -923,6 +919,10 @@ body {
     font-weight: bold;
 }
 
+.logo{
+    display: inline-block;
+    vertical-align: middle;
+}
 
 
 
