@@ -940,10 +940,13 @@ body {
 }
 
 .margin-auto{
-    margin:25% 5px;
+    margin:auto;
 }
 
 .tales{
     width:100%;
 }
 
+.timeline>li .timeline-image {
+display: inline-flex;
+}
