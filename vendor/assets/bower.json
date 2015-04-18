@@ -4,6 +4,6 @@
     "bootstrap-fileinput": "latest",
     "turnjs": "latest",
     "prettyphoto": "latest",
-    "bootstrap-validator": "latest"
+    "jquery-validation": "latest"
   }
 }
