@@ -4,6 +4,7 @@
     "bootstrap-fileinput": "latest",
     "turnjs": "latest",
     "prettyphoto": "latest",
-    "jquery-validation": "latest"
+    "jquery-validation": "latest",
+    "ekko-lightbox": "latest"
   }
 }
