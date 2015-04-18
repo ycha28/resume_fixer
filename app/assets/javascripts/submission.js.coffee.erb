@@ -19,6 +19,7 @@ $(document).ready ->
     essays_cost = $('#essays .file-preview-frame').length * 500
 
     $('#total_price').text(cover_letters_cost + resumes_cost + essays_cost)    
+    $('.stripe-button-el').prop('disabled', false)
   )
 
   $('.submission_file').on('filecleared', (event, file) ->
@@ -27,5 +28,10 @@ $(document).ready ->
     essays_cost = $('#essays .file-preview-frame').length * 500
 
     $('#total_price').text(cover_letters_cost + resumes_cost + essays_cost)    
-  )
 
+    if $('.cover_letter').val() == '' and $('.resume').val() == '' and $('.essay').val() == ''
+      $('.stripe-button-el').prop('disabled', true)
+  )
+  
+  if $('.cover_letter').val() == '' and $('.resume').val() == '' and $('.essay').val() == ''
+    $('.stripe-button-el').prop('disabled', true)
