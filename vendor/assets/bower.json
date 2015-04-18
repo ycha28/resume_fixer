@@ -3,6 +3,7 @@
   "dependencies": {
     "bootstrap-fileinput": "latest",
     "turnjs": "latest",
-    "prettyphoto": "latest"
+    "prettyphoto": "latest",
+    "bootstrap-validator": "latest"
   }
 }

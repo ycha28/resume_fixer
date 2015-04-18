@@ -4,3 +4,4 @@
 asset 'bootstrap-fileinput'
 asset 'turnjs'
 asset 'prettyphoto'
+asset 'bootstrap-validator'
