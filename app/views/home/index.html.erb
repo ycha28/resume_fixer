@@ -65,7 +65,7 @@
                 <div class="carousel-caption responsive">
                     <p class="title-font">BeamDox</p>
                     <a class="btn btn-large btn-primary" href="https://youtu.be/WMW74XgCBkQ" data-toggle="lightbox">Play</a>
-                </div> 
+                </div>
                 </div>
             
 
@@ -264,12 +264,11 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
-                            <i class="fa fa-upload fa-4x fa-inverse margin-auto"></i>
+                            <%= image_tag "about/uploading.png", class: "img-circle img-responsive" %>
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>2. UPLOAD</h4>
-                               <!--  <h4 class="subheading"><i>Gathering Momentum</i></h4> -->
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted" align="justify">Upload your documents to BeamDox.</p>
@@ -278,8 +277,7 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
                     </li>
                     <li>
                         <div class="timeline-image">
-                            <i class="fa fa-pencil-square fa-4x fa-inverse margin-auto"></i>
-                        </div>
+                        <%= image_tag "about/editing.png", class: "img-circle img-responsive" %>                        </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>3. EDIT</h4>
@@ -292,7 +290,7 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
-                             <i class="fa fa-download fa-4x fa-inverse margin-auto"></i>
+                             <%= image_tag "about/download.png", class: "img-circle img-responsive" %>
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
@@ -305,7 +303,7 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image">
+                        <div class="timeline-image text-center">
                             <h4><br>SUCCESS</h4>
                         </div>
                     </li>
