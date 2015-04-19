@@ -935,8 +935,9 @@ body {
 }
 
 .services-padding{
-    padding-left: 10px;
+    padding-left: 20px;
     line-height:1.75;
+    font-weight: bold;
 }
 
 .margin-auto{
@@ -949,4 +950,8 @@ body {
 
 .timeline>li .timeline-image {
 display: inline-flex;
+}
+
+.carousel-inner{
+    max-height:200px;
 }
