@@ -957,9 +957,21 @@ display: inline-flex;
 }
 
 .carousel-caption {
-      max-width: 550px;
+      
       padding: 0 20px;
       margin:0 auto;
-      margin-top: 200px;
+      height:50%;
       text-align:center;
+}
+
+{
+  -webkit-backface-visibility: hidden;
+}
+
+.banner-font {
+    margin-bottom: 40px;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    font-size: 50px;
+    line-height: 22px;
+    color: #fed136
 }
