@@ -169,6 +169,12 @@ fieldset[disabled] .btn-xl.active {
     background-color: #fff;
 }
 
+.navbar
+{
+  -webkit-backface-visibility: hidden;
+}
+
+
 .navbar-default {
     border-color: transparent;
     background-color: black !important;
