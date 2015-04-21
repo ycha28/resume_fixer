@@ -972,8 +972,14 @@ display: inline-block;
     right:20%;
     top: 30%;
     bottom: 20%;
-
 }
+
+@media only screen and (max-width: 500px) {
+.title-font {
+font-size: 30px;
+}
+
+
 .title-font {
     margin-bottom: 30px;
     font-family: Tahoma, Verdana, Segoe, sans-serif;
