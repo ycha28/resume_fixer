@@ -974,9 +974,10 @@ display: inline-block;
     bottom: 20%;
 }
 
-@media only screen and (max-width: 500px) {
+@media (max-width: 500px) {
 .title-font {
 font-size: 30px;
+line-height: 30px;
 }
 }
 
