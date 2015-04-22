@@ -1154,6 +1154,11 @@ display: inline-block;
     ul.timeline:before {
         left: 40px;
     }
+
+    .timeline>li.timeline-inverted>.timeline-panel {
+    padding: 20px 20px 20px 20px;
+    text-align: left;
+    }
  
     ul.timeline > li > .timeline-panel {
         width: calc(100% - 90px);
