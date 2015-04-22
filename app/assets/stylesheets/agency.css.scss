@@ -974,19 +974,7 @@ display: inline-block;
     bottom: 20%;
 }
 
-@media (min-width:768px) {
-    .title-font {
-    font-size: 70px;
-    line-height: 80px;
-}
-}
 
-@media (max-width:767px) {
-.title-font {
-font-size: 30px;
-line-height: 30px;
-}
-}
 
 .title-font {
     margin-bottom: 30px;
@@ -1194,7 +1182,19 @@ line-height: 30px;
 }
 
 
+@media (min-width:768px) {
+    .title-font {
+    font-size: 70px;
+    line-height: 80px;
+}
+}
 
+@media (max-width:767px) {
+.title-font {
+font-size: 30px;
+line-height: 30px;
+}
+}
 
 
 
