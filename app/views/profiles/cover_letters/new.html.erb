@@ -1,0 +1,21 @@
+<h2>Upload your cover letter</h2>
+
+<%= form_for @submission, url: profile_cover_letters_path, multipart: true do |f| %>
+  <div id="cover_letters" class="form-group">
+    <%= f.label :cover_letters, "Cover Letters" %>
+    <%= f.file_field :cover_letters, multiple: true, type: :file, class: 'form-control cover_letter' %>
+  </div>
+
+  <div class="total-price">
+    <h4>Total Price: <span id="total_price">0</span></h4>
+  </div>  
+
+  <div class='text-center'>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Submit Documents"
+            data-label="Submit &amp Pay"></script>
+          
+  </div>
+<% end %>
+</div>

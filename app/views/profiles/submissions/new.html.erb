@@ -1,0 +1,10 @@
+<section class="col-md-12">
+  <h1 class='text-center'>Upload Documents</h1>
+  <ul class='nav nav-pills'>
+    <li role='presentation' class='document_button active'><%= link_to "Resume", '#' %></li>
+    <li role='presentation' class='document_button'><%= link_to "CV", '#' %></li>
+    <li role='presentation' class='document_button'><%= link_to "Essay", '#' %></li>
+  </ul>
+
+  <%= file_field_tag 'document', class: 'document' %>
+</section>

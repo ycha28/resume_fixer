@@ -1,4 +1,5 @@
 ResumeFixer::Application.routes.draw do
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -7,6 +8,10 @@ ResumeFixer::Application.routes.draw do
 
   resources :home, :only => [:index]
   resources :submissions, :only => [:new, :create]
+  resource :profile, :only => [:show] do
+    resources :submissions, :only => [:new, :create], controller: 'profiles/submissions'
+    resources :documents, :only => [:create], controller: 'profiles/documents'
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

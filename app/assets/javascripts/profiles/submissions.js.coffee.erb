@@ -11,32 +11,36 @@ $(document).ready ->
       '</div>\n'
   }
 
-  $('.submission_file').fileinput({
+  $('.document').fileinput({
     'showUpload': false, 
     'allowedFileExtensions': ['txt', 'doc', 'pdf', 'rtf', 'docx'], 
     'maxFileCount': 5, 
-    'previewTemplates': templates
+    'previewTemplates': templates, 
+    'uploadUrl': "/profile/documents",
+    'dropZoneEnabled': true, 
+    'dropZoneTitle': 'Drag & drop files here &hellip;'
   })
 
-  $('.submission_file').on('fileloaded', (event, file) ->
-    cover_letters_cost = $('#cover_letters .file-preview-frame').length * 200
-    resumes_cost = $('#resumes .file-preview-frame').length * 250
-    essays_cost = $('#essays .file-preview-frame').length * 500
+  $('.document').on('fileloaded', (event, file) ->
+    $(event.currentTarget).fileinput('upload')    
+    # documents_cost = $('#documents .file-preview-frame').length * 200
+    # resumes_cost = $('#resumes .file-preview-frame').length * 250
+    # essays_cost = $('#essays .file-preview-frame').length * 500
 
-    $('#total_price').text(cover_letters_cost + resumes_cost + essays_cost)    
-    $('.stripe-button-el').prop('disabled', false)
+    # $('#total_price').text(documents_cost + resumes_cost + essays_cost)    
+    # $('.stripe-button-el').prop('disabled', false)
   )
 
-  $('.submission_file').on('filecleared', (event, file) ->
-    cover_letters_cost = $('#cover_letters .file-preview-frame').length * 200
+  $('.document').on('filecleared', (event, file) ->
+    documents_cost = $('#documents .file-preview-frame').length * 200
     resumes_cost = $('#resumes .file-preview-frame').length * 250
     essays_cost = $('#essays .file-preview-frame').length * 500
 
-    $('#total_price').text(cover_letters_cost + resumes_cost + essays_cost)    
+    $('#total_price').text(documents_cost + resumes_cost + essays_cost)    
 
-    if $('.cover_letter').val() == '' and $('.resume').val() == '' and $('.essay').val() == ''
+    if $('.document').val() == '' and $('.resume').val() == '' and $('.essay').val() == ''
       $('.stripe-button-el').prop('disabled', true)
   )
   
-  if $('.cover_letter').val() == '' and $('.resume').val() == '' and $('.essay').val() == ''
+  if $('.document').val() == '' and $('.resume').val() == '' and $('.essay').val() == ''
     $('.stripe-button-el').prop('disabled', true)

@@ -11,14 +11,17 @@ $(document).ready ->
       '</div>\n'
   }
 
-  $('.submission_file').fileinput({
+  $('.cover_letter').fileinput({
     'showUpload': false, 
     'allowedFileExtensions': ['txt', 'doc', 'pdf', 'rtf', 'docx'], 
     'maxFileCount': 5, 
-    'previewTemplates': templates
+    'previewTemplates': templates, 
+    'uploadUrl': "/profile/cover_letters",
+    'dropZoneEnabled': true, 
+    'dropZoneTitle': 'Drag & drop files here &hellip;'
   })
 
-  $('.submission_file').on('fileloaded', (event, file) ->
+  $('.cover_letter').on('fileloaded', (event, file) ->
     cover_letters_cost = $('#cover_letters .file-preview-frame').length * 200
     resumes_cost = $('#resumes .file-preview-frame').length * 250
     essays_cost = $('#essays .file-preview-frame').length * 500
@@ -27,7 +30,7 @@ $(document).ready ->
     $('.stripe-button-el').prop('disabled', false)
   )
 
-  $('.submission_file').on('filecleared', (event, file) ->
+  $('.cover_letter').on('filecleared', (event, file) ->
     cover_letters_cost = $('#cover_letters .file-preview-frame').length * 200
     resumes_cost = $('#resumes .file-preview-frame').length * 250
     essays_cost = $('#essays .file-preview-frame').length * 500
