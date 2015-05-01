@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
@@ -33,6 +33,9 @@ gem 'virtus'
 gem 'bower-rails', '~> 0.9.2'
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'carrierwave'
+gem 'fog'
+gem 'fog-aws'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
