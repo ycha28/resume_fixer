@@ -3,6 +3,7 @@ module Profiles
     layout 'profiles'
 
     def new
+      @submission = current_user.submissions.build
     end
 
     def create

@@ -23,12 +23,21 @@ $(document).ready ->
 
   $('.document').on('fileloaded', (event, file) ->
     $(event.currentTarget).fileinput('upload')    
+
     # documents_cost = $('#documents .file-preview-frame').length * 200
     # resumes_cost = $('#resumes .file-preview-frame').length * 250
     # essays_cost = $('#essays .file-preview-frame').length * 500
 
     # $('#total_price').text(documents_cost + resumes_cost + essays_cost)    
     # $('.stripe-button-el').prop('disabled', false)
+  )
+
+  $('.document').on('fileuploaded', (event, data) ->
+    template = "<div class='row'>
+                  <div class='col-md-2'>Some file</div>
+                </div>"
+    $('.new_submission').prepend(template)
+
   )
 
   $('.document').on('filecleared', (event, file) ->

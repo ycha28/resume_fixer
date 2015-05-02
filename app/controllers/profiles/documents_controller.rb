@@ -1,14 +1,14 @@
 module Profiles
   class DocumentsController < AuthenticationController
     def create
-      binding.pry
-      head :ok
-    end
-
-    private
-
-    def document_params
-      params.require(:submission).permit(:cover_letters)
+      document = current_user.documents.build
+      document.text_file = params[:document]
+      
+      if document.save 
+        head :ok
+      else
+        render :json => ({:discussion => document.errors.full_messages}), :status => 422
+      end
     end
   end
 end

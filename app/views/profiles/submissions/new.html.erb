@@ -7,4 +7,26 @@
   </ul>
 
   <%= file_field_tag 'document', class: 'document' %>
+
+  <h4 class='text-center'>Selected Documents</h4>
+  <div class='submission_form headers row'>
+    <div class='col-md-2'>File Type</div>
+    <div class='col-md-2'>Filename</div>
+    <div class='col-md-2'>Upload Time</div>
+    <div class='col-md-2'>Price</div>
+    <div class='col-md-4'>Comment</div>
+  </div>
+
+  <%= form_for @submission, url: profile_submissions_path, multipart: true do |f| %>
+    <div class="total-price">
+      <h4>Total Price: <span id="total_price">0</span></h4>
+    </div>  
+
+    <div class='text-center'>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Submit Documents"
+              data-label="Submit &amp Pay"></script>
+    </div>
+  <% end %>  
 </section>
