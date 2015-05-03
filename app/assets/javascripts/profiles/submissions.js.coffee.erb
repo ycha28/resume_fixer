@@ -1,5 +1,23 @@
 $(document).ready ->
   STYLE_SETTING = 'style="width:50px;height:50px;margin-bottom:0px;margin-top:0px"'
+  layout_templates = {
+    main1: '{preview}\n' +
+        '<div class="input-group {class}">\n' +
+        '   {caption}\n' +
+        '   <div class="input-group-btn">\n' +
+        '       {remove}\n' +
+        '       {cancel}\n' +
+        '       {browse}\n' +
+        '   </div>\n' +
+        '</div>',
+    actions: '<div class="file-actions">\n' +
+        '    <div class="file-footer-buttons">\n' +
+        '        {delete}' +
+        '    </div>\n' +
+        '    <div class="clearfix"></div>\n' +
+        '</div>'
+  }
+
   templates = {
     text: '<div class="file-preview-frame" id="{previewId}" data-fileindex="{fileindex}">\n' +
       "   <img src='<%= asset_url('logos/doc_icon.png') %>' title='{caption}' alt='{caption}'" + STYLE_SETTING + '>\n' +
@@ -15,6 +33,7 @@ $(document).ready ->
     'showUpload': false, 
     'allowedFileExtensions': ['txt', 'doc', 'pdf', 'rtf', 'docx'], 
     'maxFileCount': 5, 
+    'layoutTemplates': layout_templates,
     'previewTemplates': templates, 
     'uploadUrl': "/profile/documents",
     'dropZoneEnabled': true, 
@@ -30,28 +49,6 @@ $(document).ready ->
 
     # $('#total_price').text(documents_cost + resumes_cost + essays_cost)    
     # $('.stripe-button-el').prop('disabled', false)
-  )
-
-  $('.document').on('filebatchuploadcomplete', (event, data) ->
-    data.forEach (file) ->
-      if $('.active').text() == 'Resume'
-        cost = 100
-      else if $('.active').text() == 'CV'
-        cost = 100
-      else if $('.active').text() == 'Essay'
-        cost = 250
-
-      template = "<div class='row'>
-                    <div class='col-md-2'>#{file.type}</div>
-                    <div class='col-md-2'>#{file.name}</div>
-                    <div class='col-md-2'>#{file.lastModifiedDate}</div>
-                    <div class='col-md-2'>#{cost}</div>
-                    <div class='col-md-4'>
-                      <input type='text' style='width:100%;'/>
-                    </div>
-                  </div>"
-      $('.new_submission').prepend(template)
-
   )
 
   $('.document').on('filecleared', (event, file) ->
