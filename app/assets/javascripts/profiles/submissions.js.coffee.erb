@@ -32,11 +32,25 @@ $(document).ready ->
     # $('.stripe-button-el').prop('disabled', false)
   )
 
-  $('.document').on('fileuploaded', (event, data) ->
-    template = "<div class='row'>
-                  <div class='col-md-2'>Some file</div>
-                </div>"
-    $('.new_submission').prepend(template)
+  $('.document').on('filebatchuploadcomplete', (event, data) ->
+    data.forEach (file) ->
+      if $('.active').text() == 'Resume'
+        cost = 100
+      else if $('.active').text() == 'CV'
+        cost = 100
+      else if $('.active').text() == 'Essay'
+        cost = 250
+
+      template = "<div class='row'>
+                    <div class='col-md-2'>#{file.type}</div>
+                    <div class='col-md-2'>#{file.name}</div>
+                    <div class='col-md-2'>#{file.lastModifiedDate}</div>
+                    <div class='col-md-2'>#{cost}</div>
+                    <div class='col-md-4'>
+                      <input type='text' style='width:100%;'/>
+                    </div>
+                  </div>"
+      $('.new_submission').prepend(template)
 
   )
 
@@ -53,3 +67,18 @@ $(document).ready ->
   
   if $('.document').val() == '' and $('.resume').val() == '' and $('.essay').val() == ''
     $('.stripe-button-el').prop('disabled', true)
+
+  $('.document_button').on('click', (ev) ->
+    type = $(ev.currentTarget).text()
+
+    switch type
+      when "Resume" 
+        $('.document_button').removeClass('active')
+        $('.resume').addClass('active')
+      when "CV" 
+        $('.document_button').removeClass('active')
+        $('.cv').addClass('active')
+      when "Essay" 
+        $('.document_button').removeClass('active')
+        $('.essay').addClass('active')
+  )
