@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h4>New submission from <%= @email %>!</h4>
+    <h4>New submission from <%= @user.email %>!</h4>
 
-    <p><%= @email %> has submitted the following documents for review:</p>
+    <p><%= @user.email %> has submitted the following documents for review:</p>
 
-    <p>Cover Letters: <%= @cover_letters.map(&:original_filename).join(', ') %></p>
-    <p>Cover letter description: <%= @cover_letter_description %></p>
+    <% @submission.documents.each do |document| %>
+      <p>
+        Name: <%= document.original_filename %><br>
+        Type: <%= document.formatted_type %><br>
+        Download link: <%= document.text_file_url %><br>
 
-    <p>Resumes: <%= @resumes.map(&:original_filename).join(', ') %></p>
-    <p>Resume description: <%= @resume_description %></p>
+        <% if document.description.present? %>
+          Description: <%= document.description %><br>
+        <% end %>
+      </p>
+    <% end %>
 
-    <p>Essays: <%= @essays.map(&:original_filename).join(', ') %></p>
-    <p>Essay description: <%= @essay_description %></p>
+    <p>Phone number: <%= @user.phone_number %></p>
 
-    <p>Phone number: <%= @phone_number %></p>
-
-    <p>Total cost: <%= @amount %></p>
+    <p>Total cost: <%= @submission.amount %></p>
   </body>
 </html>

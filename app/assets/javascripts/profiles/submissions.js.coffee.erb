@@ -19,36 +19,81 @@ $(document).ready ->
   }
 
   templates = {
-    text: '<div class="file-preview-frame" id="{previewId}" data-fileindex="{fileindex}">\n' +
-      "   <img src='<%= asset_url('logos/doc_icon.png') %>' title='{caption}' alt='{caption}'" + STYLE_SETTING + '>\n' +
-      '   {footer}\n' +
-      '</div>\n',
-    object: '<div class="file-preview-frame" id="{previewId}" data-fileindex="{fileindex}">\n' +
-      "   <img src='<%= asset_url('logos/doc_icon.png') %>' title='{caption}' alt='{caption}'" + STYLE_SETTING + '>\n' +
-      '   {footer}\n' +
-      '</div>\n'
+    text: '',
+    object: ''
   }
 
   $('.document').fileinput({
     'showUpload': false, 
+    'showRemove': false,
     'allowedFileExtensions': ['txt', 'doc', 'pdf', 'rtf', 'docx'], 
-    'maxFileCount': 5, 
     'layoutTemplates': layout_templates,
     'previewTemplates': templates, 
     'uploadUrl': "/profile/documents",
+    'uploadAsync': true,
     'dropZoneEnabled': true, 
-    'dropZoneTitle': 'Drag & drop files here &hellip;'
+    'dropZoneTitle': 'Drag & drop your resume here &hellip;',
+    'uploadExtraData': ->
+      {type: $('.document_button.active').text()}
   })
 
-  $('.document').on('fileloaded', (event, file) ->
-    $(event.currentTarget).fileinput('upload')    
+  # $('.document').on('fileloaded', (event, file) ->
+  #   input = $(event.currentTarget)
 
-    # documents_cost = $('#documents .file-preview-frame').length * 200
-    # resumes_cost = $('#resumes .file-preview-frame').length * 250
-    # essays_cost = $('#essays .file-preview-frame').length * 500
+  #   waitForAjax = setInterval( -> 
+  #     unless input.prop('disabled') and typeof file != 'undefined'
+  #       input.fileinput('upload')
+  #       file_type = $('.document_button.active').text().toLowerCase()
 
-    # $('#total_price').text(documents_cost + resumes_cost + essays_cost)    
-    # $('.stripe-button-el').prop('disabled', false)
+  #       unless $('.file-drop-zone-title').length > 0
+  #         $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag & drop your #{file_type} here...</div>")
+
+  #       clearInterval(waitForAjax)
+  #   , 1000)
+    
+  #   # documents_cost = $('#documents .file-preview-frame').length * 200
+  #   # resumes_cost = $('#resumes .file-preview-frame').length * 250
+  #   # essays_cost = $('#essays .file-preview-frame').length * 500
+
+  #   # $('#total_price').text(documents_cost + resumes_cost + essays_cost)    
+  #   # $('.stripe-button-el').prop('disabled', false)
+  # )
+
+  $('.document').on('filebatchselected', (event, files) ->
+    input = $(event.currentTarget)
+    input.fileinput('upload')
+    file_type = $('.document_button.active').text().toLowerCase()
+
+    unless $('.file-drop-zone-title').length > 0
+      $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag & drop your #{file_type} here...</div>")
+  )
+
+
+  $('.document').on('fileuploaded', (event, data) ->
+    file_type = $('.document_button.active').text()
+    price = switch file_type
+              when 'Resume' then 100
+              when 'CV' then 100
+              when 'Essay' then 250
+
+    id = data.response.id
+    file_name = data.response.original_filename
+    file_created_at = data.response.created_at
+
+    template = "<div class='row'>
+                  <div class='col-md-2'>#{file_type}</div>
+                  <div class='col-md-2'>#{file_name}</div>
+                  <div class='col-md-2'>#{file_created_at}</div>
+                  <div class='col-md-2'>#{price}</div>
+                  <div class='col-md-4'>
+                    <textarea id='submission_documents_attributes_#{id}_description' name='submission[documents_attributes][#{id}][description]' rows='4' style='width: 100%;'/>
+                  </div>
+                </div>"
+
+    $('.selected_documents').append(template)
+
+    existing_price = parseInt($('#total_price').text())
+    $('#total_price').text(existing_price + files.length * price)
   )
 
   $('.document').on('filecleared', (event, file) ->
@@ -72,10 +117,13 @@ $(document).ready ->
       when "Resume" 
         $('.document_button').removeClass('active')
         $('.resume').addClass('active')
+        $('.file-drop-zone-title').text('Drag & drop your resume here...')
       when "CV" 
         $('.document_button').removeClass('active')
         $('.cv').addClass('active')
+        $('.file-drop-zone-title').text('Drag & drop your CV here...')
       when "Essay" 
         $('.document_button').removeClass('active')
         $('.essay').addClass('active')
+        $('.file-drop-zone-title').text('Drag & drop your essay here...')
   )

@@ -36,6 +36,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog'
 gem 'fog-aws'
+gem 'omniauth-facebook'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

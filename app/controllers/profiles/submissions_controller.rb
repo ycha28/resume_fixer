@@ -17,8 +17,7 @@ module Profiles
     private
 
     def submission_params
-      params.require(:submission).permit(:name, :phone_number, :cover_letter_description, :resume_description, :essay_description, :cover_letters => [], :resumes => [], :essays => [])
-                                 .merge({:email => params[:stripeEmail], :card => params[:stripeToken]})
+      params.require(:submission).permit(:documents_attributes => [:description]).merge(:card => params[:stripeToken], :user => current_user)
     end
   end
 end

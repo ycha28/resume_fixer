@@ -3,28 +3,17 @@ class SubmissionForm
   extend ActiveModel::Naming
   include ActiveModel::Validations
 
-  attribute :name, String
-  attribute :phone_number, String
-  attribute :email, String
-  attribute :amount, Integer
-  attribute :cover_letters, Array
-  attribute :resumes, Array
-  attribute :essays, Array
-  attribute :cover_letter_description, String
-  attribute :resume_description, String
-  attribute :essay_description, String
+  attribute :user, User
+  attribute :documents_attributes, Hash
   attribute :card, String
 
-  def cover_letters_cost
-    cover_letters.length * 200
-  end
-
-  def resumes_cost
-    resumes.length * 250
-  end
-
-  def essays_cost
-    essays.length * 500
+  def assign_documents
+    documents = user.documents.where(id: documents_attributes.keys)
+    documents_attributes.each do |attributes|
+      document = documents.detect{|document| document.id == attributes.first.to_i}
+      document.update(attributes.last)
+    end
+    submission.documents = documents
   end
 
   def total_cost
@@ -35,9 +24,18 @@ class SubmissionForm
     total_cost * 100
   end
 
+  def submission
+    @submission ||= user.submissions.build
+  end
+
+  def create_submission
+    assign_documents
+    submission.save      
+  end
+
   def customer
     Stripe::Customer.create(
-      email: 'example@stripe.com',
+      email: user.email,
       card: card
     )
   end
@@ -45,7 +43,7 @@ class SubmissionForm
   def charge
     Stripe::Charge.create(
       customer: customer.id,
-      amount: formatted_cost,
+      amount: submission.amount,
       description: 'Rails Stripe customer',
       currency: 'usd'
     )
@@ -64,6 +62,7 @@ class SubmissionForm
 
   def persist!
     ActiveRecord::Base.transaction do
+      create_submission
       charge
       SubmissionMailer.submit_documents(self).deliver!
     end

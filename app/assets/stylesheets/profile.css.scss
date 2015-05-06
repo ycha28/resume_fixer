@@ -5,3 +5,8 @@
 .upload_documents {
   list-style: none;
 }
+
+.selected_documents {
+  max-height: 500px;
+  overflow-y: auto;
+}
