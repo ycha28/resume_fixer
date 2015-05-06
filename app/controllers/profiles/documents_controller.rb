@@ -1,6 +1,11 @@
 module Profiles
   class DocumentsController < AuthenticationController
-    before_filter :sanitize_document_type
+    layout 'profiles'
+    before_filter :sanitize_document_type, :only => [:create]
+
+    def index
+      @documents = current_user.documents
+    end
 
     def create
       document = current_user.documents.build(document_params)
