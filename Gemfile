@@ -37,6 +37,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'fog-aws'
 gem 'omniauth-facebook'
+gem 'activeadmin', github: 'activeadmin'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
