@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require bootstrap-fileinput/js/fileinput
 //= require prettyphoto/js/jquery.prettyPhoto
 //= require turnjs/turn
