@@ -12,7 +12,7 @@ ResumeFixer::Application.routes.draw do
   resources :submissions, :only => [:new, :create]
   resource :profile, :only => [:show] do
     resources :submissions, :only => [:new, :create], controller: 'profiles/submissions'
-    resources :documents, :only => [:index, :create], controller: 'profiles/documents'
+    resources :documents, :only => [:index, :create, :destroy], controller: 'profiles/documents'
   end
 
   # Example of regular route:

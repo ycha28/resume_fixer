@@ -91,17 +91,36 @@ $(document).ready ->
     file_name = data.response.original_filename
     file_created_at = data.response.created_at
 
-    template = "<div class='row'>
-                  <div class='col-md-2'>#{file_type}</div>
-                  <div class='col-md-2'>#{file_name}</div>
-                  <div class='col-md-2'>#{file_created_at}</div>
-                  <div class='col-md-2'>#{price}</div>
-                  <div class='col-md-4'>
-                    <textarea id='submission_documents_attributes_#{id}_description' name='submission[documents_attributes][#{id}][description]' rows='4' style='width: 100%;'/>
+    token = $("input[name='authenticity_token']").val()
+    template = "<div class='created_document'>
+                  <div class='row'>
+                    <div class='col-md-2'>#{file_type}</div>
+                    <div class='col-md-2'>#{file_name}</div>
+                    <div class='col-md-2'>#{file_created_at}</div>
+                    <div class='col-md-2'>#{price}</div>
+                    <div class='col-md-4'>
+                      <textarea id='submission_documents_attributes_#{id}_description' name='submission[documents_attributes][#{id}][description]' rows='4' style='width: 100%;'/>
+                    </div>
+                  </div>
+                  <div class='row'>
+                    <form accept-charset='UTF-8' action='/profile/documents/#{id}' method='post' class='destroy_document'>
+                      <div style='margin:0;padding:0;display:inline'>
+                        <input name='authenticity_token' type='hidden' value='#{token}'>
+                        <input name='_method' type='hidden' value='delete' />
+                      </div>
+                      <button type ='submit' class='btn btn-primary pull-right'>
+                        Remove Document
+                      </button>
+                    </form>
                   </div>
                 </div>"
 
     $('.selected_documents').append(template)
+
+    $('.destroy_document').submit( (event) ->
+      event.preventDefault()
+      $(event.currentTarget).parent().parent().remove()
+    )
 
     existing_price = parseInt($('#total_price').text())
     $('#total_price').text(existing_price + price)

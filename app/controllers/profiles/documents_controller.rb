@@ -17,6 +17,16 @@ module Profiles
       end
     end
 
+    def destroy
+      @document = current_user.documents.find(params[:id])
+
+      if @document.destroy
+        head :ok
+      else
+        render :json => ({:discussion => @document.errors.full_messages}), :status => 422
+      end
+    end
+
     private
 
     def text_file

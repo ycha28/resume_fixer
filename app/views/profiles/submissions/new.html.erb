@@ -5,6 +5,7 @@
     <li role='presentation' class='document_button cv'><%= link_to "Cover Letter", '#' %></li>
     <li role='presentation' class='document_button essay'><%= link_to "Essay", '#' %></li>
   </ul>
+  <h6>“Acceptable file types: .pdf, .txt, .doc, .docx.</h6>
 
   <%= file_field_tag 'text_file', multiple: true, type: :file, class: 'document' %>
 
