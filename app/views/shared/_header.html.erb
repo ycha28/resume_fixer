@@ -7,7 +7,7 @@
       <div class='col-md-6'>
         <ul class='nav nav-tabs pull-right'>
           <li role='presentation'>
-            <%= link_to 'Upload Documents', new_profile_submission_path %>
+            <%= link_to 'Documents', profile_documents_path %>
           </li>
           <li role='presentation' class='dropdown'>
             <a class='dropdown-toggle' data-toggle='dropdown' href='#' role='button' aria-expanded='false'>
@@ -15,7 +15,6 @@
             </a>
             <ul class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'>
               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Settings</a></li>
-              <li role="presentation"><%= link_to 'Documents', profile_documents_path %></li>
               <li role="presentation"><%= link_to 'Log out', destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1" %></li>
             </ul>
           </li>

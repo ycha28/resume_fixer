@@ -1,6 +1,7 @@
 <section class="row">
   <section class="col-md-12">
     <h1>Documents</h1>
+    <%= link_to "Submit a new document", new_profile_submission_path %>
     <% @documents.each do |document| %>
       <h4><%= document.original_filename %></h4>
       <strong>Type:</strong> <%= document.formatted_type %><br>

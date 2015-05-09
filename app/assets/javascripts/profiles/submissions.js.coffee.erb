@@ -104,7 +104,7 @@ $(document).ready ->
     $('.selected_documents').append(template)
 
     existing_price = parseInt($('#total_price').text())
-    $('#total_price').text(existing_price + files.length * price)
+    $('#total_price').text(existing_price + price)
   )
 
   $('.document').on('filecleared', (event, file) ->
