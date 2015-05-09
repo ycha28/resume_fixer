@@ -10,6 +10,15 @@ $(document).ready ->
         '       {browse}\n' +
         '   </div>\n' +
         '</div>',
+    preview: '<div class="file-preview {class}">\n' +
+        '    <div class="{dropClass}">\n' +
+        '    <div class="file-preview-thumbnails">\n' +
+        '    </div>\n' +
+        '    <div class="clearfix"></div>' +
+        '    <div class="file-preview-status text-center text-success"></div>\n' +
+        '    <div class="kv-fileinput-error"></div>\n' +
+        '    </div>\n' +
+        '</div>',
     actions: '<div class="file-actions">\n' +
         '    <div class="file-footer-buttons">\n' +
         '        {delete}' +
@@ -32,10 +41,12 @@ $(document).ready ->
     'uploadUrl': "/profile/documents",
     'uploadAsync': true,
     'dropZoneEnabled': true, 
-    'dropZoneTitle': 'Drag & drop your resume here &hellip;',
+    'dropZoneTitle': 'Drag & drop resumes here &hellip;',
     'uploadExtraData': ->
       {type: $('.document_button.active').text()}
   })
+
+  $('.kv-fileinput-caption').hide()
 
   # $('.document').on('fileloaded', (event, file) ->
   #   input = $(event.currentTarget)
@@ -65,7 +76,7 @@ $(document).ready ->
     file_type = $('.document_button.active').text().toLowerCase()
 
     unless $('.file-drop-zone-title').length > 0
-      $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag & drop your #{file_type} here...</div>")
+      $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag & drop #{file_type}s here...</div>")
   )
 
 
@@ -73,7 +84,7 @@ $(document).ready ->
     file_type = $('.document_button.active').text()
     price = switch file_type
               when 'Resume' then 100
-              when 'CV' then 100
+              when 'Cover Letter' then 100
               when 'Essay' then 250
 
     id = data.response.id
@@ -117,13 +128,13 @@ $(document).ready ->
       when "Resume" 
         $('.document_button').removeClass('active')
         $('.resume').addClass('active')
-        $('.file-drop-zone-title').text('Drag & drop your resume here...')
-      when "CV" 
+        $('.file-drop-zone-title').text('Drag & drop resumes here...')
+      when "Cover Letter" 
         $('.document_button').removeClass('active')
         $('.cv').addClass('active')
-        $('.file-drop-zone-title').text('Drag & drop your CV here...')
+        $('.file-drop-zone-title').text('Drag & drop cover letters here...')
       when "Essay" 
         $('.document_button').removeClass('active')
         $('.essay').addClass('active')
-        $('.file-drop-zone-title').text('Drag & drop your essay here...')
+        $('.file-drop-zone-title').text('Drag & drop essays here...')
   )
