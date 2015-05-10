@@ -16,7 +16,7 @@ class SubmissionForm
     submission.documents = documents
   end
 
-  def formatted_cost
+  def formatted_amount
     submission.amount * 100
   end
 

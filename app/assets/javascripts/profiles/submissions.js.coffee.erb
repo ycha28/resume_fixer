@@ -49,7 +49,7 @@ $(document).ready ->
     'uploadUrl': "/profile/documents",
     'uploadAsync': true,
     'dropZoneEnabled': true, 
-    'dropZoneTitle': 'Drag and drop resumes here',
+    'dropZoneTitle': 'Drag and drop resumes here.',
     'uploadExtraData': ->
       {type: $('.document_button.active').text()}
   })
@@ -124,7 +124,7 @@ $(document).ready ->
   $('.document').on('fileuploaderror', (event, data) ->
     file_type = $('.document_button.active').text().toLowerCase()
     unless $('.file-drop-zone-title').length > 0
-      $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here</div>")
+      $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
   )
   
   if $('.document').val() == '' and $('.resume').val() == '' and $('.essay').val() == ''
@@ -137,13 +137,13 @@ $(document).ready ->
       when "Resume" 
         $('.document_button').removeClass('active')
         $('.resume').addClass('active')
-        $('.file-drop-zone-title').text('Drag and drop resumes here')
+        $('.file-drop-zone-title').text('Drag and drop resumes here.')
       when "Cover Letter" 
         $('.document_button').removeClass('active')
         $('.cv').addClass('active')
-        $('.file-drop-zone-title').text('Drag and drop cover letters here')
+        $('.file-drop-zone-title').text('Drag and drop cover letters here.')
       when "Essay" 
         $('.document_button').removeClass('active')
         $('.essay').addClass('active')
-        $('.file-drop-zone-title').text('Drag and drop essays here')
+        $('.file-drop-zone-title').text('Drag and drop essays here.')
   )

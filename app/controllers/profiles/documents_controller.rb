@@ -41,7 +41,7 @@ module Profiles
       params[:type] = case params[:type]
                       when 'Resume'
                         'Documents::Resume'
-                      when 'CV'
+                      when 'Cover Letter'
                         'Documents::CoverLetter'
                       when 'Essay'
                         'Documents::Essay'
