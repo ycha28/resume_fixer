@@ -134,3 +134,9 @@
 @-moz-document url-prefix() {
   fieldset { display: table-cell; }
 }
+
+.nav-link {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: bold;
+}

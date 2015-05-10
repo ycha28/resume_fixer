@@ -1236,3 +1236,13 @@ body.index {
 @media(min-width:768px) {
 padding-left: 200px;
 }
+
+.highlighted-link {
+  border: 2px solid;
+  border-radius: 25px;
+}
+
+.nav-link {
+  margin-left: 5px;
+  margin-right: 5px;
+}

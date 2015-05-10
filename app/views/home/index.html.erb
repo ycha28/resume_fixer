@@ -27,33 +27,33 @@
                     <a href="#page-top"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#services">Services</a>
+                    <a class="page-scroll nav-link" href="#services">Services</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#portfolio">Before & After</a>
+                    <a class="page-scroll nav-link" href="#portfolio">Before & After</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#process">Process</a>
+                    <a class="page-scroll nav-link" href="#process">Process</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#team">Team</a>
+                    <a class="page-scroll nav-link" href="#team">Team</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#Our-Story">Our Story</a>
+                    <a class="page-scroll nav-link" href="#Our-Story">Our Story</a>
                 </li>
                 <% if signed_in? %>
                   <li>
-                    <%= link_to "Documents", profile_documents_path %>
+                    <%= link_to "Documents", profile_documents_path, :class => 'nav-link' %>
                   </li>
                   <li>
-                    <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+                    <%= link_to "Log out", destroy_user_session_path, :method => :delete, :class => 'highlighted-link nav-link' %>
                   </li>
                 <% else %>
                   <li>
-                      <%= link_to "Sign Up", '#', :data => {:toggle => 'modal', :target => '.signup-modal'} %>
+                      <%= link_to "Sign Up", '#', :data => {:toggle => 'modal', :target => '.signup-modal'}, :class => 'highlighted-link nav-link' %>
                   </li>                
                   <li>
-                      <%= link_to "Log In", '#', :data => {:toggle => 'modal', :target => '.login-modal'} %>
+                      <%= link_to "Log In", '#', :data => {:toggle => 'modal', :target => '.login-modal'}, :class => 'highlighted-link nav-link' %>
                   </li>                
                 <% end %>
             </ul>
