@@ -16,12 +16,8 @@ class SubmissionForm
     submission.documents = documents
   end
 
-  def total_cost
-    cover_letters_cost + resumes_cost + essays_cost
-  end
-
   def formatted_cost
-    total_cost * 100
+    submission.amount * 100
   end
 
   def submission
@@ -43,7 +39,7 @@ class SubmissionForm
   def charge
     Stripe::Charge.create(
       customer: customer.id,
-      amount: submission.amount,
+      amount: formatted_amount,
       description: 'Rails Stripe customer',
       currency: 'usd'
     )
