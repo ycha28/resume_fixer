@@ -111,10 +111,14 @@ $(document).ready ->
           created_document.remove()
           existing_price = parseInt($('#total_price').text())
           $('#total_price').text(existing_price - price)  
+
+          if $('.documents_list').children().length == 0
+            $('.stripe-button-el').prop('disabled', true)
     )
 
     existing_price = parseInt($('#total_price').text())
     $('#total_price').text(existing_price + price)
+    $('.stripe-button-el').prop('disabled', false)
   )
 
   $('.document').on('fileuploaderror', (event, data) ->
@@ -143,3 +147,5 @@ $(document).ready ->
         $('.essay').addClass('active')
         $('.file-drop-zone-title').text('Drag and drop essays here.')
   )
+
+  $('.stripe-button-el').prop('disabled', true)
