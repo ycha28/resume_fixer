@@ -1,5 +1,6 @@
 <section class="row">
   <section class="col-md-12">
+    <%= render 'shared/flash' %>
     <h1>Documents</h1>
     <%= link_to "Submit a new document", new_profile_submission_path %>
     <% @documents.each do |document| %>
@@ -14,3 +15,5 @@
     <% end %>
   </section>
 </section>
+
+<% provide(:title, "My Documents") %>

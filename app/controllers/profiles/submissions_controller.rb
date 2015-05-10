@@ -8,10 +8,11 @@ module Profiles
 
     def create
       SubmissionForm.new(submission_params).save
-      redirect_to root_path
+      flash[:success] = "Thank you for submitting your documents. You should receive a confirmation email of the submission!"
+      redirect_to profile_documents_path
     rescue Stripe::CardError => e
-      flash[:error] = e.message
-      redirect_to root_path
+      flash[:danger] = e.message
+      redirect_to profile_documents_path
     end
 
     private
