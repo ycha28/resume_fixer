@@ -6,6 +6,7 @@ class Document < ActiveRecord::Base
   scope :submitted, -> { where(submitted: true) }
 
   validates_presence_of :text_file
+  validates_presence_of :type
 
   def formatted_type
     self.class.name.underscore.split('/').last

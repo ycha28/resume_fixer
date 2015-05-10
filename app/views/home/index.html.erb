@@ -46,6 +46,9 @@
                 </li>
                 <% if signed_in? %>
                   <li>
+                    <%= link_to "My Documents", profile_documents_path %>
+                  </li>
+                  <li>
                     <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
                   </li>
                 <% else %>
