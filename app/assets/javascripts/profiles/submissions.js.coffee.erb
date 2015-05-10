@@ -28,6 +28,14 @@ $(document).ready ->
   }
 
   templates = {
+    generic: '',
+    html: '',
+    image: '',
+    video: '',
+    audio: '',
+    flash: '',
+    object: '',
+    other: '',
     text: '',
     object: ''
   }
@@ -94,8 +102,8 @@ $(document).ready ->
     token = $("input[name='authenticity_token']").val()
     template = "<div class='created_document'>
                   <div class='row'>
-                    <div class='col-md-2'>#{file_type}</div>
-                    <div class='col-md-2'>#{file_name}</div>
+                    <div class='col-md-2 file_type'>#{file_type}</div>
+                    <div class='col-md-2 file_name'>#{file_name}</div>
                     <div class='col-md-2'>#{file_created_at}</div>
                     <div class='col-md-2'>#{price}</div>
                     <div class='col-md-4'>
@@ -118,23 +126,27 @@ $(document).ready ->
     $('.selected_documents').append(template)
 
     $('.destroy_document').submit( (event) ->
-      event.preventDefault()
-      $(event.currentTarget).parent().parent().remove()
+      created_document = $(event.currentTarget).parent().parent()
+      file_type = created_document.find('.file_type').text()
+      price = switch file_type
+                when 'Resume' then 100
+                when 'Cover Letter' then 100
+                when 'Essay' then 250
+
+      created_document.remove()
+
+      existing_price = parseInt($('#total_price').text())
+      $('#total_price').text(existing_price - price)  
     )
 
     existing_price = parseInt($('#total_price').text())
     $('#total_price').text(existing_price + price)
   )
 
-  $('.document').on('filecleared', (event, file) ->
-    documents_cost = $('#documents .file-preview-frame').length * 200
-    resumes_cost = $('#resumes .file-preview-frame').length * 250
-    essays_cost = $('#essays .file-preview-frame').length * 500
-
-    $('#total_price').text(documents_cost + resumes_cost + essays_cost)    
-
-    if $('.document').val() == '' and $('.resume').val() == '' and $('.essay').val() == ''
-      $('.stripe-button-el').prop('disabled', true)
+  $('.document').on('fileuploaderror', (event, data) ->
+    file_type = $('.document_button.active').text().toLowerCase()
+    unless $('.file-drop-zone-title').length > 0
+      $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag & drop #{file_type}s here...</div>")
   )
   
   if $('.document').val() == '' and $('.resume').val() == '' and $('.essay').val() == ''

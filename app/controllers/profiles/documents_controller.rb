@@ -21,7 +21,7 @@ module Profiles
       @document = current_user.documents.find(params[:id])
 
       if @document.destroy
-        head :ok
+        render :nothing => true
       else
         render :json => ({:discussion => @document.errors.full_messages}), :status => 422
       end
