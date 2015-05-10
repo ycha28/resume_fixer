@@ -4,7 +4,7 @@ module Profiles
     before_filter :sanitize_document_type, :only => [:create]
 
     def index
-      @documents = current_user.documents
+      @documents = current_user.documents.submitted
     end
 
     def create

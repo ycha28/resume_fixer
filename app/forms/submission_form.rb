@@ -11,7 +11,7 @@ class SubmissionForm
     documents = user.documents.where(id: documents_attributes.keys)
     documents_attributes.each do |attributes|
       document = documents.detect{|document| document.id == attributes.first.to_i}
-      document.update(attributes.last)
+      document.update(attributes.last.merge('submitted' => true))
     end
     submission.documents = documents
   end

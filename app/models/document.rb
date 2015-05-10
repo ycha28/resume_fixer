@@ -3,6 +3,8 @@ class Document < ActiveRecord::Base
   belongs_to :user
   belongs_to :submission
 
+  scope :submitted, -> { where(submitted: true) }
+
   validates_presence_of :text_file
 
   def formatted_type
