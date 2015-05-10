@@ -100,7 +100,7 @@ $(document).ready ->
     file_created_at = data.response.created_at
 
     token = $("input[name='authenticity_token']").val()
-    template = "<div class='created_document'>
+    template = "<div class='created_document' id='created_document_#{id}'>
                   <div class='row'>
                     <div class='col-md-2 file_type'>#{file_type}</div>
                     <div class='col-md-2 file_name'>#{file_name}</div>
@@ -111,32 +111,32 @@ $(document).ready ->
                     </div>
                   </div>
                   <div class='row'>
-                    <form accept-charset='UTF-8' action='/profile/documents/#{id}' method='post' class='destroy_document'>
-                      <div style='margin:0;padding:0;display:inline'>
-                        <input name='authenticity_token' type='hidden' value='#{token}'>
-                        <input name='_method' type='hidden' value='delete' />
-                      </div>
-                      <button type ='submit' class='btn btn-primary pull-right'>
-                        Remove Document
-                      </button>
-                    </form>
+                    <button type ='submit' class='btn btn-primary pull-right' id='destroy_document_#{id}'>
+                      Remove Document
+                    </button>
                   </div>
                 </div>"
 
     $('.selected_documents').append(template)
 
-    $('.destroy_document').submit( (event) ->
-      created_document = $(event.currentTarget).parent().parent()
-      file_type = created_document.find('.file_type').text()
-      price = switch file_type
-                when 'Resume' then 100
-                when 'Cover Letter' then 100
-                when 'Essay' then 250
+    $("#destroy_document_#{id}").click( (event) ->
+      event.preventDefault()
 
-      created_document.remove()
+      $.ajax
+        url: "/profile/documents/#{id}"
+        method: 'DELETE'
+        dataType: 'json'
+        success: (response) =>
+          created_document = $("#created_document_#{response.id}")
+          file_type = created_document.find('.file_type').text()
+          price = switch file_type
+                    when 'Resume' then 100
+                    when 'Cover Letter' then 100
+                    when 'Essay' then 250
 
-      existing_price = parseInt($('#total_price').text())
-      $('#total_price').text(existing_price - price)  
+          created_document.remove()
+          existing_price = parseInt($('#total_price').text())
+          $('#total_price').text(existing_price - price)  
     )
 
     existing_price = parseInt($('#total_price').text())
