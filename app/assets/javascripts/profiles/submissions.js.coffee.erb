@@ -78,24 +78,20 @@ $(document).ready ->
     file_created_at = data.response.created_at
 
     token = $("input[name='authenticity_token']").val()
-    template = "<div class='created_document' id='created_document_#{id}'>
-                  <div class='row'>
-                    <div class='col-md-2 file_type'>#{file_type}</div>
-                    <div class='col-md-2 file_name'>#{file_name}</div>
-                    <div class='col-md-2'>#{file_created_at}</div>
-                    <div class='col-md-2'>#{price}</div>
-                    <div class='col-md-4'>
-                      <textarea id='submission_documents_attributes_#{id}_description' name='submission[documents_attributes][#{id}][description]' rows='4' style='width: 100%;'/>
-                    </div>
-                  </div>
-                  <div class='row'>
-                    <button type ='submit' class='btn btn-primary pull-right' id='destroy_document_#{id}'>
-                      Remove Document
+    template = "<tr class='created_document' id='created_document_#{id}'>
+                  <td class='file_type'>#{file_type}</td>
+                  <td class='file_name'>#{file_name}</td>
+                  <td>#{file_created_at}</td>
+                  <td>$#{price}</td>
+                  <td><textarea id='submission_documents_attributes_#{id}_description' name='submission[documents_attributes][#{id}][description]' rows='4' style='width: 100%;'/></td>
+                  <td>
+                    <button type ='submit' class='btn btn-primary' id='destroy_document_#{id}'>
+                      Remove
                     </button>
-                  </div>
-                </div>"
+                  </td>
+                </tr>"
 
-    $('.selected_documents').append(template)
+    $('.documents_list').append(template)
 
     $("#destroy_document_#{id}").click( (event) ->
       event.preventDefault()
