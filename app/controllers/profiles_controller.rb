@@ -1,6 +1,6 @@
 class ProfilesController < AuthenticationController
   layout 'profiles'
 
-  def show
+  def edit
   end
 end
