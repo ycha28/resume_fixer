@@ -10,33 +10,34 @@
   <%= file_field_tag 'text_file', multiple: true, type: :file, class: 'document' %>
 
   <%= form_for @submission, url: profile_submissions_path, multipart: true do |f| %>
-    <div class='selected_documents well'>
-      <h4 class='text-center'>Selected Documents</h4>
-      <div class='table-responsive'>
-        <table class='table'>
-          <thead>
-            <th><strong>File Type</strong></th>
-            <th><strong>File Name</strong></th>
-            <th><strong>Upload Time</strong></th>
-            <th><strong>Price</strong></th>
-            <th><strong>Add Comments</strong></th>
-            <th><strong></strong></th>
-          </thead>
-          <tbody class='documents_list'>
-          </tbody>
-        </table>
+    <div class='selected_documents_container well'>
+      <div class='selected_documents'>
+        <h4 class='text-center'>Selected Documents</h4>
+        <div class='table-responsive'>
+          <table class='table'>
+            <thead>
+              <th><strong>File Type</strong></th>
+              <th><strong>File Name</strong></th>
+              <th><strong>Upload Time</strong></th>
+              <th><strong>Price</strong></th>
+              <th><strong>Add Comments</strong></th>
+              <th><strong></strong></th>
+            </thead>
+            <tbody class='documents_list'>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+      <div class="total-price">
+        <h4>Total Price: $<span id="total_price">0</span></h4>
+      </div>  
 
-    <div class="total-price">
-      <h4>Total Price: $<span id="total_price">0</span></h4>
-    </div>  
-
-    <div class='text-center'>
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-description="Submit Documents"
-              data-label="Submit &amp Pay"></script>
+      <div class='text-center'>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Submit Documents"
+                data-label="Submit &amp Pay"></script>
+      </div>
     </div>
   <% end %>  
 </section>
