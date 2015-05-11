@@ -40,6 +40,9 @@ $(document).ready ->
     object: ''
   }
 
+  # Disable stripe button on load
+  $('.stripe-button-el').prop('disabled', true)
+
   $('.document').fileinput({
     'showUpload': false, 
     'showRemove': false,
@@ -50,9 +53,29 @@ $(document).ready ->
     'uploadAsync': true,
     'dropZoneEnabled': true, 
     'dropZoneTitle': 'Drag and drop resumes here.',
+    'browseLabel': 'Attach File',
     'uploadExtraData': ->
       {type: $('.document_button.active').text()}
   })
+
+  # Switch file types in nav
+  $('.document_button').on('click', (ev) ->
+    type = $(ev.currentTarget).text()
+
+    switch type
+      when "Resume" 
+        $('.document_button').removeClass('active')
+        $('.resume').addClass('active')
+        $('.file-drop-zone-title').text('Drag and drop resumes here.')
+      when "Cover Letter" 
+        $('.document_button').removeClass('active')
+        $('.cv').addClass('active')
+        $('.file-drop-zone-title').text('Drag and drop cover letters here.')
+      when "Essay" 
+        $('.document_button').removeClass('active')
+        $('.essay').addClass('active')
+        $('.file-drop-zone-title').text('Drag and drop essays here.')
+  )
 
   $('.kv-fileinput-caption').hide()
 
@@ -126,26 +149,3 @@ $(document).ready ->
     unless $('.file-drop-zone-title').length > 0
       $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
   )
-  
-  if $('.document').val() == '' and $('.resume').val() == '' and $('.essay').val() == ''
-    $('.stripe-button-el').prop('disabled', true)
-
-  $('.document_button').on('click', (ev) ->
-    type = $(ev.currentTarget).text()
-
-    switch type
-      when "Resume" 
-        $('.document_button').removeClass('active')
-        $('.resume').addClass('active')
-        $('.file-drop-zone-title').text('Drag and drop resumes here.')
-      when "Cover Letter" 
-        $('.document_button').removeClass('active')
-        $('.cv').addClass('active')
-        $('.file-drop-zone-title').text('Drag and drop cover letters here.')
-      when "Essay" 
-        $('.document_button').removeClass('active')
-        $('.essay').addClass('active')
-        $('.file-drop-zone-title').text('Drag and drop essays here.')
-  )
-
-  $('.stripe-button-el').prop('disabled', true)
