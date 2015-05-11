@@ -96,15 +96,16 @@ $(document).ready ->
               when 'Cover Letter' then 100
               when 'Essay' then 250
 
-    id = data.response.id
-    file_name = data.response.original_filename
-    file_created_at = data.response.created_at
+    file = data.response.document
+    id = file.id
+    file_name = file.original_filename
+    file_created_at = file.created_at
 
     token = $("input[name='authenticity_token']").val()
     template = "<tr class='created_document' id='created_document_#{id}'>
                   <td class='file_type'>#{file_type}</td>
                   <td class='file_name'>#{file_name}</td>
-                  <td>#{file_created_at}</td>
+                  <td>#{file.created_at}</td>
                   <td>$#{price}</td>
                   <td><textarea id='submission_documents_attributes_#{id}_description' name='submission[documents_attributes][#{id}][description]' rows='4' style='width: 100%;'/></td>
                   <td>

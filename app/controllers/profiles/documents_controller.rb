@@ -1,6 +1,7 @@
 module Profiles
   class DocumentsController < AuthenticationController
     layout 'profiles'
+    respond_to :json, :only => [:create, :destroy]
     before_filter :sanitize_document_type, :only => [:create]
 
     def index
@@ -8,20 +9,15 @@ module Profiles
     end
 
     def create
-      document = current_user.documents.build(document_params)
-      
-      if document.save 
-        render :json => document.as_json, :status => 200
-      else
-        render :json => ({:discussion => document.errors.full_messages}), :status => 422
-      end
+      @document = current_user.documents.create(document_params)
+      respond_with @document
     end
 
     def destroy
       @document = current_user.documents.find(params[:id])
 
       if @document.destroy
-        render :json => @document.as_json, :status => 200
+        render :json => @document, :status => 200
       else
         render :json => ({:discussion => @document.errors.full_messages}), :status => 422
       end

@@ -397,6 +397,7 @@ DEPENDENCIES
   pry-byebug
   rails (= 4.0.4)
   rails_12factor
+  responders
   sass-rails (~> 4.0.2)
   sdoc
   sqlite3
