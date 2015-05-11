@@ -1250,3 +1250,15 @@ padding-left: 200px;
   margin-left: 5px;
   margin-right: 5px;
 }
+
+.submit_documents {
+  button a {
+    color: white;
+    &:hover {
+      border-color: none;
+      color: white;
+      background-color: #fec503;      
+      text-decoration: none;
+    }
+  }
+}

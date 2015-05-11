@@ -333,24 +333,26 @@
     </div>
 </section>
 
-
 <!-- Submit Section -->
 <section id="submit" class="bg-light-gray">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Submit Documents</h2>
-            </div>
-            <div class="col-md-6 col-centered">
-                <h3 class="section-subheading text-muted" align="justify"><br><br>Submit your <strong>resumes</strong>, <strong>cover letters</strong>, and <strong>application essays</strong> for review.<br><br>You will receive edits <strong>within 24 hours of submission</strong>.<br><br>To attach multiple files, ensure all files of the same type in the same folder. Click "Browse" and locate that folder. Then select all files and press "Open." You should see multiple file icons appear.<br><br>Make sure to add detailed comments about your files in the comment boxes so we understand your specific needs!<br><br>Once you have selected your documents, click the "Submit & Pay" button. You will receive a confirmation email. <br><br>Acceptable file formats include: <strong>.pdf</strong>, <strong>.docx</strong>, <strong>.doc</strong> and <strong>.txt.</strong></h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3"> 
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Submit Documents</h2>
+      </div>
+      <div class="col-md-6 col-centered">
+        <h3 class="section-subheading text-muted" align="justify"><br><br>Submit your <strong>resumes</strong>, <strong>cover letters</strong>, and <strong>application essays</strong> for review.<br><br>You will receive edits <strong>within 24 hours of submission</strong>.<br><br>To attach multiple files, ensure all files of the same type in the same folder. Click "Browse" and locate that folder. Then select all files and press "Open." You should see multiple file icons appear.<br><br>Make sure to add detailed comments about your files in the comment boxes so we understand your specific needs!<br><br>Once you have selected your documents, click the "Submit & Pay" button. You will receive a confirmation email. <br><br>Acceptable file formats include: <strong>.pdf</strong>, <strong>.docx</strong>, <strong>.doc</strong> and <strong>.txt.</strong></h3>
+      </div>
     </div>
+    <div class='submit_documents text-center'>
+      <button class='btn btn-primary text-center'>
+        <%= link_to "Submit Documents", new_profile_submission_path %>
+      </button>
+    </div>
+  </div>
 </section>
+
+
 
 
 <!-- Team Section -->
@@ -620,7 +622,7 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
                 <ul class="list-inline quicklinks" >
 
                     <li><a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">Privacy Policy</a></li>
-                    <li><a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">Terms of Use</a></li>
+                    <li><a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">Terms of Service</a></li>
                     <li><a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">Refund Policy</a></li>
                 </ul>
             </div>
