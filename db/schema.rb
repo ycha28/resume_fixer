@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510034339) do
+ActiveRecord::Schema.define(version: 20150511011050) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -60,12 +60,9 @@ ActiveRecord::Schema.define(version: 20150510034339) do
   end
 
   create_table "submissions", force: true do |t|
-    t.string   "name"
-    t.string   "email"
     t.string   "card"
     t.string   "customer_id"
     t.integer  "amount"
-    t.string   "description"
     t.string   "currency"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -89,6 +86,8 @@ ActiveRecord::Schema.define(version: 20150510034339) do
     t.string   "uid"
     t.string   "name"
     t.string   "image"
+    t.string   "phone_number"
+    t.string   "timezone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

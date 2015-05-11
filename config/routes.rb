@@ -9,7 +9,7 @@ ResumeFixer::Application.routes.draw do
   root 'home#index'
 
   resources :home, :only => [:index]
-  resource :profile, :only => [:edit] do
+  resource :profile, :only => [:edit, :update] do
     resources :submissions, :only => [:new, :create], controller: 'profiles/submissions'
     resources :documents, :only => [:index, :create, :destroy], controller: 'profiles/documents'
   end

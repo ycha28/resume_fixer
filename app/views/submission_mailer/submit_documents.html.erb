@@ -17,7 +17,9 @@
       </p>
     <% end %>
 
-    <p>Phone number: <%= @user.phone_number %></p>
+    <% if @user.phone_number.present? %>
+      <p>Phone number: <%= @user.phone_number %></p>
+    <% end %>
 
     <p>Total price: $<%= @submission.amount %></p>
   </body>
