@@ -228,7 +228,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">Before &amp After</h2>
-                <h3 class="section-subheading text-muted"><strong>Improvements in 24 hours</strong>.</h3>
+                <h3 class="section-subheading text-muted"><strong>Effective. Concrete. Improvements.</strong>.</h3>
             </div>
         </div>
         <div class="row">
@@ -327,26 +327,30 @@
                     <i class="fa fa-download fa-stack-1x fa-inverse"></i>
                 </span>
                 <h4 class="service-heading">4. Download</h4>
-                <p class="text-muted" align="center">Check your inbox within 24 hours.</p>
+                <p class="text-muted" align="center">Get quality revisions in 24 hours.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Submit Section -->
+<!-- The Magic Section -->
 <section id="submit" class="bg-light-gray">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Submit Documents</h2>
+        <h2 class="section-heading">The Magic</h2>
+        <h3 class="section-subheading text-muted"><strong>Powered by Professionals.</strong><br><br></h3>
       </div>
-      <div class="col-md-6 col-centered">
-        <h3 class="section-subheading text-muted" align="justify"><br><br>Submit your <strong>resumes</strong>, <strong>cover letters</strong>, and <strong>application essays</strong> for review.<br><br>You will receive edits <strong>within 24 hours of submission</strong>.<br><br>To attach multiple files, ensure all files of the same type in the same folder. Click "Browse" and locate that folder. Then select all files and press "Open." You should see multiple file icons appear.<br><br>Make sure to add detailed comments about your files in the comment boxes so we understand your specific needs!<br><br>Once you have selected your documents, click the "Submit & Pay" button. You will receive a confirmation email. <br><br>Acceptable file formats include: <strong>.pdf</strong>, <strong>.docx</strong>, <strong>.doc</strong> and <strong>.txt.</strong></h3>
-      </div>
+      <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <p class="large text-muted" align="justify">When you submit a cover letter, resume, or essay, your document will be matched with an expert who has relevant experience in a function, industry, or organization. This way, your document gets the attention and expertise it deserves. Think of us as a matchmaker between documents and specialized editors.</p>
+            </div>
+        </div>
     </div>
     <div class='submit_documents text-center'>
       <button class='btn btn-primary text-center'>
-        <%= link_to "Submit Documents", new_profile_submission_path %>
+        <%= link_to "Submit Documents", '#', :data => {:toggle => 'modal', :target => '.signup-modal'} %>
+        
       </button>
     </div>
   </div>
@@ -401,6 +405,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">Success Stories</h2>
+                <h3 class="section-subheading text-muted"><strong>Results Speak Loudly.</strong></h3>
             </div>
             <div class="col-md-3 col-sm-6 portfolio-example">
                     <%= image_tag "logos/Wei1.jpg", class: "img-responsive img-circle" %>
@@ -436,6 +441,7 @@
 <div class="container">
             <div class="page-header text-center">
             <h1 id="timeline" style="text-align:center">Our Story</h1>
+            <h3 class="section-subheading text-muted"><strong>Trust us, we've been in your shoes.</strong></h3>
             </div>
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             <ul class="timeline">
