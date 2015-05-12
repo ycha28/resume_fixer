@@ -17,3 +17,6 @@
 .env
 /public/uploads
 resume-develop
+app/views/registrations/new.html.erb
+app/views/devise/registrations/new.html.erb
+app/views/devise/sessions/new.html.erb
