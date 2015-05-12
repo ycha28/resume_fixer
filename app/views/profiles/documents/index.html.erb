@@ -1,9 +1,11 @@
 <section class="row">
   <section class="col-md-12">
     <%= render 'shared/flash' %>
-    <h1 class='text-center'>My Documents</h1>
-    <% if @documents.empty? %>
+    <div class='text-center'>
+      <h1>My Documents</h1>
+      <% if @documents.empty? %>
       <p>You currently don't have any documents uploaded. <%= link_to "Click here", new_profile_submission_path %> to create a submission.</p>
+    </div>
     <% else %>
       <% @documents.each do |document| %>
         <h4><%= document.original_filename %></h4>
