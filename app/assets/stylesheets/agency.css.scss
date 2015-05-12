@@ -613,7 +613,7 @@ body.index {
 
   @media(min-width:1200px) {
       .timeline>li {
-          min-height: 170px;
+          min-height: 120px;
       }
 
       .timeline>li .timeline-panel {
@@ -1000,7 +1000,7 @@ body.index {
 
   .timeline {
       list-style: none;
-      padding: 20px 0 20px;
+      padding: 0px 20px;
       position: relative;
   }
    
