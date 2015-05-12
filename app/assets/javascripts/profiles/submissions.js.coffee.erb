@@ -2,6 +2,7 @@ $(document).ready ->
   STYLE_SETTING = 'style="width:50px;height:50px;margin-bottom:0px;margin-top:0px"'
   layout_templates = {
     main1: '{preview}\n' +
+        '<div class="kv-upload-progress hide"></div>\n' +
         '<div class="input-group {class}">\n' +
         '   {caption}\n' +
         '   <div class="input-group-btn">\n' +
@@ -117,6 +118,14 @@ $(document).ready ->
 
     $('.documents_list').append(template)
 
+    # Set price
+    existing_price = parseInt($('#total_price').text())
+    $('#total_price').text(existing_price + price)
+
+    # Check if submission is ready
+    if $('.accept-checkbox').prop('checked')
+      $('.stripe-button-el').prop('disabled', false)
+
     $("#destroy_document_#{id}").click( (event) ->
       event.preventDefault()
 
@@ -139,10 +148,6 @@ $(document).ready ->
           if $('.documents_list').children().length == 0
             $('.stripe-button-el').prop('disabled', true)
     )
-
-    existing_price = parseInt($('#total_price').text())
-    $('#total_price').text(existing_price + price)
-    $('.stripe-button-el').prop('disabled', false)
   )
 
   $('.document').on('fileuploaderror', (event, data) ->
@@ -150,3 +155,10 @@ $(document).ready ->
     unless $('.file-drop-zone-title').length > 0
       $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
   )
+
+  $('.accept-checkbox').change((event) ->
+    if $(event.currentTarget).prop('checked') and $('.documents_list').children().length > 0
+      $('.stripe-button-el').prop('disabled', false)
+    else
+      $('.stripe-button-el').prop('disabled', true)
+  )      

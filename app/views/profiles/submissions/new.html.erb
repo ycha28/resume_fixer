@@ -31,13 +31,16 @@
       <div class="total-price">
         <h4>Total Price: $<span id="total_price">0</span></h4>
       </div>  
-
-      <div class='text-center'>
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                data-description="Submit Documents"
-                data-label="Submit &amp Pay"></script>
-      </div>
+    </div>
+    <div class='row text-center'>
+      <%= check_box_tag :accepted, '', false, :class => 'accept-checkbox' %>
+      <%= label_tag :accepted, "By checking here, I confirm that I have completely read and agree to the Terms of Service, Privacy Policy, and Refund Policy of www.BeamDox.com." %>
+    </div>
+    <div class='text-center'>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Submit Documents"
+              data-label="Submit &amp Pay"></script>
     </div>
   <% end %>  
 </section>
