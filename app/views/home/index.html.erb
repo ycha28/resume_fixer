@@ -377,7 +377,11 @@
     </div>
     <div class='submit_documents text-center'>
       <button class='btn btn-primary text-center'>
-        <%= link_to "Submit Documents",'#', :data => {:toggle => 'modal', :target => '.signup-modal'} %>
+        <% if signed_in? %>
+          <%= link_to "Submit Documents", new_profile_submission_path %>
+        <% else %>
+          <%= link_to "Submit Documents",'#', :data => {:toggle => 'modal', :target => '.signup-modal'} %>
+        <% end %>
       </button>
     </div>
   </div>

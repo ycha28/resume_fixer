@@ -1269,6 +1269,13 @@ padding-left: 200px;
       background-color: #fec503;      
       text-decoration: none;
     }
+
+    &:focus {
+      border-color: none;
+      color: white;
+      background-color: #fec503;      
+      text-decoration: none;      
+    }
   }
 }
 
