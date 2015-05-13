@@ -1251,8 +1251,11 @@ padding-left: 200px;
 
 .highlighted-link {
   border: 2px solid;
-  border-radius: 25px;
+  border-radius: 10px;
   max-width: 103px;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  margin-top: 8px;
 }
 
 .nav-link {
