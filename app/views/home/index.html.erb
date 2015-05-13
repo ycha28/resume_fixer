@@ -228,7 +228,7 @@
 </section>
 
 <!-- Before/After Grid Section -->
-<section id="portfolio" class="bg-light-gray">
+<section id="before&after" class="bg-light-gray">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -348,27 +348,40 @@
       </div>
       <div class="col-md-2 col-md-offset-1">
         <div class="magic-image">
-        <%= image_tag "magic/doc grey.jpg", class: "img-responsive" %>
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+        </span>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="magic-image-arrows">
+          <span class="fa-stack fa-4x">
+          <i class="fa fa-arrows-h fa-stack-2x"></i>
+          </span>
         </div>
       </div>
       <div class="col-md-2">
         <div class="magic-image">
-        <%= image_tag "magic/links grey.jpg", class: "img-responsive" %>
+        <span class="fa-stack fa-4x">
+            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+            <i class="fa fa-bolt fa-stack-1x fa-inverse"></i>
+          </span>
         </div>
       </div>
       <div class="col-md-2">
-        <div class="magic-image">
-        <%= image_tag "magic/editor grey.jpg", class: "img-responsive" %>
+        <div class="magic-image-arrows">
+          <span class="fa-stack fa-4x">
+            <i class="fa fa-arrows-h fa-stack-2x"></i>
+          </span>
         </div>
       </div>
       <div class="col-md-2">
-        <div class="magic-image">
-        <%= image_tag "magic/links grey.jpg", class: "img-responsive" %>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="magic-image">
-        <%= image_tag "magic/logo grey.jpg", class: "img-responsive" %>
+        <div class="magic-image">        
+        <span class="fa-stack fa-4x">
+            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+            <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+          </span>
         </div>
       </div>
       <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -398,30 +411,22 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="team-member">
-                  <a href="#biochris" class="portfolio-link" data-toggle="modal">
                     <%= image_tag "team/chris.jpg", class: "img-responsive img-circle" %>
-                  </a>
-                  <h4>Chris Koo</h4>
-                  
-                  <p class="text-muted"><i>Co-Founder</i><br>HBS, MBA 2015</p>
+                    <h4>Chris Koo</h4>
+                    <p class="text-muted"><i>Co-Founder</i><br>HBS, MBA 2015</p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="team-member">
-                    <a href="#biopaul" class="portfolio-link" data-toggle="modal">
                     <%= image_tag "team/paul.jpg", class: "img-responsive img-circle" %>
-                    </a>
                     <h4>Paul Zhao</h4>
                     <p class="text-muted"><i>Co-Founder</i><br>HBS, MBA of 2015</p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="team-member">
-                    <a href="#bioyoung" class="portfolio-link" data-toggle="modal">
                     <%= image_tag "team/3.jpg", class: "img-responsive img-circle" %>
-                    </a>
                     <h4>Editorial Team</h4>
-                    
                     <p class="text-muted"><i>100+ Specialists</i><br>Subject Matter Experts (SME)</p>
                 </div>
             </div>
@@ -597,7 +602,7 @@
       </div>
       <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
           <div class="panel-body success_content">
-            BeamDox has edited over 50,000 documents from students, job-seekers, and applicants from around the world. We have an incredible team of 100 talented editors who possess specialized industry and functional knowledge. Some have worked at  Fortune 500 firms, while others at hot startups. We have completed every edit within 24 hours. That’s our guarantee – quality and speed. We are obsessed with concrete feedback and we are brutally honest with our critique. We hate superficial editing and so should you.
+            BeamDox has edited over 50,000 documents from students, job-seekers, and applicants around the world. We have an incredible team of 100 talented editors who possess specialized industry and functional knowledge. Some have worked at  Fortune 500 firms, while others at hot startups. We have completed every edit within 24 hours. That’s our guarantee – quality and speed. We are obsessed with concrete feedback and we are brutally honest with our critique.
         </div>
     </div>
 </div>
@@ -836,74 +841,3 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
     </div>
 </div>
 
-<!-- Chris Modal 6 -->
-<div class="portfolio-modal modal fade" id="biochris" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                      <div class="terms">
-                        <%= render "refund_policy" %>
-                      </div>
-                      <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Paul Modal 6 -->
-<div class="portfolio-modal modal fade" id="biopaul" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                      <div class="terms">
-                        <%= render "refund_policy" %>
-                      </div>
-                      <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Young Modal 6 -->
-<div class="portfolio-modal modal fade" id="bioyoung" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                      <div class="terms">
-                        <%= render "refund_policy" %>
-                      </div>
-                      <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
