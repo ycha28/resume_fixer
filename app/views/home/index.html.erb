@@ -45,8 +45,13 @@
                   <li>
                     <%= link_to "Documents", profile_documents_path, :class => 'nav-link' %>
                   </li>
-                  <li>
-                    <%= link_to "Log out", destroy_user_session_path, :method => :delete, :class => 'highlighted-link nav-link' %>
+                  <li role='presentation' class='dropdown'>
+                    <a class='dropdown-toggle nav-link' data-toggle='dropdown' href='#' role='button' aria-expanded='false'>
+                    <%= current_user.email %> <span class='caret'></span>
+                    </a>
+                  <ul class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'>
+                    <li role="presentation"><%= link_to "Settings", edit_profile_path %></li>
+                    <li role="presentation"><%= link_to 'Log out', destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1" %>
                   </li>
                 <% else %>
                   <li>
