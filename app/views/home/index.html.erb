@@ -402,22 +402,30 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="team-member">
+                  <a href="#biochris" class="portfolio-link" data-toggle="modal">
                     <%= image_tag "team/chris.jpg", class: "img-responsive img-circle" %>
-                    <h4>Chris Koo</h4>
-                    <p class="text-muted"><i>Co-Founder</i><br>HBS, MBA 2015</p>
+                  </a>
+                  <h4>Chris Koo</h4>
+                  
+                  <p class="text-muted"><i>Co-Founder</i><br>HBS, MBA 2015</p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="team-member">
+                    <a href="#biopaul" class="portfolio-link" data-toggle="modal">
                     <%= image_tag "team/paul.jpg", class: "img-responsive img-circle" %>
+                    </a>
                     <h4>Paul Zhao</h4>
                     <p class="text-muted"><i>Co-Founder</i><br>HBS, MBA of 2015</p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="team-member">
+                    <a href="#bioyoung" class="portfolio-link" data-toggle="modal">
                     <%= image_tag "team/3.jpg", class: "img-responsive img-circle" %>
+                    </a>
                     <h4>Editorial Team</h4>
+                    
                     <p class="text-muted"><i>100+ Specialists</i><br>Subject Matter Experts (SME)</p>
                 </div>
             </div>
@@ -810,6 +818,78 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
 
 <!-- Portfolio Modal 6 -->
 <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                      <div class="terms">
+                        <%= render "refund_policy" %>
+                      </div>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chris Modal 6 -->
+<div class="portfolio-modal modal fade" id="biochris" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                      <div class="terms">
+                        <%= render "refund_policy" %>
+                      </div>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Paul Modal 6 -->
+<div class="portfolio-modal modal fade" id="biopaul" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                      <div class="terms">
+                        <%= render "refund_policy" %>
+                      </div>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Young Modal 6 -->
+<div class="portfolio-modal modal fade" id="bioyoung" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
             <div class="lr">
