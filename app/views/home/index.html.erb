@@ -74,11 +74,33 @@
     <div class='modal-content'>
       <div class='modal-header'>
         <button type='button' class='close' data-dismiss='modal' aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class='modal-title'>Log In</h4>
+        <h4 class='modal-title text-center'>Sign up with Email</h4>
       </div>
-      <%= link_to image_tag("facebook_login.png"), user_omniauth_authorize_path(:facebook), class: 'facebook-login' %>
+      <%= form_for :user, url: user_registration_path do |f| %>
+        <div class='form-group'>
+          <%= f.label :name %>
+          <%= f.text_field :name, :class => 'form-control', :placeholder => "Full Name" %>
+        </div>
+        <div class='form-group'>
+          <%= f.label :email %>
+          <%= f.email_field :email, :class => 'form-control', :placeholder => "Email Address" %>
+        </div>
+        <div class='form-group'>
+          <%= f.label :password %>
+          <%= f.password_field :password, :class => 'form-control', :placeholder => "Password" %>
+        </div>
+        <div class='form-group'>
+          <%= f.label :password_confirmation %>
+          <%= f.phone_field :password_confirmation, :class => 'form-control', :placeholder => "Confirm Password" %>
+        </div>
+        <div class='form-group'>
+          <%= f.label :timezone %>
+          <%= f.collection_select :timezone, ActiveSupport::TimeZone.us_zones, :name, :to_s, {}, :class => 'form-control' %>
+        </div>
+        <%= f.submit "Sign Up", :class => 'btn btn-primary center-block' %>
+      <% end %>
       <div class='text-center'>or</div>
-      <%= link_to "Sign up with Email", new_user_registration_path %>
+      <%= link_to image_tag("facebook_login.png", class: 'img-responsive center-block'), user_omniauth_authorize_path(:facebook), class: 'facebook-login' %>
     </div>
   </div>
 </div>
