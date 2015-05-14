@@ -21,7 +21,9 @@ $(function() {
 
     // Closes the Responsive Menu on Menu Item Click
     $('.navbar-collapse ul li a').click(function() {
-        $('.navbar-toggle:visible').click();
+        if(!$(this).hasClass('dropdown-toggle')) {
+          $('.navbar-toggle:visible').click();
+        }
     });
 
     // Closes the Responsive Menu on Click outside Menu

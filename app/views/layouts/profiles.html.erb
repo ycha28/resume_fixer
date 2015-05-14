@@ -9,8 +9,8 @@
     <%= yield :head %>
   </head>
   <body>
+    <%= render 'shared/header' %>
     <div class='profile'>
-      <%= render 'shared/header' %>
       <div class='main container'>
         <%= yield %>
       </div>
