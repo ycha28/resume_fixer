@@ -1279,6 +1279,20 @@ padding-left: 200px;
   margin-bottom: 50px;
 }
 
-.magic-image-arrows {
-  color: #000000;
+
+/* sign up modal */
+.signup-modal {
+  .modal-sm {
+    width: 350px;
+    height: 950px;
+  }
+
+  .modal-content {
+    height: 550px;
+  }
+
+  .form-group {
+    width: 80%;
+    margin-left: 10%;
+  }
 }

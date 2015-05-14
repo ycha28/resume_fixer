@@ -39,6 +39,7 @@ gem 'fog-aws'
 gem 'omniauth-facebook'
 gem 'activeadmin', github: 'activeadmin'
 gem 'responders'
+gem 'jquery-easing-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

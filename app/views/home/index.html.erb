@@ -30,7 +30,7 @@
                     <a class="page-scroll nav-link" href="#services">Services</a>
                 </li>
                 <li>
-                    <a class="page-scroll nav-link" href="#before&after">Before & After</a>
+                    <a class="page-scroll nav-link" href="#before">Before & After</a>
                 </li>
                 <li>
                     <a class="page-scroll nav-link" href="#process">Process</a>
@@ -39,7 +39,7 @@
                     <a class="page-scroll nav-link" href="#team">Team</a>
                 </li>
                 <li>
-                    <a class="page-scroll nav-link" href="#Our-Story">Our Story</a>
+                    <a class="page-scroll nav-link" href="#story">Our Story</a>
                 </li>
                 <% if signed_in? %>
                   <li>
@@ -74,11 +74,33 @@
     <div class='modal-content'>
       <div class='modal-header'>
         <button type='button' class='close' data-dismiss='modal' aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class='modal-title'>Log In</h4>
+        <h4 class='modal-title text-center'>Sign up with Email</h4>
       </div>
-      <%= link_to image_tag("facebook_login.png"), user_omniauth_authorize_path(:facebook), class: 'facebook-login' %>
+      <%= form_for :user, url: user_registration_path do |f| %>
+        <div class='form-group'>
+          <%= f.label :name %>
+          <%= f.text_field :name, :class => 'form-control', :placeholder => "Full Name" %>
+        </div>
+        <div class='form-group'>
+          <%= f.label :email %>
+          <%= f.email_field :email, :class => 'form-control', :placeholder => "Email Address" %>
+        </div>
+        <div class='form-group'>
+          <%= f.label :password %>
+          <%= f.password_field :password, :class => 'form-control', :placeholder => "Password" %>
+        </div>
+        <div class='form-group'>
+          <%= f.label :password_confirmation %>
+          <%= f.phone_field :password_confirmation, :class => 'form-control', :placeholder => "Confirm Password" %>
+        </div>
+        <div class='form-group'>
+          <%= f.label :timezone %>
+          <%= f.collection_select :timezone, ActiveSupport::TimeZone.us_zones, :name, :to_s, {}, :class => 'form-control' %>
+        </div>
+        <%= f.submit "Sign Up", :class => 'btn btn-primary center-block' %>
+      <% end %>
       <div class='text-center'>or</div>
-      <%= link_to "Sign up with Email", new_user_registration_path %>
+      <%= link_to image_tag("facebook_login.png", class: 'img-responsive center-block'), user_omniauth_authorize_path(:facebook), class: 'facebook-login' %>
     </div>
   </div>
 </div>
@@ -228,8 +250,10 @@
 </section>
 
 <!-- Before/After Grid Section -->
-<section id="before&after" class="bg-light-gray">
-    <div class="container">
+
+<section id="before" class="bg-light-gray">
+    <div id='portfolio' class="container">
+
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">Before &amp After</h2>
@@ -411,22 +435,30 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="team-member">
+                  <a href="#biochris" class="portfolio-link" data-toggle="modal">
                     <%= image_tag "team/chris.jpg", class: "img-responsive img-circle" %>
-                    <h4>Chris Koo</h4>
-                    <p class="text-muted"><i>Co-Founder</i><br>HBS, MBA 2015</p>
+                  </a>
+                  <h4>Chris Koo</h4>
+                  
+                  <p class="text-muted"><i>Co-Founder</i><br>HBS, MBA 2015</p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="team-member">
+                    <a href="#biopaul" class="portfolio-link" data-toggle="modal">
                     <%= image_tag "team/paul.jpg", class: "img-responsive img-circle" %>
+                    </a>
                     <h4>Paul Zhao</h4>
                     <p class="text-muted"><i>Co-Founder</i><br>HBS, MBA of 2015</p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="team-member">
+                    <a href="#bioyoung" class="portfolio-link" data-toggle="modal">
                     <%= image_tag "team/3.jpg", class: "img-responsive img-circle" %>
+                    </a>
                     <h4>Editorial Team</h4>
+                    
                     <p class="text-muted"><i>100+ Specialists</i><br>Subject Matter Experts (SME)</p>
                 </div>
             </div>
@@ -477,7 +509,7 @@
 
 <!--timeline-->
 
-<section id="Our-Story">
+<section id="story">
 <div class="container">
             <div class="page-header text-center">
             <h1 id="timeline" style="text-align:center">Our Story</h1>
@@ -840,4 +872,5 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
         </div>
     </div>
 </div>
+
 

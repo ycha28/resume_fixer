@@ -17,4 +17,5 @@
 //= require prettyphoto/js/jquery.prettyPhoto
 //= require turnjs/turn
 //= require ekko-lightbox/dist/ekko-lightbox
+//= require jquery.easing
 //= require_tree .
