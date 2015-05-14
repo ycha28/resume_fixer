@@ -1290,12 +1290,34 @@ padding-left: 200px;
 
 /* sign up modal */
 .signup-modal {
+  .facebook-login img {
+    margin-top: 20px;
+  }
+
+  .modal-sm {
+    width: 350px;
+    height: 200px;
+  }
+
+  .modal-content {
+    height: 200px;
+  }
+}
+
+
+/* email sign up modal */
+.email-signup-modal {
   .modal-sm {
     width: 350px;
     height: 950px;
   }
 
   .modal-content {
-    height: 550px;
+    height: 570px;
+  }
+
+  .form-group {
+    width: 80%;
+    margin-left: 10%;
   }
 }
