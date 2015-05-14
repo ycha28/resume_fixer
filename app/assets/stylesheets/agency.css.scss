@@ -410,7 +410,7 @@ body.index {
       background-color: #fff;
   }
 
-  #portfolio .portfolio-item .portfolio-caption h4 {
+    #portfolio .portfolio-item .portfolio-caption h4 {
       margin: 0;
       text-transform: none;
   }
@@ -640,7 +640,7 @@ body.index {
   .portfolio-example {
       margin-bottom: 25px;
       text-align: center;
-      margin-top: -30px;
+      margin-top: -70px;
   }
 
   .portfolio-example img {
@@ -988,10 +988,11 @@ body.index {
   }
 
   .beforeandafter-font{
+      font-color: #F7F7F7;
       text-align:justify;
       font-weight:normal;
       margin-bottom:0px;
-      background:#f7f7f7  ;
+      background:#FFFFFF  ;
       padding:5px;
   }
 
@@ -1242,15 +1243,6 @@ body.index {
 padding-left: 200px;
 }
 
-@media(min-width:768px) and (max-width:1200px) {
-  .index {
-    header {
-      margin-top:100px;
-    }
-  }
-} 
-
-
 .highlighted-link {
   border: 2px solid;
   border-radius: 10px;
@@ -1288,6 +1280,7 @@ padding-left: 200px;
   margin-bottom: 50px;
 }
 
+
 /* sign up modal */
 .signup-modal {
   .modal-sm {
@@ -1304,3 +1297,9 @@ padding-left: 200px;
     margin-left: 10%;
   }
 }
+
+  #portfolio .portfolio-card {
+      margin: 0 auto;
+      padding: 10px;
+      background-color: #fff;
+  }

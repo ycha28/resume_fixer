@@ -47,7 +47,7 @@
                   </li>
                   <li role='presentation' class='dropdown'>
                     <a class='dropdown-toggle nav-link' data-toggle='dropdown' href='#' role='button' aria-expanded='false'>
-                    Profile <span class='caret'></span>
+                    <%= current_user.email %> <span class='caret'></span>
                     </a>
                   <ul class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'>
                     <li role="presentation"><%= link_to "Settings", edit_profile_path %></li>
@@ -250,8 +250,10 @@
 </section>
 
 <!-- Before/After Grid Section -->
+
 <section id="before" class="bg-light-gray">
     <div id='portfolio' class="container">
+
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">Before &amp After</h2>
@@ -260,9 +262,7 @@
         </div>
         <div class="row">
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <div class="section-subheading text-center">
-                    <h4>Cover Letter Editing</h4>
-                </div>
+                
                 <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
@@ -271,14 +271,17 @@
                     </div>
                     <%= image_tag 'portfolio/CL-thumb.jpg', class: 'img-responsive' %>
                 </a>
-                <div class="portfolio-caption">
-                    <p class="beforeandafter-font">Build a memorable personal brand by writing clear and persuasive cover letters. Convince recruiters of your enthusiasm so they will engage your resume/CV.</p>
+                <div class="portfolio-card">
+                <div class="section-subheading text-center">
+                    <h4>Cover Letter Editing</h4>
                 </div>
+                <div class="portfolio-caption">
+                    <p class="beforeandafter-font">Compose cover letters that build your personal brand. Clearly and concisely convince recruiters of your enthusiasm and fit for the company and the position.</p>
+                </div>
+              </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <div class="section-subheading text-center">
-                    <h4>Resume Design</h4>
-                </div>
+                
                 <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
@@ -287,14 +290,17 @@
                     </div>
                     <%= image_tag 'portfolio/R-thumb.jpg', class: 'img-responsive' %>
                 </a>
-                <div class="portfolio-caption">
-                    <p class="beforeandafter-font">A resume isn't a laundry list of items. It's a coherent body of skills, responsibilities, and results. A strong resume is a snapshot of your history of success and an indication of future potential.</p>
+                <div class="portfolio-card">
+                  <div class="section-subheading text-center">
+                      <h4>Resume Design</h4>
+                  </div>
+                  <div class="portfolio-caption">
+                      <p class="beforeandafter-font">A resume isn't a laundry list of items. It's a coherent body of skills, responsibilities, and results. A strong resume is a snapshot of your historical success and future potential.</p>
+                  </div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <div class="section-subheading text-center">
-                    <h4>Essay Revision</h4>
-                </div>
+                
                 <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
@@ -303,9 +309,13 @@
                     </div>
                     <%= image_tag "portfolio/EssayThumb.jpg", class: "img-responsive" %>
                 </a>
+                <div class="portfolio-card">
+                <div class="section-subheading text-center">
+                    <h4>Essay Revision</h4>
+                </div>
                 <div class="portfolio-caption">
-                    <p class="beforeandafter-font">The best essays are narratives. Like any good story, a great essay has a beginning that hooks readers, a core with vivid details, and an unforgettable conclusion.</p>
-
+                    <p class="beforeandafter-font">The best essays are narratives. Like any good story, a strong essay has a beginning that hooks readers, a core with vivid details, and an unforgettable conclusion.</p>
+                </div>
                 </div>
             </div>
         </div>
@@ -370,27 +380,40 @@
       </div>
       <div class="col-md-2 col-md-offset-1">
         <div class="magic-image">
-        <%= image_tag "magic/doc grey.jpg", class: "img-responsive" %>
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+        </span>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="magic-image-arrows">
+          <span class="fa-stack fa-4x">
+          <i class="fa fa-arrows-h fa-stack-2x"></i>
+          </span>
         </div>
       </div>
       <div class="col-md-2">
         <div class="magic-image">
-        <%= image_tag "magic/links grey.jpg", class: "img-responsive" %>
+        <span class="fa-stack fa-4x">
+            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+            <i class="fa fa-bolt fa-stack-1x fa-inverse"></i>
+          </span>
         </div>
       </div>
       <div class="col-md-2">
-        <div class="magic-image">
-        <%= image_tag "magic/editor grey.jpg", class: "img-responsive" %>
+        <div class="magic-image-arrows">
+          <span class="fa-stack fa-4x">
+            <i class="fa fa-arrows-h fa-stack-2x"></i>
+          </span>
         </div>
       </div>
       <div class="col-md-2">
-        <div class="magic-image">
-        <%= image_tag "magic/links grey.jpg", class: "img-responsive" %>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="magic-image">
-        <%= image_tag "magic/logo grey.jpg", class: "img-responsive" %>
+        <div class="magic-image">        
+        <span class="fa-stack fa-4x">
+            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+            <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+          </span>
         </div>
       </div>
       <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -399,11 +422,7 @@
     </div>
     <div class='submit_documents text-center'>
       <button class='btn btn-primary text-center'>
-        <% if signed_in? %>
-          <%= link_to "Submit Documents", new_profile_submission_path %>
-        <% else %>
-          <%= link_to "Submit Documents",'#', :data => {:toggle => 'modal', :target => '.signup-modal'} %>
-        <% end %>
+        <%= link_to "Submit Documents",'#', :data => {:toggle => 'modal', :target => '.signup-modal'} %>
       </button>
     </div>
   </div>
@@ -623,7 +642,7 @@
       </div>
       <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
           <div class="panel-body success_content">
-            BeamDox has edited over 50,000 documents from students, job-seekers, and applicants from around the world. We have an incredible team of 100 talented editors who possess specialized industry and functional knowledge. Some have worked at  Fortune 500 firms, while others at hot startups. We have completed every edit within 24 hours. That’s our guarantee – quality and speed. We are obsessed with concrete feedback and we are brutally honest with our critique. We hate superficial editing and so should you.
+            BeamDox has edited over 50,000 documents from students, job-seekers, and applicants around the world. We have an incredible team of 100 talented editors who possess specialized industry and functional knowledge. Some have worked at  Fortune 500 firms, while others at hot startups. We have completed every edit within 24 hours. That’s our guarantee – quality and speed. We are obsessed with concrete feedback and we are brutally honest with our critique.
         </div>
     </div>
 </div>
