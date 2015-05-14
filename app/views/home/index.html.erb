@@ -262,9 +262,7 @@
         </div>
         <div class="row">
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <div class="section-subheading text-center">
-                    <h4>Cover Letter Editing</h4>
-                </div>
+                
                 <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
@@ -273,14 +271,17 @@
                     </div>
                     <%= image_tag 'portfolio/CL-thumb.jpg', class: 'img-responsive' %>
                 </a>
-                <div class="portfolio-caption">
-                    <p class="beforeandafter-font">Build a memorable personal brand by writing clear and persuasive cover letters. Convince recruiters of your enthusiasm so they will engage your resume/CV.</p>
+                <div class="portfolio-card">
+                <div class="section-subheading text-center">
+                    <h4>Cover Letter Editing</h4>
                 </div>
+                <div class="portfolio-caption">
+                    <p class="beforeandafter-font">Compose cover letters that build your personal brand. Clearly and concisely convince recruiters of your enthusiasm and fit for the company and the position.</p>
+                </div>
+              </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <div class="section-subheading text-center">
-                    <h4>Resume Design</h4>
-                </div>
+                
                 <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
@@ -289,14 +290,17 @@
                     </div>
                     <%= image_tag 'portfolio/R-thumb.jpg', class: 'img-responsive' %>
                 </a>
-                <div class="portfolio-caption">
-                    <p class="beforeandafter-font">A resume isn't a laundry list of items. It's a coherent body of skills, responsibilities, and results. A strong resume is a snapshot of your history of success and an indication of future potential.</p>
+                <div class="portfolio-card">
+                  <div class="section-subheading text-center">
+                      <h4>Resume Design</h4>
+                  </div>
+                  <div class="portfolio-caption">
+                      <p class="beforeandafter-font">A resume isn't a laundry list of items. It's a coherent body of skills, responsibilities, and results. A strong resume is a snapshot of your historical success and future potential.</p>
+                  </div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <div class="section-subheading text-center">
-                    <h4>Essay Revision</h4>
-                </div>
+                
                 <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
@@ -305,9 +309,13 @@
                     </div>
                     <%= image_tag "portfolio/EssayThumb.jpg", class: "img-responsive" %>
                 </a>
+                <div class="portfolio-card">
+                <div class="section-subheading text-center">
+                    <h4>Essay Revision</h4>
+                </div>
                 <div class="portfolio-caption">
-                    <p class="beforeandafter-font">The best essays are narratives. Like any good story, a great essay has a beginning that hooks readers, a core with vivid details, and an unforgettable conclusion.</p>
-
+                    <p class="beforeandafter-font">The best essays are narratives. Like any good story, a strong essay has a beginning that hooks readers, a core with vivid details, and an unforgettable conclusion.</p>
+                </div>
                 </div>
             </div>
         </div>
@@ -873,4 +881,74 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
     </div>
 </div>
 
+<!-- Chris Modal 6 -->
+<div class="portfolio-modal modal fade" id="biochris" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                      <div class="terms">
+                        <%= render "refund_policy" %>
+                      </div>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- Paul Modal 6 -->
+<div class="portfolio-modal modal fade" id="biopaul" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                      <div class="terms">
+                        <%= render "refund_policy" %>
+                      </div>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Young Modal 6 -->
+<div class="portfolio-modal modal fade" id="bioyoung" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                      <div class="terms">
+                        <%= render "refund_policy" %>
+                      </div>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
