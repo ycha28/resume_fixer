@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-fileinput/js/fileinput
+//= require bootstrap-validator/js/validator
 //= require prettyphoto/js/jquery.prettyPhoto
 //= require turnjs/turn
 //= require ekko-lightbox/dist/ekko-lightbox

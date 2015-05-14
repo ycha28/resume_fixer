@@ -5,6 +5,7 @@
     "turnjs": "latest",
     "prettyphoto": "latest",
     "jquery-validation": "latest",
-    "ekko-lightbox": "latest"
+    "ekko-lightbox": "latest",
+    "bootstrap-validator": "latest"
   }
 }
