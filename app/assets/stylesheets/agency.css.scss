@@ -581,7 +581,7 @@ body.index {
 
       .timeline>li.timeline-inverted>.timeline-panel {
           /* change */
-          padding: 20px 100px 20px 0px;
+          padding: 0px 100px 20px 0px;
       }
   }
 
@@ -608,7 +608,7 @@ body.index {
 
       .timeline>li.timeline-inverted>.timeline-panel {
           /* change */
-          padding: 20px 100px 20px 0px;
+          padding: 0px 100px 20px 0px;
       }
   }
 
@@ -634,7 +634,7 @@ body.index {
 
       .timeline>li.timeline-inverted>.timeline-panel {
           /* change */
-          padding: 20px 100px 20px 0px;
+          padding: 0px 100px 20px 0px;
       }
   }
 
@@ -1087,7 +1087,7 @@ body.index {
               font-size: 1.4em;
               text-align: center;
               position: absolute;
-              top: 16px;
+              top: 0px;
               left: 50%;
               margin-left: -25px;
               background-color: #999999;
@@ -1169,7 +1169,7 @@ body.index {
       ul.timeline > li > .timeline-badge {
           left: 15px;
           margin-left: 0;
-          top: 16px;
+          top: 0px;
       }
    
       ul.timeline > li > .timeline-panel {
