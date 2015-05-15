@@ -194,6 +194,8 @@ body.index {
 
   .navbar-default .navbar-collapse {
       border-color: rgba(255,255,255,.02);
+      overflow: hidden;
+      max-height: 375px;
   }
 
   .navbar-default .navbar-toggle {
@@ -1226,17 +1228,17 @@ body.index {
       border-bottom: none;
   }
   @media (max-width:767px) {
-  .timeline>li.timeline-inverted>.timeline-panel {
-  padding: 0px;
-  text-align: left;
-  }
+    .timeline>li.timeline-inverted>.timeline-panel {
+      padding: 0px;
+      text-align: left;
+    }
   }
 
 
   @media only screen and (min-device-width: 768px) and (max-device-width:1024px){
-      .services-padding{
+    .services-padding {
       padding-left: 250px;
-  } 
+    } 
   }
 }
 
