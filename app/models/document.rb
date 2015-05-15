@@ -11,4 +11,8 @@ class Document < ActiveRecord::Base
   def formatted_type
     self.class.name.underscore.split('/').last
   end
+
+  def formatted_created_at
+    self.created_at.strftime('%m/%d/%C @%k:%M %p')
+  end
 end

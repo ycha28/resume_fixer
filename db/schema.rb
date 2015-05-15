@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511011050) do
+ActiveRecord::Schema.define(version: 20150515061339) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150511011050) do
     t.string   "original_filename"
     t.text     "description"
     t.boolean  "submitted",         default: false
+    t.string   "status",            default: "matching"
   end
 
   create_table "submissions", force: true do |t|
