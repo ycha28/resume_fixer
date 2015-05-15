@@ -1,5 +1,6 @@
 class ProfilesController < AuthenticationController
   layout 'profiles'
+  respond_to :json, :only => [:update]
 
   def edit
     @user = current_user
@@ -9,17 +10,15 @@ class ProfilesController < AuthenticationController
     @user = current_user
 
     if @user.update(user_params)
-      flash[:success] = "Profile settings successfully updated!"
-      redirect_to profile_documents_path
+      respond_with @user
     else
-      flash[:danger] = "An error occurred while updating your profile."
-      redirect_to profile_documents_path      
+      render :json => @user.errors.full_messages.join(','), :status => 422
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :phone_number, :timezone)
+    params.require(:user).permit(:name, :email, :phone_number, :timezone, :password, :password_confirmation)
   end
 end
