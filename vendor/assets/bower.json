@@ -2,10 +2,7 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "bootstrap-fileinput": "latest",
-    "turnjs": "latest",
-    "prettyphoto": "latest",
     "jquery-validation": "latest",
-    "ekko-lightbox": "latest",
     "bootstrap-validator": "latest"
   }
 }

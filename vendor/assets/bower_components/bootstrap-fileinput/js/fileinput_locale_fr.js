@@ -11,7 +11,7 @@
 (function ($) {
     "use strict";
 
-    $.fn.fileinput.locales.fr = {
+    $.fn.fileinputLocales.fr = {
         fileSingle: 'fichier',
         filePlural: 'fichiers',
         browseLabel: 'Parcourir&hellip;',
@@ -34,10 +34,8 @@
         msgValidationError: 'Erreur lors de la transmission du fichier',
         msgLoading: 'Transmission du fichier {index} sur {files}&hellip;',
         msgProgress: 'Transmission du fichier {index} sur {files} - {name} - {percent}% faits.',
-        msgSelected: '{n} fichier(s) sélectionné(s)',
+        msgSelected: '{n} {files} sélectionné(s)',
         msgFoldersNotAllowed: 'Glissez et déposez uniquement des fichiers ! {n} répertoire(s) exclu(s).',
         dropZoneTitle: 'Glissez et déposez les fichiers ici&hellip;'
     };
-
-    $.extend($.fn.fileinput.defaults, $.fn.fileinput.locales.fr);
 })(window.jQuery);
