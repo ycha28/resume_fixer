@@ -1334,3 +1334,15 @@ padding-left: 200px;
       padding: 10px;
       background-color: #fff;
   }
+
+@media (min-width: 768px) and (max-width:1200px){  
+.nav > li > a {
+  padding: 10px 2px;
+  }
+#page-top .nav-link {
+  font-size:12px;  
+}
+#page-top .highlighted-link {
+    margin-top: 3px;
+}
+}
