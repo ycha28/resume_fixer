@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :documents
   has_many :submissions
 
+  validate :check_time_zone
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -22,6 +24,14 @@ class User < ActiveRecord::Base
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
       end
+    end
+  end
+
+  private
+
+  def check_time_zone
+    unless VALID_TIME_ZONES.include?(timezone)
+      self.errors.add(:base, "Timezone is invalid")
     end
   end
 end

@@ -1,27 +1,28 @@
 $(document).ready ->
   $('.edit_user').submit (event) ->
-    event.preventDefault()
     form = $(event.currentTarget)
+    unless form.find('.disabled').length > 0    
+      event.preventDefault()
+      $.ajax
+        url: "/profile"
+        method: 'PUT'
+        data: form.serialize()
+        dataType: 'json'
+        success: (response) ->
+          field = response.field
+          template = "<div class='alert alert-success'>#{field} updated!</div>"
 
-    $.ajax
-      url: "/profile"
-      method: 'PUT'
-      data: form.serialize()
-      dataType: 'json'
-      success: (response) ->
-        template = "<div class='alert alert-success'>User settings updated!</div>"
+          if $('.alert').length > 0
+            $('.alert').remove()
+            $('h1.user_settings').before(template)          
+          else
+            $('h1.user_settings').before(template)
+        error: (response) ->
+          template = "<div class='alert alert-danger'> Your submission returned the following errors: #{response.responseText}.</div>"
 
-        if $('.alert').length > 0
-          $('.alert').remove()
-          $('h1.user_settings').before(template)          
-        else
-          $('h1.user_settings').before(template)
-      error: (response) ->
-        template = "<div class='alert alert-danger'> Your submission returned the following errors: #{response.responseText}.</div>"
-
-        if $('.alert').length > 0
-          $('.alert').remove()
-          $('h1.user_settings').before(template)          
-        else
-          $('.alert').remove()
-          $('h1.user_settings').before(template)
+          if $('.alert').length > 0
+            $('.alert').remove()
+            $('h1.user_settings').before(template)          
+          else
+            $('.alert').remove()
+            $('h1.user_settings').before(template)

@@ -2,7 +2,6 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "bootstrap-fileinput": "latest",
-    "jquery-validation": "latest",
     "bootstrap-validator": "latest"
   }
 }

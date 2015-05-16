@@ -1,6 +1,5 @@
 class ProfilesController < AuthenticationController
   layout 'profiles'
-  respond_to :json, :only => [:update]
 
   def edit
     @user = current_user
@@ -10,7 +9,7 @@ class ProfilesController < AuthenticationController
     @user = current_user
 
     if @user.update(user_params)
-      respond_with @user
+      render :json => response_params, :status => 200
     else
       render :json => @user.errors.full_messages.join(','), :status => 422
     end
@@ -20,5 +19,10 @@ class ProfilesController < AuthenticationController
 
   def user_params
     params.require(:user).permit(:name, :email, :phone_number, :timezone, :password, :password_confirmation)
+  end
+
+  def response_params
+    field = user_params.keys[0]
+    {field: field.split('_').map(&:capitalize).join(' ')}
   end
 end
