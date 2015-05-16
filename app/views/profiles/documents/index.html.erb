@@ -23,7 +23,7 @@
             <td><%= document.formatted_type.capitalize %></td>
             <td><%= link_to document.original_filename, '#', :data => {:toggle => 'modal', :target => '#preview-modal', :url => "https://docs.google.com/gview?url=#{document.text_file_url}&embedded=true", :title => document.original_filename} %></td>
             <td><%= document.status.capitalize %></td>
-            <td><%= link_to 'View', '#' %></td>
+            <td><%= link_to 'View', '#', :data => {:toggle => 'modal', :target => '#comments-modal', :user_comments => document.description, :editor_comments => document.feedback} %></td>
           </tr>
         <% end %>
       </table>
@@ -54,24 +54,19 @@
   </div>
 </div>
 
-<div class="portfolio-modal modal fade" id="comments-modal">
-  <div class="modal-content">
-    <div class="close-modal" data-dismiss="modal">
-      <div class="lr">
-        <div class="rl">
-        </div>
+<div class="modal fade" id='comments-modal'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Comments</h4>
       </div>
-    </div>
-    <div class="container">
-        <div class="modal-body">
-          <h1 id='document-title'></h1>
-          <div class="row">
-            <embed src='' id='embedded-preview' width='1000px' height='800px'></embed>
-          </div>
-          <div class='row'>
-            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-          </div>
-        </div>
+      <div class="modal-body">
+        <div id='user-comments'></div>
+        <div id='editor-commments'></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
