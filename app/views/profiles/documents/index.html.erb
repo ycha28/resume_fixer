@@ -21,7 +21,7 @@
           <tr>
             <td><%= document.formatted_created_at %></td>
             <td><%= document.formatted_type.capitalize %></td>
-            <td><%= link_to document.original_filename, "https://docs.google.com/gview?url=#{document.text_file_url}&embedded=true" %></td>
+            <td><%= link_to document.original_filename, '#', :data => {:toggle => 'modal', :target => '#preview-modal', :url => "https://docs.google.com/gview?url=#{document.text_file_url}&embedded=true", :title => document.original_filename} %></td>
             <td><%= document.status.capitalize %></td>
             <td><%= link_to 'View', '#' %></td>
           </tr>
@@ -30,5 +30,51 @@
     </div>
   <% end %>
 </section>
+
+<div class="portfolio-modal modal fade" id="preview-modal">
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+        <div class="modal-body">
+          <h1 id='document-title'></h1>
+          <div class="row">
+            <embed src='' id='embedded-preview' width='1000px' height='800px'></embed>
+          </div>
+          <div class='row'>
+            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="comments-modal">
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+        <div class="modal-body">
+          <h1 id='document-title'></h1>
+          <div class="row">
+            <embed src='' id='embedded-preview' width='1000px' height='800px'></embed>
+          </div>
+          <div class='row'>
+            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <% provide(:title, "My Documents") %>
