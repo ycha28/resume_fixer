@@ -68,6 +68,10 @@ body.index {
       background-color: #222;
   }
 
+  .bg-pricing {
+    background-image: asset_url('banner/pricing-bg.jpg')
+  }
+
   .btn-primary {
       border-color: #fed136;
       text-transform: uppercase;
