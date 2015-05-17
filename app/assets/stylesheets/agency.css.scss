@@ -1368,3 +1368,14 @@ padding-left: 200px;
 #story img{
   margin-bottom:25px;
 }
+
+/*change modal shift*/
+
+@media (min-width: 992px) 
+body.modal-open, 
+.modal-open .navbar-fixed-top, 
+.modal-open .navbar-fixed-bottom {
+    margin-right: 14px;
+}
+
+
