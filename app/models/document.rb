@@ -15,4 +15,12 @@ class Document < ActiveRecord::Base
   def formatted_created_at
     self.created_at.strftime('%m/%d/%C @%l:%M %p')
   end
+
+  def formatted_file_name
+    if original_filename.length > 20
+      self.original_filename.sub(/(.{20})(.*)/, '\1') + '...'
+    else
+      original_filename
+    end
+  end
 end
