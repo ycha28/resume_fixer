@@ -69,7 +69,11 @@ body.index {
   }
 
   .bg-pricing {
-    background-image: asset_url('banner/pricing-bg.jpg')
+    background-image: asset_url('banner/pricing-bg.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 
   .btn-primary {
