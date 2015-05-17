@@ -13,6 +13,6 @@ class Document < ActiveRecord::Base
   end
 
   def formatted_created_at
-    self.created_at.strftime('%m/%d/%C @%k:%M %p')
+    self.created_at.strftime('%m/%d/%C @%l:%M %p')
   end
 end

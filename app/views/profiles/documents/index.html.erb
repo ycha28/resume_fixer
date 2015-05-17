@@ -11,19 +11,22 @@
     <div class='table-responsive'>
       <table class='table'>
         <tr>
-          <th>Submitted</th>
-          <th>File Type</th>
+          <th>Time Submitted</th>
           <th>File Name</th>
           <th>Review Status</th>
-          <th>Comments</th>
+          <th>More Info</th>
         </tr>
         <% @documents.each do |document| %>
           <tr>
             <td><%= document.formatted_created_at %></td>
-            <td><%= document.formatted_type.capitalize %></td>
             <td><%= link_to document.original_filename, '#', :data => {:toggle => 'modal', :target => '#preview-modal', :url => "https://docs.google.com/gview?url=#{document.text_file_url}&embedded=true", :title => document.original_filename} %></td>
-            <td><%= document.status.capitalize %></td>
-            <td><%= link_to 'View', '#', :data => {:toggle => 'modal', :target => '#comments-modal', :user_comments => document.description, :editor_comments => document.feedback} %></td>
+            <td>
+              <%= document.status.capitalize %>
+              <% if document.status == 'complete' %>
+                <a href=<%= download_profile_document_path(document.id) %>><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a>
+              <% end %>
+            </td>
+            <td><a href='#' data-toggle='modal' data-target='#info-modal' data-user-comments=<%= document.description %> data-editor-comments=<%= document.feedback %>><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
           </tr>
         <% end %>
       </table>
@@ -54,7 +57,7 @@
   </div>
 </div>
 
-<div class="modal fade" id='comments-modal'>
+<div class="modal fade" id='info-modal'>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
