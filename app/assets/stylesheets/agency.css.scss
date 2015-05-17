@@ -1338,6 +1338,8 @@ padding-left: 200px;
       background-color: #fff;
   }
 
+/* navigation bar double height problem solve */
+
 @media (min-width: 768px) and (max-width:1200px){  
 .nav > li > a {
   padding: 10px 2px;
@@ -1348,4 +1350,10 @@ padding-left: 200px;
 #page-top .highlighted-link {
     margin-top: 3px;
 }
+#page-top .container >.navbar-header > .logo{
+  margin-right: -50px;
+}
+#page-top .container > #bs-example-navbar-collapse-1 > .nav{
+  margin-top: 5px;
+  }
 }
