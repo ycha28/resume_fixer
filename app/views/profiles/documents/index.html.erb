@@ -19,7 +19,12 @@
         <% @documents.each do |document| %>
           <tr>
             <td><%= document.formatted_created_at %></td>
-            <td><%= link_to document.original_filename, '#', :data => {:toggle => 'modal', :target => '#preview-modal', :url => "https://docs.google.com/gview?url=#{document.text_file_url}&embedded=true", :title => document.original_filename} %></td>
+            <td>
+              <%= link_to document.original_filename, '#', :data => {:toggle => 'modal', :target => '#preview-modal', :url => "https://docs.google.com/gview?url=#{document.text_file_url}&embedded=true", :title => document.original_filename} %>
+              <% if document.status == 'matching' %>
+                <a href='#' data-toggle='modal' data-target='#upload-modal'><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></a>
+              <% end %>
+            </td>
             <td>
               <%= document.status.capitalize %>
               <% if document.status == 'complete' %>
@@ -55,6 +60,22 @@
             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id='upload-modal'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Change File</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
