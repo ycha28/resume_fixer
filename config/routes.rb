@@ -11,7 +11,7 @@ ResumeFixer::Application.routes.draw do
   resources :home, :only => [:index]
   resource :profile, :only => [:edit, :update] do
     resources :submissions, :only => [:new, :create], controller: 'profiles/submissions'
-    resources :documents, :only => [:index, :create, :destroy], controller: 'profiles/documents' do
+    resources :documents, :only => [:index, :create, :destroy, :update], controller: 'profiles/documents' do
       member do
         get 'download'
       end
