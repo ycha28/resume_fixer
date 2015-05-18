@@ -1371,11 +1371,10 @@ padding-left: 200px;
 
 /*change modal shift*/
 
-@media (min-width: 992px) 
-body.modal-open, 
-.modal-open .navbar-fixed-top, 
-.modal-open .navbar-fixed-bottom {
-    margin-right: 14px;
+@media (min-width: 992px) {
+  body.modal-open, 
+  .modal-open .navbar-fixed-top, 
+  .modal-open .navbar-fixed-bottom {
+      margin-right: 14px;
+  }
 }
-
-
