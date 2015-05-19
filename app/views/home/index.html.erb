@@ -13,103 +13,7 @@
                 <span class="icon-bar"></span>
             </button>
         <div class="logo">
-            <a class="navbar-brand page-scroll logo-center" href="#page-top">
-              <svg width="152" height="180">
-                <circle cx="76" cy="76" r="69"
-                  style="stroke:none;
-                         fill:#2D3E52"/>
-
-                <polygon points="60,65 92,65 130,120 22,120"
-                  style="fill:#7C8690"/>
-
-                <ellipse cx="76" cy="62" rx="50" ry="22"
-                  style="stroke:none;
-                         fill:#DE5B49"/>
-                
-                <ellipse cx="76" cy="56" rx="42.5" ry="17"
-                  style="stroke:none;
-                         fill:#fed136"/>
-                <ellipse cx="76" cy="51" rx="36.125" ry="12.45"
-                  style="stroke:none;
-                         fill:#DE5B49"/>
-                <ellipse cx="76" cy="123.5" rx="53.5" ry="22"
-                  style="fill:#7C8690"/>
-                
-                <path d="M50.3333,50 A1,1 0 0,1 101.3333,50"
-                  style="fill:#DEDFE1"/>
-
-                <path d="M50.3333,50 A10,3 0 1,0 101.3333,50"
-                  style="fill:#DEDFE1"/>
-                
-                <text x="76" y="180"
-                        style="fill:#fed136;
-                         font-size:27px;
-                         text-anchor: middle;
-                         font-family:Montserrat, Helvetica, Arial, sans-serif;
-                         font-weight:bold;
-                         letter-spacing:2">BEAMDOX</text>
-
-                <text x="76" y="130"
-                        style="fill:#fed136;
-                         font-size:48px;
-                         text-anchor: middle;
-                         font-family:Montserrat, Helvetica, Arial, sans-serif;
-                         font-weight:bold;
-                         letter-spacing:2"
-                  transform="rotate(-40, 70, 105)">B</text>
-
-                <line x1="58" y1="112" x2="58" y2="135" 
-                  style="stroke:#DE5B49;
-                         stroke-width:2;"/>
-
-                <line x1="72" y1="129" x2="72" y2="145" 
-                  style="stroke:#DE5B49;
-                         stroke-width:2;"/>
-                
-                <line x1="93" y1="124" x2="93" y2="140" 
-                  style="stroke:#DE5B49;
-                         stroke-width:2;"/>
-
-                <path d="M72,30 Q50,45 65,50"
-                  style="stroke:#EEF0EF;
-                               fill:#EEF0EF"/>
-
-                <circle cx="76" cy="76" r="72"
-                  style="stroke:#fed136; 
-                         fill:none;
-                         stroke-width:6px"/>
-                
-                <line x1="58" y1="112" x2="58" y2="120" 
-                  style="stroke:white;
-                         stroke-width:1;"
-                  transform="translate(-17,-85)"/>
-
-                <line x1="41" y1="27" x2="49" y2="27"
-                  style="stroke:white;
-                         stroke-width:1"
-                  transform="translate(-4,4)"/>
-                
-                <line x1="58" y1="112" x2="58" y2="120" 
-                  style="stroke:white;
-                         stroke-width:1;"
-                  transform="translate(40,-98)"/>
-                
-                <line x1="41" y1="27" x2="49" y2="27"
-                  style="stroke:white;
-                         stroke-width:1"
-                  transform="translate(53,-9)"/>
-                
-                <line x1="58" y1="112" x2="58" y2="120" 
-                  style="stroke:white;
-                         stroke-width:1;"
-                  transform="translate(64,-74)"/>
-                
-                <line x1="41" y1="27" x2="49" y2="27"
-                  style="stroke:white;
-                         stroke-width:1"
-                  transform="translate(77,15)"/>
-              </svg>
-            </a>
+            <a class="navbar-brand page-scroll logo-center" href="#page-top"><%= render "svg/logo" %></a>
         </div>    
         </div>
 
@@ -462,36 +366,25 @@
             </div>
         </div>
         <div class="row text-center">
-            <div class="col-md-3">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-crosshairs fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="service-heading">1. Select</h4>
-                <p class="text-muted" align="center">Select cover letters, resumes, or essays.</p>
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <span class="fa-stack fa-4x">
                     <i class="fa fa-circle fa-stack-2x text-primary"></i>
                     <i class="fa fa-upload fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="service-heading">2. Upload</h4>
+                <h4 class="service-heading">1. Select & Upload</h4>
                 <p class="text-muted" align="center">Upload your documents to BeamDox.</p>
              </div>
-            <div class="col-md-3">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-pencil-square-o fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="service-heading">3. Edit</h4>
+            <div class="col-md-4">
+                <%= render "svg/edit_process" %>
+                <h4 class="service-heading">2. Edit</h4>
                 <p class="text-muted" align="center">Specialists review your documents.</p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <span class="fa-stack fa-4x">
                     <i class="fa fa-circle fa-stack-2x text-primary"></i>
                     <i class="fa fa-download fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="service-heading">4. Download</h4>
+                <h4 class="service-heading">3. Download</h4>
                 <p class="text-muted" align="center">Get quality revisions in 24 hours.</p>
             </div>
         </div>
@@ -500,30 +393,17 @@
 
 <section id="submit" class='bg-pricing'>
   <div class='container'>
-    <svg height="300" width="300">
-      <rect width="200" height="300" style="fill:white; fill-opacity:0.3">
-      </rect>
-      <rect width="200" height="50" y="250" style="fill:black">
-      </rect>
-      <rect width="200" height="40" style="fill:black">
-      </rect>
-      <polygon points="0,39.999 200,39.999 100,65" style="fill:black">
-      </polygon>
-      <text x="100" y="30" style="fill:white; font-size:23px; font-family:Montserrat, Helvetica, Arial, sans-serif; font-weight:bold; text-anchor:middle; letter-spacing:0">COVER LETTER</text>
-      <text x="49" y="103" style="fill:white; font-size:30px; font-family:Montserrat, Helvetica, Arial, sans-serif; font-weight:bold; text-anchor:middle; letter-spacing:0">$</text>
-      <text x="100" y="120" style="fill:white; font-size:55px; font-family:Montserrat, Helvetica, Arial, sans-serif; font-weight:bold; text-anchor:middle; letter-spacing:-3">100</text>
-      <text x="100" y="140" style="fill:white; font-size:13px; font-family:Montserrat, Helvetica, Arial, sans-serif;font-weight:bold;text-anchor:middle;letter-spacing:0">Per Document</text>
-      <text x="100" y="165" style="fill:black; font-size:13px; font-family:Montserrat, Helvetica, Arial, sans-serif;font-weight:normal;text-anchor:middle;letter-spacing:0">24-Hour Revision Guarantee</text>
-      <text x="100" y="183" style="fill:black; font-size:13px; font-family:Montserrat, Helvetica, Arial, sans-serif;font-weight:normal;text-anchor:middle;letter-spacing:0">Lifetime User Account
-      </text>
-      <text x="100" y="203" style="fill:black; font-size:13px; font-family:Montserrat, Helvetica, Arial, sans-serif;font-weight:normal;text-anchor:middle;letter-spacing:0">Document Version Control
-      </text>
-      <text x="100" y="223" style="fill:black; font-size:13px; font-family:Montserrat, Helvetica, Arial, sans-serif;font-weight:normal;text-anchor:middle; letter-spacing:0">Monthly Pro-tip Newsletter </text>
-      <text x="100" y="243" style="fill:black; font-size:13px; font-family:Montserrat, Helvetica, Arial, sans-serif;font-weight:normal;text-anchor:middle;letter-spacing:0">Change Tracking 
-      </text>
-      <text x="100" y="282" style="fill:white; font-size:22px; font-family:Montserrat, Helvetica, Arial, sans-serif;font-weight:bold;text-anchor:middle;letter-spacing:0">Sign Up 
-      </text>
-    </svg>
+    <div class='row'>
+      <div class='col-md-4'>
+        <%= render "svg/cover_letter_pricing" %>
+      </div>
+      <div class='col-md-4'>
+        <%= render "svg/resume_pricing" %>
+      </div>
+      <div class='col-md-4'>
+        <%= render "svg/essay_pricing" %>
+      </div>
+    </div>
   </div>
 </section>
 
