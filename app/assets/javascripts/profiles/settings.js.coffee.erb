@@ -1,4 +1,15 @@
 $(document).ready ->
+  settings = {user_name: $('#user_name').val(), user_email: $('#user_email').val(), user_phone_number: $('#user_phone_number').val(), user_timezone: $('#user_timezone').val()}
+  ['#user_name', '#user_email', '#user_phone_number'].forEach (field) ->
+    $(field).parent().parent().find('.submit').prop('disabled', true)
+    $(field).on('keyup', (event) ->
+      target = event.currentTarget
+      if $(target).val() != settings[target.id]
+        $(target).parent().parent().find('.submit').prop('disabled', false)
+      else
+        $(target).parent().parent().find('.submit').prop('disabled', true)
+    )
+
   $('.edit_user').submit (event) ->
     form = $(event.currentTarget)
     unless form.find('.disabled').length > 0    
