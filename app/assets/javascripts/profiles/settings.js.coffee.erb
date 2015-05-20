@@ -14,15 +14,15 @@ $(document).ready ->
 
           if $('.alert').length > 0
             $('.alert').remove()
-            $('h1.user_settings').before(template)          
+            $('h1.user_settings').after(template)          
           else
-            $('h1.user_settings').before(template)
+            $('h1.user_settings').after(template)
         error: (response) ->
           template = "<div class='alert alert-danger'> Your submission returned the following errors: #{response.responseText}.</div>"
 
           if $('.alert').length > 0
             $('.alert').remove()
-            $('h1.user_settings').before(template)          
+            $('h1.user_settings').after(template)          
           else
             $('.alert').remove()
-            $('h1.user_settings').before(template)
+            $('h1.user_settings').after(template)
