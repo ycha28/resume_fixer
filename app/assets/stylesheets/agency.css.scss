@@ -1369,12 +1369,18 @@ padding-left: 200px;
   margin-bottom:25px;
 }
 
-/*change modal shift*/
+/*change modal shift
 
 @media (min-width: 992px) {
   body.modal-open, 
-  .modal-open .navbar-fixed-top, 
-  .modal-open .navbar-fixed-bottom {
-      margin-right: 14px;
+ .modal-open .navbar {
+      margin-right: 15px;
   }
 }
+*/
+
+.navbar-nav > li > a {
+  float:right;
+  clear:both;
+}
+

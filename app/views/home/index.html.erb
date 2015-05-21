@@ -36,7 +36,7 @@
                     <a class="page-scroll nav-link" href="#team">Team</a>
                 </li>
                 <li>
-                    <a class="page-scroll nav-link" href="#story">Story</a>
+                    <a class="page-scroll nav-link" href="#ourstory">Story</a>
                 </li>
                 <% if signed_in? %>
                   <li>
@@ -367,10 +367,7 @@
         </div>
         <div class="row text-center">
             <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-upload fa-stack-1x fa-inverse"></i>
-                </span>
+                <%= render "svg/upload_process" %>
                 <h4 class="service-heading">1. Select & Upload</h4>
                 <p class="text-muted" align="center">Upload your documents to BeamDox.</p>
              </div>
@@ -380,10 +377,7 @@
                 <p class="text-muted" align="center">Specialists review your documents.</p>
             </div>
             <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-download fa-stack-1x fa-inverse"></i>
-                </span>
+                <%= render "svg/download_process" %>
                 <h4 class="service-heading">3. Download</h4>
                 <p class="text-muted" align="center">Get quality revisions in 24 hours.</p>
             </div>
@@ -456,7 +450,7 @@
 </section>
 
 <!-- Clients Aside -->
-<section id="story" class="clients bg-light-gray">
+<section id="success_story" class="clients bg-light-gray">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -493,162 +487,164 @@
 
 <!--timeline-->
 
-<section id="story">
-<div class="container">
-            <div class="page-header text-center">
-            <h1 id="timeline" style="text-align:center">Our Story</h1>
-            <h3 class="section-subheading text-muted"><strong>Trust us, we've been in your shoes.</strong></h3>
-            </div>
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            <ul class="timeline">
-                <li class="timeline-inverted">
-                    <div class="timeline-badge warning"><i class="fa fa-heartbeat"></i></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="timeline-title">August, 2013</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingTwo">
-                                  <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                       <i class="fa fa-chevron-down"></i> HUMBLE BEGINNINGS 
-                                    </a>
-                                </h4>
-                                </div>
-                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                            <div class="panel-body success_content">
-                                Chris and I matriculated into HBS in August, 2013. By November, we were busy preparing applications to summer 2014 internships. As we began writing resumes and cover letters, we sought out on-campus career resources for improvements. Unfortunately, the feedback was slow, limited, and impersonal. We explored external solutions, but found most services to be expensive, low quality, and laborious as well. 
-                            </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="timeline-badge warning"><i class="fa fa-share-alt-square"></i></div>
-                    <div class="timeline-panel">
-                    <div class="timeline-heading">
-                            <h4 class="timeline-title">January, 2014</h4>
-                        </div>
-                    <div class="timeline-body">
-                    <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingThree">
-                      <h4 class="panel-title">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          <i class="fa fa-chevron-down"></i> TAKING INITIATIVE 
-                        </a>
-                      </h4>
-                    </div>
-                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                    <div class="panel-body success_content">
-                    Unwilling to leave our careers to chance, we formed a group of students and friends who had experience in various industries and roles. Then, we peer reviewed each other’s resumes and cover letters, providing critical feedback and advice. To truly improve, we were brutally honest with each other. By January, we had developed an agile and effective editing system with designated domain experts.
-                    </div>
-                </div>
-                </div>
-            </div>
-                </div>
-                </li>
-
-<li class="timeline-inverted">
-    <div class="timeline-badge warning"><i class="fa fa-paper-plane"></i></div>
-    <div class="timeline-panel">
-    <div class="timeline-heading">
-    <h4 class="timeline-title">March, 2014</h4>
-    </div>
-      <div class="timeline-body">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingFour">
-              <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                 <i class="fa fa-chevron-down"></i> GAINING MOMENTUM   
-              </a>
-          </h4>
+<section id="ourstory">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Our Story</h2>
+        <h3 class="section-subheading text-muted"><strong>Trust us, we've been in your shoes.</strong></h3>
       </div>
-      <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-          <div class="panel-body success_content">
-            With polished resumes and cover letters submitted, everyone in the group started receiving interview offers. This was an encouraging sign that demonstrated the proficiency of our editing system. By end of March, almost everyone in our group had multiple internship offers in hand. Chris and I knew we were onto something valuable, and we decided to build a focused editing service.
-        </div>
     </div>
-</div>
-</div>
-</div>
-</li>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <ul class="timeline">
+        <li class="timeline-inverted">
+          <div class="timeline-badge warning"><i class="fa fa-heartbeat"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">August, 2013</h4>
+            </div>
+            <div class="timeline-body">
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                     <i class="fa fa-chevron-down"></i> HUMBLE BEGINNINGS 
+                   </a>
+                 </h4>
+               </div>
+               <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body success_content">
+                  Chris and I matriculated into HBS in August, 2013. By November, we were busy preparing applications to summer 2014 internships. As we began writing resumes and cover letters, we sought out on-campus career resources for improvements. Unfortunately, the feedback was slow, limited, and impersonal. We explored external solutions, but found most services to be expensive, low quality, and laborious as well. 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
 
-<li>
-    <div class="timeline-badge warning"><i class="fa fa-rocket"></i></div>
-    <div class="timeline-panel">
-    <div class="timeline-heading">
-                            <h4 class="timeline-title">October, 2014</h4>
-                        </div>
-      <div class="timeline-body">
-        <div class="panel panel-default">
+      <li>
+        <div class="timeline-badge warning"><i class="fa fa-share-alt-square"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">January, 2014</h4>
+          </div>
+          <div class="timeline-body">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <i class="fa fa-chevron-down"></i> TAKING INITIATIVE 
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body success_content">
+                  Unwilling to leave our careers to chance, we formed a group of students and friends who had experience in various industries and roles. Then, we peer reviewed each other’s resumes and cover letters, providing critical feedback and advice. To truly improve, we were brutally honest with each other. By January, we had developed an agile and effective editing system with designated domain experts.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="timeline-inverted">
+        <div class="timeline-badge warning"><i class="fa fa-paper-plane"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">March, 2014</h4>
+          </div>
+          <div class="timeline-body">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingFour">
+                <h4 class="panel-title">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                   <i class="fa fa-chevron-down"></i> GAINING MOMENTUM   
+                 </a>
+               </h4>
+             </div>
+             <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+              <div class="panel-body success_content">
+                With polished resumes and cover letters submitted, everyone in the group started receiving interview offers. This was an encouraging sign that demonstrated the proficiency of our editing system. By end of March, almost everyone in our group had multiple internship offers in hand. Chris and I knew we were onto something valuable, and we decided to build a focused editing service.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="timeline-badge warning"><i class="fa fa-rocket"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title">October, 2014</h4>
+        </div>
+        <div class="timeline-body">
+          <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingFive">
               <h4 class="panel-title">
                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                  <i class="fa fa-chevron-down"></i> READY, SET, LAUNCH 
-              </a>
-          </h4>
-      </div>
-      <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-          <div class="panel-body success_content">
-            After our internships, Chris and I returned to HBS to build BeamDox, which officially launched on October, 2014. Our goal was to provide a convenient, fast, and high-quality editing service to anyone who wanted critical feedback and improvements to their resumes and cover letters. Soon after, we also launched an essay editing component to assist students applying to graduate schools.
+               </a>
+             </h4>
+           </div>
+           <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+            <div class="panel-body success_content">
+              After our internships, Chris and I returned to HBS to build BeamDox, which officially launched on October, 2014. Our goal was to provide a convenient, fast, and high-quality editing service to anyone who wanted critical feedback and improvements to their resumes and cover letters. Soon after, we also launched an essay editing component to assist students applying to graduate schools.
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</div>
-</div>
-</li>
+  </li>
 
-<li class="timeline-inverted">
+  <li class="timeline-inverted">
     <div class="timeline-badge warning"><i class="fa fa-diamond"></i></div>
     <div class="timeline-panel">
-    <div class="timeline-heading">
-                            <h4 class="timeline-title">Today</h4>
-                        </div>
+      <div class="timeline-heading">
+        <h4 class="timeline-title">Today</h4>
+      </div>
       <div class="timeline-body">
         <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingSix">
-              <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          <div class="panel-heading" role="tab" id="headingSix">
+            <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                 <i class="fa fa-chevron-down"></i> CREATING VALUE 
               </a>
-          </h4>
-      </div>
-      <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-          <div class="panel-body success_content">
-            BeamDox has edited over 50,000 documents from students, job-seekers, and applicants around the world. We have an incredible team of 100 talented editors who possess specialized industry and functional knowledge. Some have worked at  Fortune 500 firms, while others at hot startups. We have completed every edit within 24 hours. That’s our guarantee – quality and speed. We are obsessed with concrete feedback and we are brutally honest with our critique.
+            </h4>
+          </div>
+          <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+            <div class="panel-body success_content">
+              BeamDox has edited over 50,000 documents from students, job-seekers, and applicants around the world. We have an incredible team of 100 talented editors who possess specialized industry and functional knowledge. Some have worked at  Fortune 500 firms, while others at hot startups. We have completed every edit within 24 hours. That’s our guarantee – quality and speed. We are obsessed with concrete feedback and we are brutally honest with our critique.
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</div>
-</div>
-</li>
-<li>
+  </li>
+  <li>
     <div class="timeline-badge warning"><i class="fa fa-trophy"></i></div>
     <div class="timeline-panel">
-    <div class="timeline-heading">
-                            <h4 class="timeline-title">Future</h4>
-                        </div>
+      <div class="timeline-heading">
+        <h4 class="timeline-title">Future</h4>
+      </div>
       <div class="timeline-body">
         <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingSeven">
-              <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                  <i class="fa fa-chevron-down"></i> THE GREAT BEYOND 
+          <div class="panel-heading" role="tab" id="headingSeven">
+            <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                <i class="fa fa-chevron-down"></i> THE GREAT BEYOND 
               </a>
-          </h4>
-      </div>
-      <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
-          <div class="panel-body success_content">
-            Talented people are everywhere. But it’s hard to distinguish yourself from the competition. So the job hunting process doesn’t have to be zero-sum. We believe that properly highlighting skills and experiences will distinuish everyone to optimize the application-to-company fit. Therefore, it’s imperative that your resumes and cover letters powerfully and accurately reflect your capabilities, assets, and value. Welcome to BeamDox!
+            </h4>
+          </div>
+          <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+            <div class="panel-body success_content">
+              Talented people are everywhere. But it’s hard to distinguish yourself from the competition. So the job hunting process doesn’t have to be zero-sum. We believe that properly highlighting skills and experiences will distinuish everyone to optimize the application-to-company fit. Therefore, it’s imperative that your resumes and cover letters powerfully and accurately reflect your capabilities, assets, and value. Welcome to BeamDox!
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</div>
-</div>
-</li>
+  </li>
 </ul>
 </div>
 </div>
