@@ -980,15 +980,6 @@ body.index {
       max-height:600px;
   }
 
-  .carousel-caption{
-      position: absolute;
-      left: 20%;
-      right:20%;
-      top: 25%;
-      bottom: 20%;
-  }
-
-
 
   .title-font {
       margin-bottom: 30px;
@@ -1202,28 +1193,7 @@ body.index {
   }
 
 
-  @media (min-width:768px) {
-  .title-font {
-      font-size: 70px;
-      line-height: 80px;
-      }
-  header .btn{ 
-      font-size: 25px;
-      }
-  }
-
-  @media (max-width:767px) {
-  .title-font {
-      font-size: 30px;
-      line-height: 25px;
-      margin-bottom: 10px;
-      }
-  header .btn{ 
-      font-size: 12px;
-      }
-  }
-
-  .success_content{
+    .success_content{
       text-align:justify;
   }
 
@@ -1376,5 +1346,114 @@ padding-left: 200px;
   .modal-open .navbar-fixed-top, 
   .modal-open .navbar-fixed-bottom {
       margin-right: 14px;
+  }
+}
+
+/*optimze banner*/
+header .container-fluid{
+  margin-top:50px;
+}
+
+
+@media (min-width: 1280px) and (max-width: 1600px) {
+  header .carousel-caption > .title-font{
+  font-size:70px;
+  line-height: 80px;
+  }
+  header .carousel-caption{
+  top:25%;
+  }
+  header .btn{
+  font-size:35px;
+  }
+  header .low-play a{
+  margin-top:50px;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1279px) {
+  header .carousel-caption > .title-font
+  {
+  font-size:50px;
+  line-height: 55px;
+  }
+  header .carousel-caption{
+  top:20%;
+  }
+  header .btn
+  {
+  font-size:25px;
+  }
+  header .low-play a{
+  margin-top:80px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 899px) {
+  header .carousel-caption > .title-font
+  {
+  font-size:50px;
+  line-height: 55px;
+  }
+  header .carousel-caption{
+  top:20%;
+  }
+  header .btn
+  {
+  font-size:25px;
+  }
+  header .low-play a{
+  margin-top:30px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 767px) {
+  header .carousel-caption > .title-font
+  {
+  font-size:33px;
+  line-height: 40px;
+  }
+  header .carousel-caption{
+  top:5%;
+  }
+  header .btn
+  {
+  font-size:20px;
+  }
+  header .low-play a{
+  margin-top:20px;
+  }
+}
+
+@media (min-width:400px) and (max-width: 499px) {
+  header .carousel-caption{
+  top:5%;
+  }
+  
+  header .carousel-caption > .title-font
+  {
+  font-size:25px;
+  line-height: 30px;
+  margin-bottom:15px;
+  }
+  header .btn
+  {
+  font-size:10px;
+  }
+}
+@media (max-width: 399px) {
+  header .carousel-caption{
+  top:-5%;
+  }
+  
+  header .carousel-caption > .title-font
+  {
+  font-size:25px;
+  line-height: 30px;
+  margin-bottom:10px;
+  }
+  header .btn
+  {
+  font-size:10px;
   }
 }
