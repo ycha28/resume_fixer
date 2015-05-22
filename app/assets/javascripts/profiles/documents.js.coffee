@@ -40,16 +40,5 @@ $(document).ready ->
   $('#upload-modal').on('show.bs.modal', (event) ->
     link = $(event.relatedTarget)
     document_id = link.data('document-id')
-    
     $('.change-file-form').prop('action', '/profile/documents/' + document_id)
-    $('.change-file-form').submit (event) =>
-      event.preventDefault()
-
-      $.ajax
-        url: '/profile/documents/' + document_id
-        data: $('.change-file-form').serialize()
-        type: 'PUT'
-        dataType: 'json'
-        success: (response) ->
-          debugger
   )

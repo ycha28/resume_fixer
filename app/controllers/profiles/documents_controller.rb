@@ -24,11 +24,11 @@ module Profiles
     end
 
     def update
-      binding.pry
       @document = current_user.documents.find(params[:id])
       
-      @document.update(document_params)
-      respond_with @document
+      if @document.update(document_params)
+        redirect_to profile_documents_path
+      end
     end 
 
     def download
