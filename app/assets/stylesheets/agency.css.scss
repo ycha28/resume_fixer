@@ -780,6 +780,7 @@ body.index {
       text-transform: none;
       font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
       line-height: 40px;
+      color: #FFFFFF;
   }
 
   footer ul.quicklinks {
@@ -790,7 +791,7 @@ body.index {
       line-height: 40px;
 
       a {
-        color: #000000;
+        color: #FFFFFF;
       }
   }
 
@@ -1391,3 +1392,7 @@ padding-left: 200px;
   clear:both;
 }
 
+/*footer color change */
+.bg-black{
+ background-color: #000000; 
+}
