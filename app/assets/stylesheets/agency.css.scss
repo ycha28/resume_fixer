@@ -1391,3 +1391,17 @@ padding-left: 200px;
   clear:both;
 }
 
+/* logo optimization */
+@media (min-width:769px){
+.logo img{
+  min-height: 95px;
+  margin-top: -23px;
+}
+}
+
+@media (max-width:768px){
+.logo img{
+  min-height: 50px;
+  margin-top: 0px;
+}
+}
