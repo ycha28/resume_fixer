@@ -1386,8 +1386,13 @@ padding-left: 200px;
 }
 */
 
+/* shift collapse menu right*/
 .navbar-nav > li > a {
   float:right;
   clear:both;
 }
 
+.dropdown-menu > li > a {
+  float:right;
+  clear:both;
+}
