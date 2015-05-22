@@ -10,6 +10,15 @@ $(document).ready ->
         $(target).parent().parent().find('.submit').prop('disabled', true)
     )
 
+  $('#user_timezone').find('.submit').prop('disabled', true)
+  $('#user_timezone').change (event) ->
+    target = event.currentTarget
+    if $(target).val() != settings['user_timezone']
+      $(target).parent().parent().find('.submit').prop('disabled', false)
+    else
+      $(target).parent().parent().find('.submit').prop('disabled', true)
+
+
   $('.edit_user').submit (event) ->
     form = $(event.currentTarget)
     unless form.find('.disabled').length > 0    
