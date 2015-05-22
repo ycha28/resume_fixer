@@ -47,7 +47,7 @@ module Profiles
     end
 
     def document_params
-      params.require(:document).permit(:text_file).merge(content_type: text_file.content_type, original_filename: text_file.original_filename)
+      params.require(:document).permit(:text_file, :description).merge(content_type: text_file.content_type, original_filename: text_file.original_filename)
     end
 
     def submission_document_params

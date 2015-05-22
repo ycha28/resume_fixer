@@ -42,3 +42,7 @@ $(document).ready ->
     document_id = link.data('document-id')
     $('.change-file-form').prop('action', '/profile/documents/' + document_id)
   )
+
+  $('#document_text_file').change (event) ->
+    template = "<textarea id='document_description' name='document[description]' placeholder='Add description of new file'></textarea>"
+    $('#change-file-description').html(template)
