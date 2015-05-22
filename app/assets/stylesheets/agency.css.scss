@@ -953,12 +953,7 @@ body.index {
       padding-bottom:0px;
   }
 
-  .logo img{
-      max-height:100%;
-      max-width:none;
-  }
-
-  .services-padding{
+   .services-padding{
       padding-left: 80px;
       line-height:1.75;
       font-weight: bold;
@@ -1377,4 +1372,18 @@ padding-left: 200px;
   .modal-open .navbar-fixed-bottom {
       margin-right: 14px;
   }
+}
+
+/* logo optimization */
+@media (min-width:769px){
+#page-top .logo img{
+  min-height: 95px;
+  margin-top: -23px;
+}
+}
+@media (max-width:768px){
+#page-top .logo img{
+  min-height: 50px;
+  margin-top: -0px;
+}
 }
