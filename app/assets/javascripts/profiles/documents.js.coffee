@@ -28,7 +28,7 @@ $(document).ready ->
     $('#price').html("<p><strong>Price:</strong> $#{price}</p>")
 
     if user_comments
-      $('#user-comments').html("<h5>Your Comments</h5><p>#{user_comments}</p>")
+      $('#user-comments').html("<h5><strong>Your Comments:</strong></h5><p>#{user_comments}</p>")
     
     if editor_comments
       $('#editor-comments').html("<h5>Editor Comments</h5><p>#{editor_comments}</p>")
