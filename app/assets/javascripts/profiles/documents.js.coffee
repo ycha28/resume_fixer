@@ -44,5 +44,15 @@ $(document).ready ->
   )
 
   $('#document_text_file').change (event) ->
-    template = "<textarea id='document_description' name='document[description]' placeholder='Add description of new file'></textarea>"
+    template = "<div class='form-group'>
+                  <label for='document_description'>Document Description</label>
+                  <textarea id='document_description' class='form-control' name='document[description]' placeholder='Add description of new file'></textarea>
+                </div>"
     $('#change-file-description').html(template)
+    $('.confirm').prop('disabled', false)
+
+  $('#upload-modal').on('hide.bs.modal', (event) ->
+    $('#change-file-description').html('')
+    $('#document_text_file').val('')
+    $('.confirm').prop('disabled', true)
+  )

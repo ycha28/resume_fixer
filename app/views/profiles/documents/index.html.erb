@@ -76,12 +76,14 @@
         <p><strong>NOTE:</strong> You may replace this document as long as the status is NOT “In Editing” or “Complete.” </p>
         <p><strong>NOTE:</strong> You may only substitute documents of the same type: cover letter for another cover letter, resume for another resume, or essay for another essay. If you replace with a mismatching document type, we will not edit it. We will issue an automatic refund for that document.</p>
         <%= form_for :document, url: profile_document_path(1), method: :put, :html => {:class => 'change-file-form'} do |f| %>
-          <%= f.label :text_file %>
-          <%= f.file_field :text_file %>
+          <div class='form-group'>
+            <label for='document_text_file'>Select New Document</label>
+            <%= f.file_field :text_file %>
+          </div>
 
           <div id='change-file-description'></div>
 
-          <%= f.submit "Confirm", class: 'btn btn-primary' %>
+          <%= f.submit "Confirm", class: 'btn btn-primary confirm', :disabled => true %>
         <% end %>
       </div>
       <div class="modal-footer">
