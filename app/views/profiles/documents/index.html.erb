@@ -77,7 +77,6 @@
         <p><strong>NOTE:</strong> You may only substitute documents of the same type: cover letter for another cover letter, resume for another resume, or essay for another essay. If you replace with a mismatching document type, we will not edit it. We will issue an automatic refund for that document.</p>
         <%= form_for :document, url: profile_document_path(1), method: :put, :html => {:class => 'change-file-form'} do |f| %>
           <div class='form-group'>
-            <label for='document_text_file'>Select New Document</label>
             <%= f.file_field :text_file %>
           </div>
 
