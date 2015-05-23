@@ -1,4 +1,6 @@
 class Document < ActiveRecord::Base
+  include ActionView::Helpers::TextHelper
+
   mount_uploader :text_file, TextFileUploader
   belongs_to :user
   belongs_to :submission
@@ -7,6 +9,8 @@ class Document < ActiveRecord::Base
 
   validates_presence_of :text_file
   validates_presence_of :type
+
+  before_save :format_description
 
   def formatted_type
     self.class.name.underscore.split('/').last
@@ -21,6 +25,14 @@ class Document < ActiveRecord::Base
       self.original_filename.sub(/(.{20})(.*)/, '\1') + '...'
     else
       original_filename
+    end
+  end
+
+  private
+
+  def format_description
+    if description.present?
+      self.description = simple_format(description)
     end
   end
 end
