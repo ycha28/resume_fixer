@@ -34,9 +34,14 @@ $(document).ready ->
 
           if $('.alert').length > 0
             $('.alert').remove()
-            $('h1.user_settings').after(template)          
+            $('h1.user_settings').after(template)
           else
             $('h1.user_settings').after(template)
+
+          form.find('.submit').prop('disabled', true)
+          field_id = form.find('.form-control').prop('id')
+          field_value = form.find('.form-control').val()
+          settings[field_id] = field_value
         error: (response) ->
           template = "<div class='alert alert-danger'> Your submission returned the following errors: #{response.responseText}.</div>"
 
