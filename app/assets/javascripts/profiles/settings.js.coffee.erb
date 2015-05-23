@@ -10,7 +10,7 @@ $(document).ready ->
         $(target).parent().parent().find('.submit').prop('disabled', true)
     )
 
-  $('#user_timezone').find('.submit').prop('disabled', true)
+  $('#user_timezone').parent().parent().find('.submit').prop('disabled', true)
   $('#user_timezone').change (event) ->
     target = event.currentTarget
     if $(target).val() != settings['user_timezone']
