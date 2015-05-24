@@ -987,16 +987,6 @@ body.index {
       max-height:600px;
   }
 
-  .carousel-caption{
-      position: absolute;
-      left: 20%;
-      right:20%;
-      top: 25%;
-      bottom: 20%;
-  }
-
-
-
   .title-font {
       margin-bottom: 30px;
       font-family: Tahoma, Verdana, Segoe, sans-serif;
@@ -1395,4 +1385,115 @@ padding-left: 200px;
 /*footer color change */
 .bg-black{
  background-color: #000000; 
+
+/*optimze banner*/
+header .container-fluid{
+  margin-top:50px;
+}
+
+
+@media (min-width: 1280px) and (max-width: 1600px) {
+  header .carousel-caption > .title-font{
+  font-size:70px;
+  line-height: 80px;
+  }
+  header .carousel-caption{
+  top:25%;
+  }
+  header .btn{
+  font-size:35px;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1279px) {
+  header .carousel-caption > .title-font
+  {
+  font-size:50px;
+  line-height: 55px;
+  }
+  header .carousel-caption{
+  top:20%;
+  }
+  header .btn
+  {
+  font-size:25px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 899px) {
+  header .carousel-caption > .title-font
+  {
+  font-size:50px;
+  line-height: 55px;
+  }
+  header .carousel-caption{
+  top:20%;
+  }
+  header .btn
+  {
+  font-size:25px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 767px) {
+  header .carousel-caption > .title-font
+  {
+  font-size:33px;
+  line-height: 40px;
+  }
+  header .carousel-caption{
+  top:20%;
+  }
+  header .btn
+  {
+  font-size:20px;
+  }
+}
+
+@media (min-width:400px) and (max-width: 499px) {
+  header .carousel-caption{
+  top:5%;
+  }
+  
+  header .carousel-caption > .title-font
+  {
+  font-size:25px;
+  line-height: 30px;
+  margin-bottom:15px;
+  }
+  header .btn
+  {
+  font-size:10px;
+  }
+}
+@media (max-width: 399px) {
+  header .carousel-caption{
+  top:0%;
+  }
+  
+  header .carousel-caption > .title-font
+  {
+  font-size:25px;
+  line-height: 30px;
+  margin-bottom:10px;
+  }
+  header .btn
+  {
+  font-size:10px;
+  }
+
+/* logo optimization */
+@media (min-width:769px){
+.logo img{
+  min-height: 95px;
+  margin-top: -23px;
+}
+}
+
+@media (max-width:768px){
+.logo img{
+  min-height: 50px;
+  margin-top: 0px;
+}
+
 }

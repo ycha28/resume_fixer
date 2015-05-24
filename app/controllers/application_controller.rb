@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << [:name, :phone_number]
+    devise_parameter_sanitizer.for(:sign_up) << [:name, :phone_number, :timezone]
   end
 
   def flash_keys_present?
