@@ -1367,16 +1367,7 @@ padding-left: 200px;
   margin-bottom:25px;
 }
 
-/*change modal shift
-
-@media (min-width: 992px) {
-  body.modal-open, 
- .modal-open .navbar {
-      margin-right: 15px;
-  }
-}
-*/
-
+/*navbar right align*/
 .navbar-nav > li > a {
   float:right;
   clear:both;
@@ -1384,54 +1375,55 @@ padding-left: 200px;
 
 /*footer color change */
 .bg-black{
- background-color: #000000; 
+ background-color: #000000;
+}
 
 /*optimze banner*/
-header .container-fluid{
+header .container-fluid {
   margin-top:50px;
 }
 
 
 @media (min-width: 1280px) and (max-width: 1600px) {
   header .carousel-caption > .title-font{
-  font-size:70px;
-  line-height: 80px;
+    font-size:70px;
+    line-height: 80px;
   }
   header .carousel-caption{
-  top:25%;
+    top:25%;
   }
   header .btn{
-  font-size:35px;
+    font-size:35px;
   }
 }
 
 @media (min-width: 900px) and (max-width: 1279px) {
   header .carousel-caption > .title-font
   {
-  font-size:50px;
-  line-height: 55px;
+    font-size:50px;
+    line-height: 55px;
   }
   header .carousel-caption{
-  top:20%;
+    top:20%;
   }
   header .btn
   {
-  font-size:25px;
+    font-size:25px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 899px) {
   header .carousel-caption > .title-font
   {
-  font-size:50px;
-  line-height: 55px;
+    font-size:50px;
+    line-height: 55px;
   }
   header .carousel-caption{
-  top:20%;
+    top:20%;
   }
   header .btn
   {
-  font-size:25px;
+    font-size:25px;
   }
 }
 
@@ -1466,34 +1458,37 @@ header .container-fluid{
   font-size:10px;
   }
 }
+
 @media (max-width: 399px) {
   header .carousel-caption{
-  top:0%;
+    top:0%;
   }
   
   header .carousel-caption > .title-font
   {
-  font-size:25px;
-  line-height: 30px;
-  margin-bottom:10px;
+    font-size:25px;
+    line-height: 30px;
+    margin-bottom:10px;
   }
   header .btn
   {
-  font-size:10px;
+    font-size:10px;
   }
+}
+
 
 /* logo optimization */
 @media (min-width:769px){
-.logo img{
-  min-height: 95px;
-  margin-top: -23px;
-}
+  .logo img{
+    min-height: 95px;
+    margin-top: -23px;
+  }
 }
 
 @media (max-width:768px){
-.logo img{
-  min-height: 50px;
-  margin-top: 0px;
+  .logo img{
+    min-height: 50px;
+    margin-top: 0px;
+  }
 }
 
-}
