@@ -28,11 +28,31 @@ $(document).ready ->
     $('#price').html("<p><strong>Price:</strong> $#{price}</p>")
 
     if user_comments
-      $('#user-comments').html("<h5>Your Comments</h5><p>#{user_comments}</p>")
+      $('#user-comments').html("<h5><strong>Your Comments:</strong></h5><p>#{user_comments}</p>")
     
     if editor_comments
       $('#editor-comments').html("<h5>Editor Comments</h5><p>#{editor_comments}</p>")
     
     if user_comments == '' and editor_comments == ''
       $('#user-comments').html("<p>No comments available!</p>")
+  )
+
+  $('#upload-modal').on('show.bs.modal', (event) ->
+    link = $(event.relatedTarget)
+    document_id = link.data('document-id')
+    $('.change-file-form').prop('action', '/profile/documents/' + document_id)
+  )
+
+  $('#document_text_file').change (event) ->
+    template = "<div class='form-group'>
+                  <label for='document_description'>Document Description</label>
+                  <textarea id='document_description' class='form-control' name='document[description]' placeholder='Add description of new file'></textarea>
+                </div>"
+    $('#change-file-description').html(template)
+    $('.confirm').prop('disabled', false)
+
+  $('#upload-modal').on('hide.bs.modal', (event) ->
+    $('#change-file-description').html('')
+    $('#document_text_file').val('')
+    $('.confirm').prop('disabled', true)
   )

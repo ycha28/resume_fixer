@@ -1,7 +1,7 @@
 module Profiles
   class DocumentsController < AuthenticationController
     layout 'profiles'
-    respond_to :json, :only => [:create, :destroy]
+    respond_to :json, :only => [:create, :destroy, :update]
     before_filter :sanitize_document_type, :only => [:create]
 
     def index
@@ -9,7 +9,7 @@ module Profiles
     end
 
     def create
-      @document = current_user.documents.create(document_params)
+      @document = current_user.documents.create(submission_document_params)
       respond_with @document
     end
 
@@ -23,6 +23,14 @@ module Profiles
       end
     end
 
+    def update
+      @document = current_user.documents.find(params[:id])
+      
+      if @document.update(document_params)
+        redirect_to profile_documents_path
+      end
+    end 
+
     def download
       @document = current_user.documents.find(params[:id])
       tempfile = Tempfile.new [SecureRandom.hex, @document.text_file_url.split('.').last], "#{Rails.root}/tmp"
@@ -35,10 +43,14 @@ module Profiles
     private
 
     def text_file
-      params[:text_file]
+      params[:text_file] || params[:document][:text_file]
     end
 
     def document_params
+      params.require(:document).permit(:text_file, :description).merge(content_type: text_file.content_type, original_filename: text_file.original_filename)
+    end
+
+    def submission_document_params
       params.permit(:text_file, :type).merge(content_type: text_file.content_type, original_filename: text_file.original_filename)
     end
 

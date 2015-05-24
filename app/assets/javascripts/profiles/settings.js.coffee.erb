@@ -10,6 +10,15 @@ $(document).ready ->
         $(target).parent().parent().find('.submit').prop('disabled', true)
     )
 
+  $('#user_timezone').parent().parent().find('.submit').prop('disabled', true)
+  $('#user_timezone').change (event) ->
+    target = event.currentTarget
+    if $(target).val() != settings['user_timezone']
+      $(target).parent().parent().find('.submit').prop('disabled', false)
+    else
+      $(target).parent().parent().find('.submit').prop('disabled', true)
+
+
   $('.edit_user').submit (event) ->
     form = $(event.currentTarget)
     unless form.find('.disabled').length > 0    
@@ -25,9 +34,14 @@ $(document).ready ->
 
           if $('.alert').length > 0
             $('.alert').remove()
-            $('h1.user_settings').after(template)          
+            $('h1.user_settings').after(template)
           else
             $('h1.user_settings').after(template)
+
+          form.find('.submit').prop('disabled', true)
+          field_id = form.find('.form-control').prop('id')
+          field_value = form.find('.form-control').val()
+          settings[field_id] = field_value
         error: (response) ->
           template = "<div class='alert alert-danger'> Your submission returned the following errors: #{response.responseText}.</div>"
 
