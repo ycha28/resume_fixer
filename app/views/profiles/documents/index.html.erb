@@ -20,11 +20,11 @@
           <tr>
             <td><%= document.formatted_created_at %></td>
             <td>
-              <%= link_to document.formatted_filename, '#', :data => {:toggle => 'modal', :target => '#preview-modal', :url => "https://docs.google.com/gview?url=#{document.text_file_url}&embedded=true", :title => document.original_filename} %>
               <% if document.status == 'matching' %>
-                <a href='#' data-toggle='modal' data-target='#upload-modal' data-document-id="<%= document.id %>"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></a>
+                <a href='#' data-toggle='modal' data-target='#upload-modal' data-document-id="<%= document.id %>"><i class="fa fa-refresh" aria-hidden="true"></i></a>
               <% end %>
-            </td>
+              <%= link_to document.formatted_filename, '#', :data => {:toggle => 'modal', :target => '#preview-modal', :url => "https://docs.google.com/gview?url=#{document.text_file_url}&embedded=true", :title => document.original_filename} %>
+              </td>
             <td>
               <%= document.status.capitalize %>
               <% if document.status == 'complete' %>
