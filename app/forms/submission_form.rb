@@ -30,7 +30,7 @@ class SubmissionForm
   end
 
   def customer
-    Stripe::Customer.create(
+    @customer ||= Stripe::Customer.create(
       email: user.email,
       card: card
     )

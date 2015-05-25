@@ -167,6 +167,11 @@ $(document).ready ->
   # Stripe 
   handler = StripeCheckout.configure
     key: "<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
+    token: (token) ->
+      $.ajax
+        type: 'POST'
+        url: '/profile/submissions'
+        data: $('.new_submission').serialize() + '&stripeToken=' + token.id
 
   $('#submit_payment').click (e) ->
     handler.open
