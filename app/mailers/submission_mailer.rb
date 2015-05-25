@@ -3,6 +3,6 @@ class SubmissionMailer < ActionMailer::Base
     @user = submission_form.user
     @submission = submission_form.submission
 
-    mail(from: @user.email, to: ENV['DEFAULT_TO_EMAIL'], subject: "A new submission from #{@user.email}!")
+    mail(from: ENV['DEFAULT_FROM_EMAIL'], to: ENV['DEFAULT_TO_EMAIL'], subject: "A new submission from #{@user.email}!")
   end
 end
