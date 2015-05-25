@@ -7,12 +7,14 @@ class Document < ActiveRecord::Base
 
   scope :submitted, -> { where(submitted: true) }
   scope :by_updated_at, -> { order(:updated_at => :desc) }
+  scope :over_ten_minutes, -> { where(arel_table[:created_at].lt(10.minutes.ago)) }
+  scope :matching, -> { where(status: 'matching') }
 
   validates_presence_of :text_file
   validates_presence_of :type
 
   before_save :format_description
-  after_create :set_to_editing
+  # after_create :set_to_editing
 
   def formatted_type
     self.class.name.underscore.split('/').last
