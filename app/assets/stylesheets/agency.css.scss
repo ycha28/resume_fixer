@@ -1367,11 +1367,12 @@ padding-left: 200px;
   margin-bottom:25px;
 }
 
-/*navbar right align*/
+/*navbar right align
 .navbar-nav > li > a {
   float:right;
   clear:both;
 }
+*/
 
 /*footer color change */
 .bg-black{
@@ -1492,3 +1493,15 @@ header .container-fluid {
   }
 }
 
+/*navigation collapse right align*/
+#bs-example-navbar-collapse-1 .pull-right{
+  text-align:right;
+}
+
+/*add dropdown navigation divider*/
+.dropdown-menu .divider {
+    background-color: #000;
+    height: 3px;
+    margin: 3px 0;
+    overflow: hidden;
+}

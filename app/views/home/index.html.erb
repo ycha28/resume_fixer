@@ -19,15 +19,12 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right pull-right">
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
                 <li>
                     <a class="page-scroll nav-link" href="#services">Services</a>
-                </li>
-                <li>
-                    <a class="page-scroll nav-link" href="#before">Before & After</a>
                 </li>
                 <li>
                     <a class="page-scroll nav-link" href="#process">Process</a>
@@ -38,9 +35,7 @@
                 <li>
                     <a class="page-scroll nav-link" href="#team">Team</a>
                 </li>
-                <li>
-                    <a class="page-scroll nav-link" href="#ourstory">Story</a>
-                </li>
+                  
                 <% if signed_in? %>
                   <li>
                     <%= link_to "Documents", profile_documents_path, :class => 'nav-link' %>
@@ -50,8 +45,9 @@
                     Profile <span class='caret'></span>
                     </a>
                   <ul class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'>
-                    <li role="presentation"><%= link_to "Settings", edit_profile_path %></li>
-                    <li role="presentation"><%= link_to 'Log out', destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1" %>
+                    <li role="presentation" class="text-center"><%= link_to "Settings", edit_profile_path %></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation" class="text-center"><%= link_to 'Log out', destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1" %>
                   </li>
                 <% else %>
                   <li>
@@ -408,6 +404,42 @@
   </div>
 </section>
 
+<!-- success stories Aside -->
+<section id="success_story" class="clients bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Success Stories</h2>
+                <h3 class="section-subheading text-muted"><strong>Results Speak Loudly.</strong></h3>
+            </div>
+            <div class="col-md-3 col-sm-6 portfolio-example">
+                    <%= image_tag "logos/Wei1.jpg", class: "img-responsive img-circle" %>
+                <h4>Wei Liu</h4>
+                <p class="text-muted" align="justify"><br><i>"I sent my cover letters to BeamDox and got them back the next day. The quality is superb and the editors are fast. My cover letters got a lot of attention during my summer internship recruiting. They were differentiated from cookie-cutter templates and boilerplate formats."</i>
+                <p class="text-muted" align="right"><strong>~ Wharton, MBA 2016</strong></p>
+            </div>
+            <div class="col-md-3 col-sm-6 portfolio-example">
+                    <%= image_tag "logos/Maria1.jpg", class: "img-responsive img-circle" %>
+                <h4>Maria Gonzalez</h4>
+                <p class="text-muted" align="justify"><br><i>"What made BeamDox useful was that the editing was tailored for me. The editors understand my needs and helped to make revisions that were highly personalized. BeamDox made my resume stand out in terms of structure and clarity. Recruiters complimented my resume."</i>
+                <p class="text-muted" align="right"><strong>~ MIT Sloan, MBA 2015</strong></p>
+            </div>
+            <div class="col-md-3 col-sm-6 portfolio-example">
+                <%= image_tag "logos/Aaron1.jpg", class: "img-responsive img-circle" %>
+                <h4>Aaron Wilkinson</h4>
+                <p class="text-muted" align="justify"><br><i>"I thought my resume was decent until I submitted to BeamDox. The service helped me to understand that my resume shouldn't be a laundry list of achievements. Instead, the editors designed a cohesive structure of accomplishments that was compelling for the position I was applying to.</i>
+                <p class="text-muted" align="right"><strong>~ Stanford GSB, MBA 2016</strong></p>
+            </div>
+            <div class="col-md-3 col-sm-6 portfolio-example">
+                <%= image_tag "logos/Serena1.jpg", class: "img-responsive img-circle" %>
+                <h4>Serena Grieves</h4>
+                <p class="text-muted" align="justify"><br><i>"I was applying to HBS and needed some critical feedback on my application essay. I turned in a draft to BeamDox, and received a very granular edit. They went beyond grammar, vocabulary, sentence structure, etc. Beamdox helped me to build a narrative to truly reflect my story."</i>
+                <p class="text-muted" align="right"><strong>~ HBS, MBA 2017</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Team Section -->
 <section id="team">
     <div class="container">
@@ -456,45 +488,11 @@
     </div>
 </section>
 
-<!-- Clients Aside -->
-<section id="success_story" class="clients bg-light-gray">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Success Stories</h2>
-                <h3 class="section-subheading text-muted"><strong>Results Speak Loudly.</strong></h3>
-            </div>
-            <div class="col-md-3 col-sm-6 portfolio-example">
-                    <%= image_tag "logos/Wei1.jpg", class: "img-responsive img-circle" %>
-                <h4>Wei Liu</h4>
-                <p class="text-muted" align="justify"><br><i>"I sent my cover letters to BeamDox and got them back the next day. The quality is superb and the editors are fast. My cover letters got a lot of attention during my summer internship recruiting. They were differentiated from cookie-cutter templates and boilerplate formats."</i>
-                <p class="text-muted" align="right"><strong>~ Wharton, MBA 2016</strong></p>
-            </div>
-            <div class="col-md-3 col-sm-6 portfolio-example">
-                    <%= image_tag "logos/Maria1.jpg", class: "img-responsive img-circle" %>
-                <h4>Maria Gonzalez</h4>
-                <p class="text-muted" align="justify"><br><i>"What made BeamDox useful was that the editing was tailored for me. The editors understand my needs and helped to make revisions that were highly personalized. BeamDox made my resume stand out in terms of structure and clarity. Recruiters complimented my resume."</i>
-                <p class="text-muted" align="right"><strong>~ MIT Sloan, MBA 2015</strong></p>
-            </div>
-            <div class="col-md-3 col-sm-6 portfolio-example">
-                <%= image_tag "logos/Aaron1.jpg", class: "img-responsive img-circle" %>
-                <h4>Aaron Wilkinson</h4>
-                <p class="text-muted" align="justify"><br><i>"I thought my resume was decent until I submitted to BeamDox. The service helped me to understand that my resume shouldn't be a laundry list of achievements. Instead, the editors designed a cohesive structure of accomplishments that was compelling for the position I was applying to.</i>
-                <p class="text-muted" align="right"><strong>~ Stanford GSB, MBA 2016</strong></p>
-            </div>
-            <div class="col-md-3 col-sm-6 portfolio-example">
-                <%= image_tag "logos/Serena1.jpg", class: "img-responsive img-circle" %>
-                <h4>Serena Grieves</h4>
-                <p class="text-muted" align="justify"><br><i>"I was applying to HBS and needed some critical feedback on my application essay. I turned in a draft to BeamDox, and received a very granular edit. They went beyond grammar, vocabulary, sentence structure, etc. Beamdox helped me to build a narrative to truly reflect my story."</i>
-                <p class="text-muted" align="right"><strong>~ HBS, MBA 2017</strong></p>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <!--timeline-->
 
-<section id="ourstory">
+<section id="ourstory" class="bg-light-gray">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
