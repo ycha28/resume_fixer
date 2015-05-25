@@ -12,6 +12,7 @@ class Document < ActiveRecord::Base
   validates_presence_of :type
 
   before_save :format_description
+  after_create :set_to_editing
 
   def formatted_type
     self.class.name.underscore.split('/').last
@@ -35,5 +36,9 @@ class Document < ActiveRecord::Base
     if description.present?
       self.description = simple_format(description)
     end
+  end
+
+  def set_to_editing
+    Documents::ChangeStatusWorker.perform_at(1.minute.from_now, id, 'editing')
   end
 end

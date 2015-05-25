@@ -40,6 +40,10 @@ gem 'omniauth-facebook'
 gem 'activeadmin', github: 'activeadmin'
 gem 'responders'
 gem 'jquery-easing-rails'
+gem 'sidekiq'
+gem 'puma'
+gem 'foreman'
+gem 'sinatra'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
