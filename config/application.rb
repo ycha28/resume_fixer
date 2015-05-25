@@ -20,5 +20,7 @@ module ResumeFixer
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.stripe.secret_key = ENV['STRIPE_SECRET_KEY']
+    config.stripe.publishable_key = ENV['STRIPE_PUBLISHABLE_KEY']
   end
 end

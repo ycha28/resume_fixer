@@ -9,7 +9,7 @@
 
   <%= file_field_tag 'text_file', multiple: true, type: :file, class: 'document' %>
 
-  <%= form_for @submission, url: profile_submissions_path, multipart: true do |f| %>
+  <%= form_for @submission, url: profile_submissions_path, multipart: true, :html => {:id => 'payment_form'} do |f| %>
     <div class='selected_documents_container well'>
       <div class='selected_documents'>
         <h4 class='text-center'>Selected Documents</h4>
@@ -43,12 +43,10 @@
       </label>
     </div>
     <div class='text-center' style="margin-top:10px">
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-description="Submit Documents"
-              data-label="Submit &amp Pay"></script>
+      <%= f.submit "Submit & Pay", :id => 'submit_payment' %>
     </div>
   <% end %>  
 </section>
 
+<script src="https://checkout.stripe.com/checkout.js"></script>
 <% provide(:title, "New Submission") %>

@@ -44,6 +44,7 @@ gem 'sidekiq'
 gem 'puma'
 gem 'foreman'
 gem 'sinatra'
+gem 'stripe-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

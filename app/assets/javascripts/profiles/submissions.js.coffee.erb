@@ -1,4 +1,5 @@
 $(document).ready ->
+  existing_price = 0
   STYLE_SETTING = 'style="width:50px;height:50px;margin-bottom:0px;margin-top:0px"'
   layout_templates = {
     main1: '{preview}\n' +
@@ -42,7 +43,7 @@ $(document).ready ->
   }
 
   # Disable stripe button on load
-  $('.stripe-button-el').prop('disabled', true)
+  $('#submit_payment').prop('disabled', true)
 
   $('.document').fileinput({
     'showUpload': false, 
@@ -119,12 +120,12 @@ $(document).ready ->
     $('.documents_list').append(template)
 
     # Set price
-    existing_price = parseInt($('#total_price').text())
-    $('#total_price').text(existing_price + price)
+    existing_price += price
+    $('#total_price').text(existing_price)
 
     # Check if submission is ready
     if $('.accept-checkbox').prop('checked')
-      $('.stripe-button-el').prop('disabled', false)
+      $('#submit_payment').prop('disabled', false)
 
     $("#destroy_document_#{id}").click( (event) ->
       event.preventDefault()
@@ -142,11 +143,11 @@ $(document).ready ->
                     when 'Essay' then 250
 
           created_document.remove()
-          existing_price = parseInt($('#total_price').text())
-          $('#total_price').text(existing_price - price)  
+          existing_price -= price
+          $('#total_price').text(existing_price)  
 
           if $('.documents_list').children().length == 0
-            $('.stripe-button-el').prop('disabled', true)
+            $('#submit_payment').prop('disabled', true)
     )
   )
 
@@ -158,7 +159,25 @@ $(document).ready ->
 
   $('.accept-checkbox').change((event) ->
     if $(event.currentTarget).prop('checked') and $('.documents_list').children().length > 0
-      $('.stripe-button-el').prop('disabled', false)
+      $('#submit_payment').prop('disabled', false)
     else
-      $('.stripe-button-el').prop('disabled', true)
+      $('#submit_payment').prop('disabled', true)
   )      
+
+  # Stripe 
+  handler = StripeCheckout.configure
+    key: "<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>",
+    token: (token) ->
+      debugger
+
+  $('#submit_payment').click (e) ->
+    handler.open
+      name: 'Submit Documents',
+      amount: existing_price * 100,
+      email: window.config.current_user_email
+
+    e.preventDefault()
+
+  $(window).on('popstate', ->
+    handler.close()
+  )

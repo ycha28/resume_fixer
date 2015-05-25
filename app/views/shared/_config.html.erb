@@ -1,0 +1,4 @@
+<%= javascript_tag :id => "app_config" do %>
+  var frontend_config = <%= raw frontend_config.to_json %>
+  window.config = frontend_config
+<% end %>
