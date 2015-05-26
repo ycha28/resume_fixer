@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_customer?
+    customer_id.present?
+  end
+
   private
 
   def check_time_zone

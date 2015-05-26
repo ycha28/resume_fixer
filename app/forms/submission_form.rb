@@ -65,7 +65,7 @@ class SubmissionForm
     ActiveRecord::Base.transaction do
       create_submission
       charge
-      update_customer unless user.customer_id.present?
+      update_customer unless user.is_customer?
       SubmissionMailer.submit_documents(self).deliver!
     end
   end

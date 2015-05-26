@@ -43,7 +43,7 @@ $(document).ready ->
   }
 
   # Disable stripe button on load
-  $('#submit_payment').prop('disabled', true)
+  $('#submit_button').prop('disabled', true)
 
   $('.document').fileinput({
     'showUpload': false, 
@@ -125,7 +125,7 @@ $(document).ready ->
 
     # Check if submission is ready
     if $('.accept-checkbox').prop('checked')
-      $('#submit_payment').prop('disabled', false)
+      $('#submit_button').prop('disabled', false)
 
     $("#destroy_document_#{id}").click( (event) ->
       event.preventDefault()
@@ -147,7 +147,7 @@ $(document).ready ->
           $('#total_price').text(existing_price)  
 
           if $('.documents_list').children().length == 0
-            $('#submit_payment').prop('disabled', true)
+            $('#submit_button').prop('disabled', true)
     )
   )
 
@@ -159,29 +159,34 @@ $(document).ready ->
 
   $('.accept-checkbox').change((event) ->
     if $(event.currentTarget).prop('checked') and $('.documents_list').children().length > 0
-      $('#submit_payment').prop('disabled', false)
+      $('#submit_button').prop('disabled', false)
     else
-      $('#submit_payment').prop('disabled', true)
+      $('#submit_button').prop('disabled', true)
   )      
 
   # Stripe 
-  handler = StripeCheckout.configure
-    key: "<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
-    token: (token) ->
-      $.ajax
-        type: 'POST'
-        url: '/profile/submissions'
-        data: $('.new_submission').serialize() + '&stripeToken=' + token.id
+  $('#submit_button').click (event) ->
+    event.preventDefault()
+    $('.payment-modal').modal()
 
-  $('#submit_payment').click (e) ->
-    handler.open
-      name: 'Submit Documents',
-      description: 'Accepts Visa, MasterCard, American Express, JCB, Discover, and Diners Club.',
-      amount: existing_price * 100,
-      email: window.config.current_user_email
+  $('#pay').click (event) ->
+    event.preventDefault()
+    $('.new_submission').submit()
 
-    e.preventDefault()
+  $('#payment-form').submit (event) ->
+    $form = $(@)
+    $form.find('button').prop('disabled', true)
 
-  $(window).on('popstate', ->
-    handler.close()
-  )
+    Stripe.card.createToken($form, stripeResponseHandler)
+    return false
+
+  stripeResponseHandler = (status, response) ->
+    if response.error
+      $form = $('#payment-form')
+      $form.find('.payment-errors').text(response.error.message)
+      $form.find('button').prop('disabled', false)
+    else
+      $form = $('.new_submission')
+      token = response.id
+      $form.append($('<input type="hidden" name="stripeToken" />').val(token))
+      $form.get(0).submit()
