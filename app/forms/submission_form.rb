@@ -30,10 +30,11 @@ class SubmissionForm
   end
 
   def customer
-    @customer ||= Stripe::Customer.create(
-      email: user.email,
-      card: card
-    )
+    @customer ||= if user.customer_id.present?
+      Stripe::Customer.retrieve(user.customer_id)
+    else
+      Stripe::Customer.create(email: user.email, card: card)
+    end
   end
 
   def charge
@@ -54,12 +55,17 @@ class SubmissionForm
     end
   end
 
+  def update_customer
+    user.update(customer_id: customer.id)
+  end
+
   private
 
   def persist!
     ActiveRecord::Base.transaction do
       create_submission
       charge
+      update_customer unless user.customer_id.present?
       SubmissionMailer.submit_documents(self).deliver!
     end
   end
