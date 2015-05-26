@@ -959,16 +959,10 @@ body.index {
       max-width:none;
   }
 
-#services .services-padding{
-      position: relative;
-      left: 50%;
-      line-height:1.75;
-      font-weight: bold;
-}
-#services .services-padding li{
-  width:300px;
-  position:relative;
-  right:120px;
+.services-padding{
+      padding-left: 80px;
+       line-height:1.75;
+       font-weight: bold;
 }
 
   .margin-auto{
@@ -1335,12 +1329,12 @@ padding-left: 200px;
   }
 }
 
-  #portfolio .portfolio-card {
+#portfolio .portfolio-card {
       margin: 0 auto;
       padding: 10px;
       background-color: #fff;
       max-width: 400px;
-  }
+}
 
 /* navigation bar double height problem solve */
 
@@ -1381,7 +1375,7 @@ padding-left: 200px;
 
 /*optimze banner*/
 header .container-fluid {
-  margin-top:50px;
+  padding-top:50px;
 }
 
 
