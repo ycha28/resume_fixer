@@ -1385,7 +1385,7 @@ header .container-fluid {
 }
 
 
-@media (min-width: 1280px) and (max-width: 1600px) {
+@media (min-width: 1280px){
   header .carousel-caption > .title-font{
     font-size:70px;
     line-height: 80px;
@@ -1416,15 +1416,15 @@ header .container-fluid {
 @media (min-width: 768px) and (max-width: 899px) {
   header .carousel-caption > .title-font
   {
-    font-size:50px;
-    line-height: 55px;
+    font-size:45px;
+    line-height: 50px;
   }
   header .carousel-caption{
     top:20%;
   }
   header .btn
   {
-    font-size:25px;
+    font-size:20px;
   }
 }
 
@@ -1435,7 +1435,7 @@ header .container-fluid {
   line-height: 40px;
   }
   header .carousel-caption{
-  top:20%;
+  top:15%;
   }
   header .btn
   {
@@ -1467,8 +1467,8 @@ header .container-fluid {
   
   header .carousel-caption > .title-font
   {
-    font-size:25px;
-    line-height: 30px;
+    font-size:15px;
+    line-height: 20px;
     margin-bottom:10px;
   }
   header .btn
