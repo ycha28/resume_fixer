@@ -959,18 +959,6 @@ body.index {
       max-width:none;
   }
 
-#services .services-padding{
-      position: relative;
-      left: 50%;
-      line-height:1.75;
-      font-weight: bold;
-}
-#services .services-padding li{
-  width:300px;
-  position:relative;
-  right:120px;
-}
-
   .margin-auto{
       margin:auto;
   }
@@ -1505,3 +1493,19 @@ header .container-fluid {
     margin: 3px 0;
     overflow: hidden;
 }
+
+/*align services description */
+
+#services .services-padding{
+      position: relative;
+      margin-left:50%;
+      line-height:1.75;
+      font-weight: bold;
+}
+
+#services .services-padding li{
+  width:300px;
+  position:relative;
+  right:120px;
+}
+
