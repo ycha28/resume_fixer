@@ -1498,15 +1498,26 @@ header .container-fluid {
 
 #services .services-padding{
       position: relative;
-      margin-left:50%;
       line-height:1.75;
       font-weight: bold;
 }
 
+@media(min-width:1201px){
 #services .services-padding li{
-  width:300px;
-  position:relative;
-  right:120px;
+  margin-left:20%;  
+  }
+}
+
+@media(min-width:500px) and (max-width:991px){
+#services .services-padding li{
+  margin-left:30%;  
+  }
+}
+
+@media (max-width:499px){
+#services .services-padding li{
+  margin-left:15%;  
+  }
 }
 
 .prices-center-align{
