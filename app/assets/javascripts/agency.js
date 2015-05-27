@@ -28,7 +28,7 @@ $(function() {
 
     // Closes the Responsive Menu on Click outside Menu
     $('body > *').not('nav').click(function() {
-        if(!$('button.navbar-toggle').hasClass('collapsed')) {
+        if($('.navbar-collapse').hasClass('in')) {
             $('.navbar-toggle:visible').click();
         }
     });
