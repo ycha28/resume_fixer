@@ -52,42 +52,60 @@
 <div class='modal fade payment-modal'>
   <div class='modal-dialog modal-sm'>
     <div class='modal-content'>
-      <div class='modal-header'>
-        <button type='button' class='close' data-dismiss='modal' aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class='modal-title text-center'>Submit Documents</h4>
-        <h5 class='modal-subtitle text-center'><%= current_user.email %></h5> 
-      </div>
-
-      <% if current_user.is_customer? %>
+      <form action="" method="POST" id='payment-form'>
+        <div class='modal-header'>
+          <button type='button' class='close' data-dismiss='modal' aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class='modal-title text-center'>Submit Documents</h4>
+          <h5 class='modal-subtitle text-center'><%= current_user.email %></h5> 
+        </div>        
         <div class='modal-body'>
-          <p>
-            Your credit card has already been registered. Click <%= link_to 'here', '#' %> to register another credit card.
-          </p>
-        </div>
-        <div class='modal-footer'>
-          <button class='btn btn-primary' id='pay'>Pay</button>
-        </div>
-      <% else %>
-        <div class='modal-body'>
-          <p>Accepts Visa, MasterCard, American Express, JCB, Discover, and Diners Club.</p>
-          <form action="" method="POST" id="payment-form">
-            <span class="payment-errors"></span>
+          <span class="payment-errors"></span>
+          <% if current_user.is_customer? %>
+            <p>
+              Your credit card has already been registered. Click <%= link_to 'here', '#', :id => 'expand_card_form' %> to register another credit card.
+            </p>
+            <div class='additional_card'>
+              <p>Accepts Visa, MasterCard, American Express, JCB, Discover, and Diners Club.</p>
+              <div class="form-row card_number">
+                <label>
+                  <span>Card Number</span>
+                  <input type="text" size="20" data-stripe="number"/>
+                </label>
+              </div>
 
-            <div class="form-row">
+              <div class="form-row card_cvc">
+                <label>
+                  <span>CVC</span>
+                  <input type="text" size="4" data-stripe="cvc"/>
+                </label>
+              </div>
+
+              <div class="form-row card_expr_date">
+                <label>
+                  <span>Expiration (MM/YYYY)</span>
+                  <input type="text" size="2" data-stripe="exp-month"/>
+                </label>
+                <span> / </span>
+                <input type="text" size="4" data-stripe="exp-year"/>
+              </div>
+            </div>
+          <% else %>
+            <p>Accepts Visa, MasterCard, American Express, JCB, Discover, and Diners Club.</p>
+            <div class="form-row card_number">
               <label>
                 <span>Card Number</span>
                 <input type="text" size="20" data-stripe="number"/>
               </label>
             </div>
 
-            <div class="form-row">
+            <div class="form-row card_cvc">
               <label>
                 <span>CVC</span>
                 <input type="text" size="4" data-stripe="cvc"/>
               </label>
             </div>
 
-            <div class="form-row">
+            <div class="form-row card_expr_date">
               <label>
                 <span>Expiration (MM/YYYY)</span>
                 <input type="text" size="2" data-stripe="exp-month"/>
@@ -95,12 +113,12 @@
               <span> / </span>
               <input type="text" size="4" data-stripe="exp-year"/>
             </div>
+          <% end %>
         </div>
         <div class='modal-footer'>
           <button type='submit' class='btn btn-primary'>Pay</button>
-          </form>
         </div>
-      <% end %>
+      </form>
     </div>
   </div>
 </div>

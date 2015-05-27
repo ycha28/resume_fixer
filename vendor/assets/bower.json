@@ -3,6 +3,9 @@
   "dependencies": {
     "bootstrap-fileinput": "latest",
     "bootstrap-validator": "latest",
-    "ekko-lightbox": "latest"
+    "ekko-lightbox": "latest",
+    "jquery.payment": "latest"
+  },
+  "resolutions": {
   }
 }

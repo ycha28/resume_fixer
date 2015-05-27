@@ -4,3 +4,4 @@
 asset 'bootstrap-fileinput'
 asset 'bootstrap-validator'
 asset 'ekko-lightbox'
+asset 'jquery.payment'

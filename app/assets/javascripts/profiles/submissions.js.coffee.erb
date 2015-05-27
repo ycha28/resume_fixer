@@ -169,16 +169,21 @@ $(document).ready ->
     event.preventDefault()
     $('.payment-modal').modal()
 
-  $('#pay').click (event) ->
+  $('#expand_card_form').click (event) ->
     event.preventDefault()
-    $('.new_submission').submit()
+    $('.additional_card').show()
 
   $('#payment-form').submit (event) ->
+    event.preventDefault()
     $form = $(@)
-    $form.find('button').prop('disabled', true)
+  
+    if $('.card_number').is(':visible')
+      $form.find('button').prop('disabled', true)
 
-    Stripe.card.createToken($form, stripeResponseHandler)
-    return false
+      Stripe.card.createToken($form, stripeResponseHandler)
+      return false
+    else
+      $('.new_submission').get(0).submit()
 
   stripeResponseHandler = (status, response) ->
     if response.error
