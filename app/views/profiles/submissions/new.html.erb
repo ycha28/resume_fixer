@@ -81,33 +81,33 @@
         </div>        
         <div class='modal-body'>
           <span class="payment-errors"></span>
-          <% if current_user.is_customer? %>
-            <p>Click <%= link_to 'here', '#', :id => 'open-payment-modal' %> to use your current card.</p>
-          <% end %>
-
           <p>Accepts Visa, MasterCard, American Express, JCB, Discover, and Diners Club.</p>
           <div class="form-group">
             <label for='card_number'>
               <span>Card Number</span>
             </label>
-            <input type="text" id='card_number' class='card_number form-control' size="20" required/>
+            <input type="text" id='card_number' class='card_number form-control' size="20"/>
           </div>
 
           <div class="form-group">
             <label for='card_cvc'>
               <span>CVC</span>
             </label>
-            <input type="text" id='card_cvc' class='card_cvc form-control' size="4" required/>
+            <input type="text" id='card_cvc' class='card_cvc form-control' size="4"/>
           </div>
 
           <div class="form-group">
             <label for='card_expr'>
               <span>Expiration (MM/YYYY)</span>
             </label>
-            <input type="text" id='card_expr' class='card_expr form-control' size="6" required/>
+            <input type="text" id='card_expr' class='card_expr form-control' size="6"/>
           </div>
         </div>
         <div class='modal-footer'>
+          <% if current_user.is_customer? %>
+            <%= button_tag 'Back', :class => 'btn btn-default', :id => 'open-payment-modal' %>
+          <% end %>
+
           <button type='submit' class='btn btn-primary'>Pay</button>
         </div>
       </form>
