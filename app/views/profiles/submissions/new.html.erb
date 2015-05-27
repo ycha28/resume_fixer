@@ -43,13 +43,34 @@
       </label>
     </div>
     <div class='text-center' style="margin-top:10px">
-      <button class='btn btn-primary' id='submit_button'>Submit &amp; Pay</button>
+      <%= button_tag 'Submit & Pay', :class => 'btn btn-primary', :id => 'submit_button' %>
     </div>
   <% end %>  
 </section>
 
-<!-- Payment modal -->
-<div class='modal fade payment-modal'>
+<!-- Pay modal -->
+<div class="modal fade payment-modal">
+  <div class='modal-dialog modal-sm'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <button type='button' class='close' data-dismiss='modal' aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class='modal-title text-center'>Submit Documents</h4>
+        <h5 class='modal-subtitle text-center'><%= current_user.email %></h5> 
+      </div>
+      <div class='modal-body text-center'>
+        <p>Use your credit card ending in XXXX.</p>
+        <button id='pay_with_old_card' class='btn btn-primary'>Pay</button>
+        <p>OR</p>
+        <p>
+          Pay with a <%= link_to "different card", '#', :id => 'open-new-card-modal' %>.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- New credit card modal -->
+<div class='modal fade new-card-modal'>
   <div class='modal-dialog modal-sm'>
     <div class='modal-content'>
       <form action="" method="POST" id='payment-form'>
@@ -60,56 +81,27 @@
         </div>        
         <div class='modal-body'>
           <span class="payment-errors"></span>
-          <% if current_user.is_customer? %>
-            <p>
-              Your credit card has already been registered. Click <%= link_to 'here', '#', :id => 'expand_card_form' %> to register another credit card.
-            </p>
-            <div class='additional_card'>
-              <p>Accepts Visa, MasterCard, American Express, JCB, Discover, and Diners Club.</p>
-              <div class="form-group">
-                <label for='additional_card_number'>
-                  <span>Card Number</span>
-                </label>
-                <input type="text" id='additional_card_number' class='card_number form-control' size="20"/>
-              </div>
+          <p>Accepts Visa, MasterCard, American Express, JCB, Discover, and Diners Club.</p>
+          <div class="form-group">
+            <label for='card_number'>
+              <span>Card Number</span>
+            </label>
+            <input type="text" id='card_number' class='card_number form-control' size="20"/>
+          </div>
 
-              <div class="form-group">
-                <label for='additional_card_cvc'>
-                  <span>CVC</span>
-                </label>
-                <input id='additional_card_cvc' type="text" class='card_cvc form-control' size="4"/>
-              </div>
+          <div class="form-group">
+            <label for='card_cvc'>
+              <span>CVC</span>
+            </label>
+            <input type="text" id='card_cvc' class='card_cvc form-control' size="4"/>
+          </div>
 
-              <div class="form-group">
-                <label for='additional_card_expr'>
-                  <span>Expiration (MM/YYYY)</span>
-                </label>
-                <input type="text" id='additional_card_expr' class='card_expr form-control' size="6"/>
-              </div>
-            </div>
-          <% else %>
-            <p>Accepts Visa, MasterCard, American Express, JCB, Discover, and Diners Club.</p>
-            <div class="form-group">
-              <label for='card_number'>
-                <span>Card Number</span>
-              </label>
-              <input type="text" id='card_number' class='card_number form-control' size="20"/>
-            </div>
-
-            <div class="form-group">
-              <label for='card_cvc'>
-                <span>CVC</span>
-              </label>
-              <input type="text" id='card_cvc' class='card_cvc form-control' size="4"/>
-            </div>
-
-            <div class="form-group">
-              <label for='card_expr'>
-                <span>Expiration (MM/YYYY)</span>
-              </label>
-              <input type="text" id='card_expr' class='card_expr form-control' size="6"/>
-            </div>
-          <% end %>
+          <div class="form-group">
+            <label for='card_expr'>
+              <span>Expiration (MM/YYYY)</span>
+            </label>
+            <input type="text" id='card_expr' class='card_expr form-control' size="6"/>
+          </div>
         </div>
         <div class='modal-footer'>
           <button type='submit' class='btn btn-primary'>Pay</button>

@@ -167,12 +167,25 @@ $(document).ready ->
   # Stripe 
   $('#submit_button').click (event) ->
     event.preventDefault()
-    $('.payment-modal').modal()
 
-  $('#expand_card_form').click (event) ->
+    if window.config.is_customer
+      $('.payment-modal').modal()
+    else
+      $('.new-card-modal').modal()
+
+  $('#open-new-card-modal').click (event) ->
     event.preventDefault()
-    $('.additional_card').show()
+    $('.payment-modal').modal('hide')
+    $('.new-card-modal').modal()
 
+  $('#pay_with_old_card').click (event) ->
+    event.preventDefault()
+    $('.new_submission').submit()
+
+  $('.card_number').payment('formatCardNumber')
+  $('.card_cvc').payment('formatCardCVC')
+  $('.card_expr').payment('formatCardExpiry')
+  
   $('#payment-form').submit (event) ->
     event.preventDefault()
     $form = $(@)
@@ -181,21 +194,18 @@ $(document).ready ->
     card_exp_month = $form.find('.card_expr').val().split(' / ')[0]
     card_exp_year = $form.find('.card_expr').val().split(' / ')[1]
   
-    if $('.card_number').is(':visible')
-      $form.find('button').prop('disabled', true)
-      $.payment.validateCardNumber(card_number)
-      $.payment.validateCardCVC(card_cvc)
-      $.payment.validateCardExpiry($form.find('.card_expr').val().split(' / '))
+    $form.find('button').prop('disabled', true)
+    $.payment.validateCardNumber(card_number)
+    $.payment.validateCardCVC(card_cvc)
+    $.payment.validateCardExpiry($form.find('.card_expr').val().split(' / '))
 
-      Stripe.card.createToken(
-        number: card_number,
-        cvc: card_cvc,
-        exp_month: card_exp_month,
-        exp_year: card_exp_year
-      , stripeResponseHandler)
-      return false
-    else
-      $('.new_submission').get(0).submit()
+    Stripe.card.createToken(
+      number: card_number,
+      cvc: card_cvc,
+      exp_month: card_exp_month,
+      exp_year: card_exp_year
+    , stripeResponseHandler)
+    return false
 
   stripeResponseHandler = (status, response) ->
     if response.error
@@ -207,7 +217,3 @@ $(document).ready ->
       token = response.id
       $form.append($('<input type="hidden" name="stripeToken" />').val(token))
       $form.get(0).submit()
-
-  $('.card_number').payment('formatCardNumber')
-  $('.card_cvc').payment('formatCardCVC')
-  $('.card_expr').payment('formatCardExpiry')
