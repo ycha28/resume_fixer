@@ -81,6 +81,10 @@
         </div>        
         <div class='modal-body'>
           <span class="payment-errors"></span>
+          <% if current_user.is_customer? %>
+            <p>Click <%= link_to 'here', '#', :id => 'open-payment-modal' %> to use your current card.</p>
+          <% end %>
+
           <p>Accepts Visa, MasterCard, American Express, JCB, Discover, and Diners Club.</p>
           <div class="form-group">
             <label for='card_number'>

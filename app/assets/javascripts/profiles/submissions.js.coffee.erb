@@ -178,6 +178,11 @@ $(document).ready ->
     $('.payment-modal').modal('hide')
     $('.new-card-modal').modal()
 
+  $('#open-payment-modal').click (event) ->
+    event.preventDefault()
+    $('.new-card-modal').modal('hide')
+    $('.payment-modal').modal('show')
+
   $('#pay_with_old_card').click (event) ->
     event.preventDefault()
     $('.new_submission').submit()
