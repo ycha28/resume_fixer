@@ -66,52 +66,48 @@
             </p>
             <div class='additional_card'>
               <p>Accepts Visa, MasterCard, American Express, JCB, Discover, and Diners Club.</p>
-              <div class="form-row">
-                <label>
+              <div class="form-group">
+                <label for='additional_card_number'>
                   <span>Card Number</span>
-                  <input type="text" class='card_number' size="20" data-stripe="number"/>
                 </label>
+                <input type="text" id='additional_card_number' class='card_number form-control' size="20"/>
               </div>
 
-              <div class="form-row">
-                <label>
+              <div class="form-group">
+                <label for='additional_card_cvc'>
                   <span>CVC</span>
-                  <input type="text" class='card_cvc' size="4" data-stripe="cvc"/>
                 </label>
+                <input id='additional_card_cvc' type="text" class='card_cvc form-control' size="4"/>
               </div>
 
-              <div class="form-row">
-                <label>
+              <div class="form-group">
+                <label for='additional_card_expr'>
                   <span>Expiration (MM/YYYY)</span>
-                  <input type="text" class='card_expr' size="6" data-stripe="exp-month"/>
                 </label>
-                <span> / </span>
-                <input type="text" size="4" data-stripe="exp-year"/>
+                <input type="text" id='additional_card_expr' class='card_expr form-control' size="6"/>
               </div>
             </div>
           <% else %>
             <p>Accepts Visa, MasterCard, American Express, JCB, Discover, and Diners Club.</p>
-            <div class="form-row">
-              <label>
+            <div class="form-group">
+              <label for='card_number'>
                 <span>Card Number</span>
-                <input type="text" class='card_number' size="20" data-stripe="number"/>
               </label>
+              <input type="text" id='card_number' class='card_number form-control' size="20"/>
             </div>
 
-            <div class="form-row">
-              <label>
+            <div class="form-group">
+              <label for='card_cvc'>
                 <span>CVC</span>
-                <input type="text" class='card_cvc' size="4" data-stripe="cvc"/>
               </label>
+              <input type="text" id='card_cvc' class='card_cvc form-control' size="4"/>
             </div>
 
-            <div class="form-row">
-              <label>
+            <div class="form-group">
+              <label for='card_expr'>
                 <span>Expiration (MM/YYYY)</span>
-                <input type="text" class='card_expr' size="2" data-stripe="exp-month"/>
               </label>
-              <span> / </span>
-              <input type="text" size="4" data-stripe="exp-year"/>
+              <input type="text" id='card_expr' class='card_expr form-control' size="6"/>
             </div>
           <% end %>
         </div>
