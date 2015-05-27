@@ -68,16 +68,6 @@ body.index {
       background-color: #222;
   }
 
-  .bg-pricing {
-    background-image: asset_url('banner/pricing-bg.jpg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 650px;
-    background-position: center bottom;
-  }
-
   .btn-primary {
       border-color: #fed136;
       text-transform: uppercase;
@@ -1515,4 +1505,30 @@ header .container-fluid {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;
+}
+
+/*align services description */
+
+@media(min-width:992px) {
+  .bg-pricing {
+    background-image: asset_url('banner/pricing-bg.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 650px;
+    background-position: center bottom;
+  }
+}
+
+@media(max-width:991px) {
+  .bg-pricing {
+    background-image: asset_url('banner/pricing-bg.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 1500px;
+    background-position: center bottom;
+  }
 }
