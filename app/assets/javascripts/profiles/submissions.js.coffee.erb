@@ -179,6 +179,8 @@ $(document).ready ->
   
     if $('.card_number').is(':visible')
       $form.find('button').prop('disabled', true)
+      $.payment.validateCardNumber($('.card_number').val())
+      $.payment.validateCardCVC($('.card_cvc').val())
 
       Stripe.card.createToken($form, stripeResponseHandler)
       return false
@@ -195,3 +197,6 @@ $(document).ready ->
       token = response.id
       $form.append($('<input type="hidden" name="stripeToken" />').val(token))
       $form.get(0).submit()
+
+  $('.card_number').payment('formatCardNumber')
+  $('.card_cvc').payment('formatCardCVC')

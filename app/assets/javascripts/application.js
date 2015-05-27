@@ -17,4 +17,5 @@
 //= require bootstrap-validator/js/validator
 //= require jquery.easing
 //= require ekko-lightbox/dist/ekko-lightbox
+//= require jquery.payment/src/jquery.payment
 //= require_tree .

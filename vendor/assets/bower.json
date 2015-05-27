@@ -5,7 +5,5 @@
     "bootstrap-validator": "latest",
     "ekko-lightbox": "latest",
     "jquery.payment": "latest"
-  },
-  "resolutions": {
   }
 }
