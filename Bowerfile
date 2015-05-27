@@ -3,3 +3,4 @@
 
 asset 'bootstrap-fileinput'
 asset 'bootstrap-validator'
+asset 'ekko-lightbox'

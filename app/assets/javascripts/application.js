@@ -16,4 +16,5 @@
 //= require bootstrap-fileinput/js/fileinput
 //= require bootstrap-validator/js/validator
 //= require jquery.easing
+//= require ekko-lightbox/dist/ekko-lightbox
 //= require_tree .
