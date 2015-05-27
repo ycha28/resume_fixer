@@ -1514,14 +1514,14 @@ header .container-fluid {
 }
 
 /*success story school margin increase */
-
-#success_story .text-school{
-    margin-bottom:40px;
-}
-
-/*success story school margin increase */
 #success_story .portfolio-example {
   margin-bottom: 25px;
   text-align: center;
   margin-top: -50px;
+}
+
+@media(max-width:991px){
+  #success_story .portfolio-example {
+    margin-top:0px;
+  }
 }
