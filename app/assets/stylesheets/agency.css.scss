@@ -1516,3 +1516,18 @@ header .container-fluid {
     margin-right: auto;
     margin-bottom: 30px;
 }
+
+/*services responsive align*/
+@media(max-width:991px){
+  #process .service-heading{
+  margin-top:-50px;
+ }
+   #process .service-heading-edit{
+  margin-top:10px;
+ }
+  #process .col-md-4 > p{
+  margin-bottom:50px;}
+  .process-small-icon{
+  margin-top:-70px;
+  }
+}
