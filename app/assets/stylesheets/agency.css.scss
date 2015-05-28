@@ -638,12 +638,6 @@ body.index {
       }
   }
 
-  .portfolio-example {
-      margin-bottom: 25px;
-      text-align: center;
-      margin-top: -70px;
-  }
-
   .portfolio-example img {
       margin-botton: 25px;
       margin: 0 auto;
@@ -1488,16 +1482,29 @@ header .container-fluid {
 
 #services .services-padding{
       position: relative;
-      margin-left:50%;
       line-height:1.75;
       font-weight: bold;
 }
 
+@media(min-width:1201px){
 #services .services-padding li{
-  width:300px;
-  position:relative;
-  right:120px;
+  margin-left:20%;  
+  }
 }
+
+@media(min-width:500px) and (max-width:991px){
+#services .services-padding li{
+  margin-left:30%;  
+  }
+}
+
+@media (max-width:499px){
+#services .services-padding li{
+  margin-left:15%;  
+  }
+}
+
+/*prices section align*/
 
 .prices-center-align{
     display:block;
@@ -1530,5 +1537,18 @@ header .container-fluid {
     background-size: cover;
     height: 1500px;
     background-position: center bottom;
+  }
+}
+
+/*success story school margin increase */
+#success_story .portfolio-example {
+  margin-bottom: 25px;
+  text-align: center;
+  margin-top: -50px;
+}
+
+@media(max-width:991px){
+  #success_story .portfolio-example {
+    margin-top:0px;
   }
 }
