@@ -62,14 +62,13 @@ class SubmissionForm
       create_submission
       update_card if new_card_added?
       charge
-      update_customer unless user.is_customer?
+      update_customer
       SubmissionMailer.submit_documents(self).deliver!
     end
   end
 
-
   def update_customer
-    user.update(customer_id: customer.id)
+    user.update(customer_id: customer.id, last_4_digits: last_4_digits)
   end
 
   def update_card
@@ -80,5 +79,9 @@ class SubmissionForm
 
   def new_card_added?
     user.is_customer? && card.present?
+  end
+
+  def last_4_digits
+    customer.sources.detect{|card| card.id == customer.default_source}.last4
   end
 end        

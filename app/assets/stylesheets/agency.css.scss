@@ -68,16 +68,6 @@ body.index {
       background-color: #222;
   }
 
-  .bg-pricing {
-    background-image: asset_url('banner/pricing-bg.jpg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 650px;
-    background-position: center bottom;
-  }
-
   .btn-primary {
       border-color: #fed136;
       text-transform: uppercase;
@@ -646,12 +636,6 @@ body.index {
           /* change */
           padding: 0px 100px 20px 0px;
       }
-  }
-
-  .portfolio-example {
-      margin-bottom: 25px;
-      text-align: center;
-      margin-top: -70px;
   }
 
   .portfolio-example img {
@@ -1498,16 +1482,29 @@ header .container-fluid {
 
 #services .services-padding{
       position: relative;
-      margin-left:50%;
       line-height:1.75;
       font-weight: bold;
 }
 
+@media(min-width:1201px){
 #services .services-padding li{
-  width:300px;
-  position:relative;
-  right:120px;
+  margin-left:20%;  
+  }
 }
+
+@media(min-width:500px) and (max-width:991px){
+#services .services-padding li{
+  margin-left:30%;  
+  }
+}
+
+@media (max-width:499px){
+#services .services-padding li{
+  margin-left:15%;  
+  }
+}
+
+/*prices section align*/
 
 .prices-center-align{
     display:block;
@@ -1517,17 +1514,57 @@ header .container-fluid {
     margin-bottom: 30px;
 }
 
-/*services responsive align*/
+/*align services description */
+
+@media(min-width:992px) {
+  .bg-pricing {
+    background-image: asset_url('banner/pricing-bg.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 650px;
+    background-position: center bottom;
+  }
+}
+
+@media(max-width:991px) {
+  .bg-pricing {
+    background-image: asset_url('banner/pricing-bg.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 1500px;
+    background-position: center bottom;
+  }
+
+  #process .service-heading {
+    margin-top:-50px;
+  }
+
+  #process .service-heading-edit {
+    margin-top:10px;
+  }
+
+  #process .col-md-4 > p {
+    margin-bottom:50px;
+  }
+  
+  .process-small-icon {
+    margin-top:-70px;
+  }
+}
+
+/*success story school margin increase */
+#success_story .portfolio-example {
+  margin-bottom: 25px;
+  text-align: center;
+  margin-top: -50px;
+}
+
 @media(max-width:991px){
-  #process .service-heading{
-  margin-top:-50px;
- }
-   #process .service-heading-edit{
-  margin-top:10px;
- }
-  #process .col-md-4 > p{
-  margin-bottom:50px;}
-  .process-small-icon{
-  margin-top:-70px;
+  #success_story .portfolio-example {
+    margin-top:0px;
   }
 }
