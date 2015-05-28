@@ -79,7 +79,7 @@ $(document).ready ->
         $('.file-drop-zone-title').text('Drag and drop essays here.')
   )
 
-  $('.kv-fileinput-caption').hide()
+  $('.kv-fileinput-caption').parent().hide()
 
   $('.document').on('filebatchselected', (event, files) ->
     input = $(event.currentTarget)
