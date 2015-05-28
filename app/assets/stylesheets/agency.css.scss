@@ -1538,6 +1538,22 @@ header .container-fluid {
     height: 1500px;
     background-position: center bottom;
   }
+
+  #process .service-heading {
+    margin-top:-50px;
+  }
+
+  #process .service-heading-edit {
+    margin-top:10px;
+  }
+
+  #process .col-md-4 > p {
+    margin-bottom:50px;
+  }
+  
+  .process-small-icon {
+    margin-top:-70px;
+  }
 }
 
 /*success story school margin increase */
