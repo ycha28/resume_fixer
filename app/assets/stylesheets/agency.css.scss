@@ -648,12 +648,6 @@ body.index {
       }
   }
 
-  .portfolio-example {
-      margin-bottom: 25px;
-      text-align: center;
-      margin-top: -70px;
-  }
-
   .portfolio-example img {
       margin-botton: 25px;
       margin: 0 auto;
@@ -1509,10 +1503,25 @@ header .container-fluid {
   right:120px;
 }
 
+/*prices section align*/
+
 .prices-center-align{
     display:block;
     margin-top: 0px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;
+}
+
+/*success story school margin increase */
+#success_story .portfolio-example {
+  margin-bottom: 25px;
+  text-align: center;
+  margin-top: -50px;
+}
+
+@media(max-width:991px){
+  #success_story .portfolio-example {
+    margin-top:0px;
+  }
 }
