@@ -32,4 +32,10 @@ $(function() {
             $('.navbar-toggle:visible').click();
         }
     });
+
+    $(window).scroll(function() {
+      if($('.navbar-collapse').hasClass('in')) {
+          $('.navbar-toggle:visible').click();
+      }      
+    });
 });
