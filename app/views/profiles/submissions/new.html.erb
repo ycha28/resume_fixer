@@ -83,12 +83,16 @@
           <span class="payment-errors"></span>
           <h5 class='text-center'><strong>Valid credit cards</strong></h5>
           <div class='credit_cards text-center'>
-            <%= image_tag 'credit_cards/american_express.jpg' %>
-            <%= image_tag 'credit_cards/mastercard.jpg' %>
-            <%= image_tag 'credit_cards/visa.jpg' %>
-            <%= image_tag 'credit_cards/discover.jpg' %>
-            <%= image_tag 'credit_cards/jcb.jpg' %>
-            <%= image_tag 'credit_cards/dinersclub.jpg' %>
+            <div class='row'>
+              <%= image_tag 'credit_cards/american_express.jpg' %>
+              <%= image_tag 'credit_cards/mastercard.jpg' %>
+              <%= image_tag 'credit_cards/visa.jpg' %>
+            </div>
+            <div class='row'>
+              <%= image_tag 'credit_cards/discover.jpg' %>
+              <%= image_tag 'credit_cards/jcb.jpg' %>
+              <%= image_tag 'credit_cards/dinersclub.jpg' %>
+            </div>
           </div>
           <div class="form-group">
             <label for='card_number'>
