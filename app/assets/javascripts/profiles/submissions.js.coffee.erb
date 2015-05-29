@@ -1,5 +1,6 @@
 $(document).ready ->
   existing_price = 0
+  dropzone_files = []
   STYLE_SETTING = 'style="width:50px;height:50px;margin-bottom:0px;margin-top:0px"'
   layout_templates = {
     main1: '{preview}\n' +
@@ -83,13 +84,31 @@ $(document).ready ->
 
   $('.document').on('filebatchselected', (event, files) ->
     input = $(event.currentTarget)
-    input.fileinput('upload')
-    file_type = $('.document_button.active').text().toLowerCase()
+    file_names = files.map (file) ->
+      file.name
 
-    unless $('.file-drop-zone-title').length > 0
-      $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
+    redundant_files = file_names.filter (file) ->
+      dropzone_files.indexOf(file) >= 0
+
+    if redundant_files.length > 0
+      file_type = $('.document_button.active').text().toLowerCase()
+      unless $('.file-drop-zone-title').length > 0
+        $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
+
+      template = "<ul>
+                   <li>Redundant file detected. Please do not upload files with the same name.</li>
+                 </ul>"
+
+      $('.document').fileinput('clear')
+      $('.kv-fileinput-error').css('display', 'block')
+      $('.kv-fileinput-error').append(template)
+    else
+      input.fileinput('upload')
+      file_type = $('.document_button.active').text().toLowerCase()
+
+      unless $('.file-drop-zone-title').length > 0
+        $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
   )
-
 
   $('.document').on('fileuploaded', (event, data) ->
     file_type = $('.document_button.active').text()
@@ -102,6 +121,7 @@ $(document).ready ->
     id = file.id
     file_name = file.original_filename
     file_created_at = file.created_at
+    dropzone_files.push(file_name)
 
     token = $("input[name='authenticity_token']").val()
     template = "<tr class='created_document' id='created_document_#{id}'>
