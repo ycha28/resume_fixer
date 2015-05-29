@@ -52,7 +52,7 @@ GEM
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
-    autoprefixer-rails (5.1.11)
+    autoprefixer-rails (5.2.0)
       execjs
       json
     axiom-types (0.1.1)
@@ -411,7 +411,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin (~> 1.0.0.pre1)
-  bootstrap-sass (~> 3.3.4)
+  bootstrap-sass
   bower-rails (~> 0.9.2)
   carrierwave
   coffee-rails (~> 4.0.0)
