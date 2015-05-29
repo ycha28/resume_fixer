@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h4>Your submission has been received at Beamdox!</h4>
+
+    <p>You've submitted the following documents for review:</p>
+
+    <% @submission.documents.each do |document| %>
+      <p>
+        Name: <%= document.original_filename %><br>
+        Type: <%= document.formatted_type %><br>
+
+        <% if document.description.present? %>
+          Description: <%= document.description %><br>
+        <% end %>
+      </p>
+    <% end %>
+
+    <p>Total price: $<%= @submission.amount %></p>
+
+    <p>We will now match your submission with one of our expert editors for review. To track the progress of your 
+       documents, visit <%= profile_documents_url %>.</p>
+  </body>
+</html>
