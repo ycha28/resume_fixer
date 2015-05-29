@@ -59,7 +59,7 @@
       </div>
       <div class='modal-body text-center'>
         <p>Use your credit card ending in <%= current_user.last_4_digits %>.</p>
-        <button id='pay_with_old_card' class='btn btn-primary'>Pay</button>
+        <button id='pay_with_old_card' class='btn btn-primary'>Pay</button><br>
         <p>OR</p>
         <p>
           Pay with a <%= link_to "different card", '#', :id => 'open-new-card-modal' %>.
@@ -81,7 +81,7 @@
         </div>        
         <div class='modal-body'>
           <span class="payment-errors"></span>
-          <h5 class='text-center'><strong>Valid credit cards</strong></h5>
+          <h5 class='text-center'><strong>Accepted Payment Options</strong></h5>
           <div class='credit_cards text-center'>
             <div class='row'>
               <%= image_tag 'credit_cards/american_express.jpg' %>

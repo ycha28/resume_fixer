@@ -67,15 +67,14 @@
 <!-- Signup modal -->
 <div class='modal fade signup-modal'>
   <div class='modal-dialog modal-sm'>
-    <div class='modal-content'>
+    <div class='modal-content modal-signup-body'>
       <div class='modal-header'>
         <button type='button' class='close' data-dismiss='modal' aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class='modal-title text-center'>Sign up with Beamdox</h4>
       </div>
-
       <div class='modal-body'>
         <button class='btn btn-primary center-block email-signup'>Sign up with Email</button>
-        <div class='text-center'>or</div>
+        <br><div class='text-center'>or</div><br>
         <%= link_to image_tag("facebook_login.png", class: 'img-responsive center-block'), user_omniauth_authorize_path(:facebook), class: 'facebook-login' %>
       </div>
     </div>

@@ -433,3 +433,15 @@ ul.social-buttons li a:active {
 
   margin-bottom: 10px;
 }
+
+/* payment modal */
+.new-card-modal {
+  .modal-sm {
+    width: 350px;
+    height: 565px;
+  }
+
+  .modal-content {
+    height: 565px;
+  }
+}

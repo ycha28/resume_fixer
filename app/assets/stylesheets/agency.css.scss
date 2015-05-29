@@ -6,7 +6,6 @@
 
 body.index {
   overflow-x: hidden;
-  padding-right: 0px !important;
   font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
   webkit-tap-highlight-color: #fed136;
 
@@ -1568,4 +1567,16 @@ header .container-fluid {
   #success_story .portfolio-example {
     margin-top:0px;
   }
+}
+
+body {     
+  padding-right: 0px !important; 
+}
+
+.modal-signup-body{
+  min-height:250px;
+}
+
+.modal-card-width{
+  width:50%;
 }
