@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
-  has_many :documents
-  has_many :submissions
+  has_many :documents, :dependent => :destroy
+  has_many :submissions, :dependent => :destroy
 
   validate :check_time_zone
 
