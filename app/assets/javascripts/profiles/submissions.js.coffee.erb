@@ -19,7 +19,6 @@ $(document).ready ->
         '    </div>\n' +
         '    <div class="clearfix"></div>' +
         '    <div class="file-preview-status text-center text-success"></div>\n' +
-        '    <div class="kv-fileinput-error"></div>\n' +
         '    </div>\n' +
         '</div>',
     actions: '<div class="file-actions">\n' +
@@ -95,13 +94,9 @@ $(document).ready ->
       unless $('.file-drop-zone-title').length > 0
         $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
 
-      template = "<ul>
-                   <li>Redundant file detected. Please do not upload files with the same name.</li>
-                 </ul>"
-
+      $('.alert').remove()
+      $('.page_title').after("<div class='alert alert-danger text-center'>Redundant file detected. Please do not upload files with the same name.</div>")
       $('.document').fileinput('clear')
-      $('.kv-fileinput-error').css('display', 'block')
-      $('.kv-fileinput-error').append(template)
     else
       input.fileinput('upload')
       file_type = $('.document_button.active').text().toLowerCase()
@@ -111,6 +106,7 @@ $(document).ready ->
   )
 
   $('.document').on('fileuploaded', (event, data) ->
+    $('.alert').remove()
     file_type = $('.document_button.active').text()
     price = switch file_type
               when 'Resume' then 100
@@ -171,10 +167,14 @@ $(document).ready ->
     )
   )
 
-  $('.document').on('fileuploaderror', (event, data) ->
+  $('.document').on('fileuploaderror', (event, data) ->    
     file_type = $('.document_button.active').text().toLowerCase()
     unless $('.file-drop-zone-title').length > 0
       $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
+    
+    $('.alert').remove()
+    $('.page_title').after("<div class='alert alert-danger text-center'>Invalid file type detected. Only 'txt, doc, pdf, rtf, docx' files are supported.</div>")
+    $('.document').fileinput('clear')
   )
 
   $('.accept-checkbox').change((event) ->

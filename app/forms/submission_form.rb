@@ -64,6 +64,7 @@ class SubmissionForm
       charge
       update_customer
       SubmissionMailer.submit_documents(self).deliver!
+      SubmissionMailer.notify_user(self).deliver!
     end
   end
 
