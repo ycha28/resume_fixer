@@ -10,7 +10,11 @@
                 <span class="icon-bar"></span>
             </button>
         <div class="logo">
-            <a class="navbar-brand page-scroll logo-center" href="#page-top"><%= image_tag 'logos/newlogo5.jpg' %></a>
+            <% if current_page?(controller: 'home', action: 'index') %>
+              <a class="navbar-brand page-scroll logo-center" href="#page-top"><%= image_tag 'logos/newlogo5.jpg' %></a>
+            <% else %>
+              <a class="navbar-brand page-scroll logo-center" href="/home"><%= image_tag 'logos/newlogo5.jpg' %></a>
+            <% end %>
         </div>    
         </div>
 
