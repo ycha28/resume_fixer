@@ -12,7 +12,11 @@ class ApplicationController < ActionController::Base
   before_action :sanitize_flash_params, if: :flash_keys_present?
 
   def after_sign_in_path_for(resource)
-    profile_documents_path
+    confirmation_index_path
+  end
+
+  def after_inactive_sign_up_path_for(resource)
+    confirmation_index_path
   end
 
   protected
