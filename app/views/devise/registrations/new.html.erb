@@ -2,8 +2,7 @@
 
 <h1 class='user_settings text-center top-padding-150'>SIGNUP WITH BEAMDOX</h1>
 
-<form class="form-horizontal">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %>
   <div class="form-group">
     <%= f.label :name , :class => 'col-sm-2 control-label'%>
@@ -35,20 +34,20 @@
       <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => "Confirm Password", :required => true, :data => {:match => '#inputPassword', :match_error => 'Passwords do not match.'} %>
       <div class="help-block with-errors">Must match the password field.</div>
     </div>
-    </div>
+  </div>
 
-    <div class='form-group'>
-      <%= f.label :timezone, :class => 'control-label col-sm-2' %>
-      <div class="col-sm-8">
-      <%= f.collection_select :timezone, ActiveSupport::TimeZone.us_zones, :name, :to_s, {}, :class => 'form-control', :required => true %>
-      </div>
+  <div class='form-group'>
+    <%= f.label :timezone, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-8">
+    <%= f.collection_select :timezone, ActiveSupport::TimeZone.us_zones, :name, :to_s, {}, :class => 'form-control', :required => true %>
     </div>
-    <%= f.submit "Sign Up", :class => 'btn btn-primary center-block' %>
-    <BR>
-    <div class="text-center">OR</div><BR>
-    <%= link_to image_tag("facebook_login.png", class: 'img-responsive center-block'), user_omniauth_authorize_path(:facebook), class: 'facebook-login' %>
-  </form>
-  <%end%>
+  </div>
+
+  <%= f.submit "Sign Up", :class => 'btn btn-primary center-block' %>
+  <BR>
+  <div class="text-center">OR</div><BR>
+  <%= link_to image_tag("facebook_login.png", class: 'img-responsive center-block'), user_omniauth_authorize_path(:facebook), class: 'facebook-login' %>
+<%end%>
 
 
 
