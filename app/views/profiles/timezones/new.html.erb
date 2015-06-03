@@ -1,0 +1,15 @@
+<%= render 'shared/header' %>
+
+<section class='timezones container'>
+  <h1 class='text-center'>Set Timezone</h1>
+  <%= form_for :user, url: profile_timezone_path(@user.id), method: :put, :data => {:toggle => 'validator'} do |f| %>
+    <div class='row'>
+      <div class='form-group'>
+        <%= f.label :timezone %>
+        <%= f.collection_select :timezone, ActiveSupport::TimeZone.us_zones, :name, :to_s, {}, :class => 'form-control', :required => true %>
+        <div class="help-block with-errors"></div>
+        <%= f.submit "Update", :class => 'btn btn-primary submit' %>
+      </div>
+    </div>
+  <% end %>
+</section>

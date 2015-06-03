@@ -12,6 +12,7 @@ ResumeFixer::Application.routes.draw do
   resources :home, :only => [:index]
   resources :confirmation, :only => [:index]
   resource :profile, :only => [:edit, :update] do
+    resources :timezones, :only => [:new, :update], controller: 'profiles/timezones'
     resources :submissions, :only => [:new, :create], controller: 'profiles/submissions'
     resources :documents, :only => [:index, :create, :destroy, :update], controller: 'profiles/documents' do
       member do
