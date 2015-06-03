@@ -1586,6 +1586,9 @@ body {
   padding-top:100px;
 }
 
+/*vertical align using flex aboutus*/
 
-
-
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
