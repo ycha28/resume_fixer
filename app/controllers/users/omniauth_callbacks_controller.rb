@@ -16,6 +16,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def after_sign_in_path_for(resource)
-    new_profile_timezone_path
+    if current_user.timezone.present?
+      profile_documents_path
+    else
+      new_profile_timezone_path
+    end
   end
 end

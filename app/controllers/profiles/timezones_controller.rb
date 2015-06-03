@@ -8,6 +8,7 @@ module Profiles
       @user = current_user
 
       if @user.update(user_params)
+        flash[:success] = "Successfully authenticated from Facebook account."
         redirect_to profile_documents_path
       else
         render :json => @user.errors.full_messages.join(','), :status => 422
