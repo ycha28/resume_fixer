@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   private
 
   def check_time_zone
-    unless VALID_TIME_ZONES.include?(timezone)
+    unless timezone.nil? || VALID_TIME_ZONES.include?(timezone)
       self.errors.add(:base, "Timezone is invalid")
     end
   end
