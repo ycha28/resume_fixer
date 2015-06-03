@@ -1,36 +1,54 @@
 <%= render 'shared/static_header' %>
 
-<h2>Sign up</h2>
+<h1 class='user_settings text-center top-padding-150'>SIGNUP WITH BEAMDOX</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<form class="form-horizontal">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+  <div class="form-group">
+    <%= f.label :name , :class => 'col-sm-2 control-label'%>
+    <div class="col-sm-8">
+      <%= f.text_field :name, :class => 'form-control', :placeholder => "Full Name", :required => true %>
+    </div>
+    <div class="help-block with-errors"></div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+  <div class="form-group">
+    <%= f.label :email, :class => 'col-sm-2 control-label'%>
+    <div class="col-sm-8">
+      <%= f.email_field :email, :class => 'form-control', :placeholder => "Email Address", :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
+      <div class="help-block with-errors">Email must follow a standard email format (e.g., 'brian@gmail.com').</div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
+  <div class="form-group">
+    <%= f.label :password, :class => 'col-sm-2 control-label' %>
     <% if @validatable %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <% end %>
+    <div class="col-sm-8">
+      <%= f.password_field :password, :id => 'inputPassword', :class => 'form-control', :placeholder => "Password", :required => true, :data => {:minlength => 8} %>
+      <div class="help-block with-errors">Minimum of 8 characters</div>
+    </div>
   </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-8">
+      <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => "Confirm Password", :required => true, :data => {:match => '#inputPassword', :match_error => 'Passwords do not match.'} %>
+      <div class="help-block with-errors">Must match the password field.</div>
+    </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div class='form-group'>
+      <%= f.label :timezone, :class => 'control-label col-sm-2' %>
+      <div class="col-sm-8">
+      <%= f.collection_select :timezone, ActiveSupport::TimeZone.us_zones, :name, :to_s, {}, :class => 'form-control', :required => true %>
+      </div>
+    </div>
+    <%= f.submit "Sign Up", :class => 'btn btn-primary center-block' %>
+    <BR>
+    <div class="text-center">OR</div><BR>
+    <%= link_to image_tag("facebook_login.png", class: 'img-responsive center-block'), user_omniauth_authorize_path(:facebook), class: 'facebook-login' %>
+  </form>
+  <%end%>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
