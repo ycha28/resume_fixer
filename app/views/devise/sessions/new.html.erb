@@ -2,8 +2,7 @@
 
 <h1 class='user_settings text-center top-padding-150'>Log in</h1>
 
-<form class="form-horizontal">
-  <%= form_for @user, url: profile_path, method: :put, :data => {:toggle => 'validator'} do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), :data => {:toggle => 'validator'}, :html => {:class => 'form-horizontal'}) do |f| %>
   <div class="form-group">
     <%= f.label :email , :class => 'col-sm-2 control-label'%>
     <div class="col-sm-8">
@@ -13,7 +12,7 @@
   <div class="form-group">
     <%= f.label :password , :class => 'col-sm-2 control-label'%>
     <div class="col-sm-8">
-      <%= f.email_field :password, autocomplete: "off", :class => 'form-control', :placeholder => "Password"%>
+      <%= f.password_field :password, autocomplete: "off", :class => 'form-control', :placeholder => "Password"%>
     </div>
   </div>
   <div class="form-group">
@@ -42,6 +41,7 @@
       <% end -%>
     </div>
   </div>
-</form>
-<%= link_to image_tag("facebook_login.png", class: 'img-responsive center-block'), user_omniauth_authorize_path(:facebook), class: 'facebook-login' %>
+  <BR>
+  <div class="text-center">OR</div><BR>
+  <%= link_to image_tag("facebook_login.png", class: 'img-responsive center-block'), user_omniauth_authorize_path(:facebook), class: 'facebook-login' %>
 <%end%>

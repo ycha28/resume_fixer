@@ -15,10 +15,6 @@ class ApplicationController < ActionController::Base
     profile_documents_path
   end
 
-  def after_inactive_sign_up_path_for(resource)
-    confirmation_index_path
-  end
-
   protected
 
   def configure_permitted_parameters
