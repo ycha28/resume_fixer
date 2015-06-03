@@ -2,7 +2,6 @@ module Profiles
   class DocumentsController < AuthenticationController
     layout 'profiles'
     respond_to :json, :only => [:create, :destroy, :update]
-    before_filter :sanitize_document_type, :only => [:create]
 
     def index
       @documents = current_user.documents.submitted.by_updated_at
@@ -52,17 +51,6 @@ module Profiles
 
     def submission_document_params
       params.permit(:text_file, :type).merge(content_type: text_file.content_type, original_filename: text_file.original_filename)
-    end
-
-    def sanitize_document_type
-      params[:type] = case params[:type]
-                      when 'Resume'
-                        'Documents::Resume'
-                      when 'Cover Letter'
-                        'Documents::CoverLetter'
-                      when 'Essay'
-                        'Documents::Essay'
-                      end
     end
   end
 end

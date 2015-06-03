@@ -1,14 +1,19 @@
 <section class="col-md-12">
   <h1 class='text-center page_title'>Submit Documents</h1>
   <%= render 'shared/flash' %>
-  <ul class='nav nav-pills'>
-    <li role='presentation' class='document_button resume active'><%= link_to "Resume", '#' %></li>
-    <li role='presentation' class='document_button cv'><%= link_to "Cover Letter", '#' %></li>
-    <li role='presentation' class='document_button essay'><%= link_to "Essay", '#' %></li>
-  </ul>
   <h6>Acceptable file types: .pdf, .txt, .doc, .docx., .rtf</h6>
 
-  <%= file_field_tag 'text_file', multiple: true, type: :file, class: 'document' %>
+  <div class='row'>
+    <div class='col-md-4' id='resume_section'>
+      <%= file_field_tag 'text_file', multiple: true, type: :file, class: 'document', id: 'resume', :data => {:type => 'Resume'} %>
+    </div>
+    <div class='col-md-4' id='cover_letter_section'>
+      <%= file_field_tag 'text_file', multiple: true, type: :file, class: 'document', id: 'cover_letter', :data => {:type => 'Cover Letter'} %>
+    </div>
+    <div class='col-md-4' id='essay_section'>
+      <%= file_field_tag 'text_file', multiple: true, type: :file, class: 'document', id: 'essay', :data => {:type => 'Essay'} %>
+    </div>
+  </div>
 
   <%= form_for @submission, url: profile_submissions_path, multipart: true, :html => {:id => 'payment_form'} do |f| %>
     <div class='selected_documents_container well'>
