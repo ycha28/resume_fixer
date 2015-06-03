@@ -1,4 +1,8 @@
+<%= render 'shared/static_header' %>
+
 <h1 class='user_settings text-center top-padding-150'>Log in</h1>
+
+<h2>Log in</h2>
 
 <form class="form-horizontal">
 <%= form_for @user, url: profile_path, method: :put, :data => {:toggle => 'validator'} do |f| %>
