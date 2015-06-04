@@ -1606,8 +1606,12 @@ body {
 
 /*payment modal contents center align*/
 .modal-body{
-.payment-card-margin{
-  margin-left:60px;
+  .payment-card-margin{
+    margin-left:60px;
+  }
+
+  .pay-btn-margin{
+    margin-bottom:10px;
   }
 }
 
@@ -1616,4 +1620,3 @@ body {
   text-align:center;
   }
 }
-

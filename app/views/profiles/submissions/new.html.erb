@@ -68,7 +68,8 @@
       </div>
       <div class='modal-body text-center'>
         <p>Use your credit card ending in <%= current_user.last_4_digits %>.</p>
-        <button id='pay_with_old_card' class='btn btn-primary'>Pay</button><br/>
+
+        <button id='pay_with_old_card' class='btn btn-primary pay-btn-margin'>Pay</button>
         <p>OR</p>
         <p>
           Pay with a <%= link_to "different card", '#', :id => 'open-new-card-modal' %>.

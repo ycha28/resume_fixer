@@ -16,5 +16,4 @@
 .env
 /public/uploads
 resume-develop
-
-
+.DS_Store
