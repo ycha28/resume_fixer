@@ -2,6 +2,7 @@ class Document < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
 
   mount_uploader :text_file, TextFileUploader
+  mount_uploader :edited_file, EditedFileUploader
   belongs_to :user
   belongs_to :submission
 
@@ -14,6 +15,7 @@ class Document < ActiveRecord::Base
   validates_presence_of :type
 
   before_save :format_description
+  before_save :set_to_complete
   # after_create :set_to_editing
 
   def formatted_type
@@ -42,5 +44,11 @@ class Document < ActiveRecord::Base
 
   def set_to_editing
     Documents::ChangeStatusWorker.perform_at(1.minute.from_now, id, 'editing')
+  end
+
+  def set_to_complete
+    if edited_file.present?
+      self.status = 'complete'
+    end
   end
 end

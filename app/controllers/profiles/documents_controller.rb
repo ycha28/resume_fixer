@@ -36,7 +36,7 @@ module Profiles
 
     def download
       @document = current_user.documents.find(params[:id])
-      tempfile = Tempfile.new [SecureRandom.hex, @document.text_file_url.split('.').last], "#{Rails.root}/tmp"
+      tempfile = Tempfile.new [SecureRandom.hex, @document.edited_file_url.split('.').last], "#{Rails.root}/tmp"
       File.open(tempfile,'wb') do |file|  
         file.write open(@document.text_file_url).read()
       end
