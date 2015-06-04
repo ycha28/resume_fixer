@@ -1518,7 +1518,7 @@ header .container-fluid {
 
 @media(min-width:992px) {
   .bg-pricing {
-    background-image: asset_url('banner/pricing-bg.jpg');
+    background-image: asset_url('prices/prices-bg.png');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -1530,7 +1530,7 @@ header .container-fluid {
 
 @media(max-width:991px) {
   .bg-pricing {
-    background-image: asset_url('banner/pricing-bg.jpg');
+    background-image: asset_url('prices/prices-bg.png');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -1596,3 +1596,24 @@ body {
 #aboutus .button-margin{
   margin-bottom:30px;
 }
+
+/*dropdown menu width decrease*/
+.navbar-collapse{
+  .dropdown-menu-width{
+    min-width:100px;
+  }
+}
+
+/*payment modal contents center align*/
+.modal-body{
+.payment-card-margin{
+  margin-left:60px;
+  }
+}
+
+.new-card-modal{
+  .modal-footer{
+  text-align:center;
+  }
+}
+

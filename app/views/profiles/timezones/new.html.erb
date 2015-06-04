@@ -2,7 +2,7 @@
 
 <section class='timezones container'>
   <h1 class='text-center'>Set Timezone</h1>
-  <p>Thank you for signing up with Beamdox. Please select your timezone so that we can ensure we get your submitted documents back within 24 hours.</p>
+  <p>Thank you for signing up with Beamdox. Select your timezone to track your document completion times.</p>
   <%= form_for :user, url: profile_timezone_path(@user.id), method: :put, :data => {:toggle => 'validator'} do |f| %>
     <div class='row'>
       <div class='form-group'>
