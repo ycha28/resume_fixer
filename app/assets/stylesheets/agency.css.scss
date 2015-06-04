@@ -1294,11 +1294,11 @@ padding-left: 200px;
 .login-modal {
   .modal-sm {
     width: 350px;
-    height: 420px;
+    height: 450px;
   }
 
   .modal-content {
-    height: 420px;
+    height: 480px;
   }  
 
   .form-group {
@@ -1610,7 +1610,7 @@ body {
     margin-left:60px;
   }
 
-  .pay-btn-margin{
+.pay-btn-margin{
     margin-bottom:10px;
   }
 }
@@ -1619,4 +1619,10 @@ body {
   .modal-footer{
   text-align:center;
   }
+}
+
+@media (max-width:772px){
+#static_login .xs-margin{
+  margin-top:5px;
+}
 }
