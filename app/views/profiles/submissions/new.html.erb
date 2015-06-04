@@ -68,6 +68,7 @@
       </div>
       <div class='modal-body text-center'>
         <p>Use your credit card ending in <%= current_user.last_4_digits %>.</p>
+
         <button id='pay_with_old_card' class='btn btn-primary pay-btn-margin'>Pay</button>
         <p>OR</p>
         <p>
@@ -103,21 +104,21 @@
               <%= image_tag 'credit_cards/dinersclub.jpg' %>
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group payment-card-margin">
             <label for='card_number'>
               <span>Card Number</span>
             </label>
             <input type="text" id='card_number' class='card_number form-control' size="20"/>
           </div>
 
-          <div class="form-group">
+          <div class="form-group payment-card-margin">
             <label for='card_cvc'>
               <span>CVC</span>
             </label>
             <input type="text" id='card_cvc' class='card_cvc form-control' size="4"/>
           </div>
 
-          <div class="form-group">
+          <div class="form-group payment-card-margin">
             <label for='card_expr'>
               <span>Expiration (MM/YYYY)</span>
             </label>
