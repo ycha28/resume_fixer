@@ -100,25 +100,26 @@ $(document).ready ->
       dropzone_files.indexOf(file) >= 0
 
     file_type = input.data('type')
-    section_name = file_type + "_section"
+    section_name = '#' + input.prop('id') + "_section"
 
     if redundant_files.length > 0
       unless $(section_name).find('.file-drop-zone-title').length > 0
-        $(section_name).find('.file-drop-zone').prepend("<div class='file-drop-zone-title'>#{file_type}</div>")
+        $(section_name).find('.file-drop-zone').prepend("<div class='file-drop-zone-title'>#{file_type}s</div>")
 
       $('.alert').remove()
       $('.page_title').after("<div class='alert alert-danger text-center'>Redundant file detected. Please do not upload files with the same name.</div>")
-      $('.document').fileinput('clear')
+      input.fileinput('clear')
     else
       input.fileinput('upload')
 
-      unless $('.file-drop-zone-title').length > 0
-        $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>#{file_type}</div>")
+      unless $(section_name).find('.file-drop-zone-title').length > 0
+        $(section_name).find('.file-drop-zone').prepend("<div class='file-drop-zone-title'>#{file_type}s</div>")
   )
 
   $('.document').on('fileuploaded', (event, data) ->
+    input = $(event.currentTarget)
     $('.alert').remove()
-    file_type = $('.document_button.active').text()
+    file_type = input.data('type')
     price = switch file_type
               when 'Resume' then 100
               when 'Cover Letter' then 100
@@ -178,14 +179,17 @@ $(document).ready ->
     )
   )
 
-  $('.document').on('fileuploaderror', (event, data) ->    
-    file_type = $('.document_button.active').text().toLowerCase()
-    unless $('.file-drop-zone-title').length > 0
-      $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
+  $('.document').on('fileuploaderror', (event, data) ->  
+    input = $(event.currentTarget)
+    file_type = input.data('type')
+    section_name = '#' + input.prop('id') + "_section"
+
+    unless $(section_name).find('.file-drop-zone-title').length > 0
+      $(section_name).find('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
     
     $('.alert').remove()
     $('.page_title').after("<div class='alert alert-danger text-center'>Invalid file type detected. Only 'txt, doc, pdf, rtf, docx' files are supported.</div>")
-    $('.document').fileinput('clear')
+    input.fileinput('clear')
   )
 
   $('.accept-checkbox').change((event) ->
