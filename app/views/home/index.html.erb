@@ -75,10 +75,8 @@
 
       <div class='modal-body'>
         <button class='btn btn-primary center-block email-signup'>Sign up with Email</button>
-        <br><div class='text-center'>or</div><br>
-        <%= link_to image_tag("facebook_login.png", class: 'img-responsive center-block'), user_omniauth_authorize_path(:facebook), class: 'facebook-login' %>
-      </div>
-    </div>
+        <br><div class='text-center'>OR</div><br>
+        <%= link_to image_tag("fbsignup.jpg", class: 'img-responsive center-block'), user_omniauth_authorize_path(:facebook), class: 'facebook-login' %>
   </div>
 </div>
 
@@ -156,7 +154,7 @@
       <div class='text-center'>
         Don't have an account? <%= link_to 'Sign up!', '#', :class => 'email-signup' %>
       </div>
-      <div class='text-center'>or</div>
+      <div class='text-center'>OR</div>
       <%= link_to image_tag("facebook_login.png", class: 'facebook-login img-responsive center-block'), user_omniauth_authorize_path(:facebook) %>
     </div>
   </div>
