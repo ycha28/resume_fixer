@@ -1,7 +1,6 @@
 $(document).ready ->
   existing_price = 0
   dropzone_files = []
-  STYLE_SETTING = 'style="width:50px;height:50px;margin-bottom:0px;margin-top:0px"'
   layout_templates = {
     main1: '{preview}\n' +
         '<div class="kv-upload-progress hide"></div>\n' +
@@ -45,7 +44,7 @@ $(document).ready ->
   # Disable stripe button on load
   $('#submit_button').prop('disabled', true)
 
-  $('.document').fileinput({
+  $('#resume').fileinput({
     'showUpload': false, 
     'showRemove': false,
     'allowedFileExtensions': ['txt', 'doc', 'pdf', 'rtf', 'docx'], 
@@ -54,30 +53,41 @@ $(document).ready ->
     'uploadUrl': "/profile/documents",
     'uploadAsync': true,
     'dropZoneEnabled': true, 
-    'dropZoneTitle': 'Drag and drop resumes here.',
+    'dropZoneTitle': 'Resumes',
     'browseLabel': 'Attach',
     'uploadExtraData': ->
-      {type: $('.document_button.active').text()}
+      {type: 'Documents::Resume'}
   })
 
-  # Switch file types in nav
-  $('.document_button').on('click', (ev) ->
-    type = $(ev.currentTarget).text()
+  $('#cover_letter').fileinput({
+    'showUpload': false, 
+    'showRemove': false,
+    'allowedFileExtensions': ['txt', 'doc', 'pdf', 'rtf', 'docx'], 
+    'layoutTemplates': layout_templates,
+    'previewTemplates': templates, 
+    'uploadUrl': "/profile/documents",
+    'uploadAsync': true,
+    'dropZoneEnabled': true, 
+    'dropZoneTitle': 'Cover Letters',
+    'browseLabel': 'Attach',
+    'uploadExtraData': ->
+      {type: 'Documents::CoverLetter'}
+  })
 
-    switch type
-      when "Resume" 
-        $('.document_button').removeClass('active')
-        $('.resume').addClass('active')
-        $('.file-drop-zone-title').text('Drag and drop resumes here.')
-      when "Cover Letter" 
-        $('.document_button').removeClass('active')
-        $('.cv').addClass('active')
-        $('.file-drop-zone-title').text('Drag and drop cover letters here.')
-      when "Essay" 
-        $('.document_button').removeClass('active')
-        $('.essay').addClass('active')
-        $('.file-drop-zone-title').text('Drag and drop essays here.')
-  )
+  $('#essay').fileinput({
+    'showUpload': false, 
+    'showRemove': false,
+    'allowedFileExtensions': ['txt', 'doc', 'pdf', 'rtf', 'docx'], 
+    'layoutTemplates': layout_templates,
+    'previewTemplates': templates, 
+    'uploadUrl': "/profile/documents",
+    'uploadAsync': true,
+    'dropZoneEnabled': true, 
+    'dropZoneTitle': 'Essays',
+    'browseLabel': 'Attach',
+    'uploadExtraData': ->
+      {type: 'Documents::Essay'}
+  })
 
   $('.kv-fileinput-caption').parent().hide()
 
@@ -89,25 +99,27 @@ $(document).ready ->
     redundant_files = file_names.filter (file) ->
       dropzone_files.indexOf(file) >= 0
 
+    file_type = input.data('type')
+    section_name = '#' + input.prop('id') + "_section"
+
     if redundant_files.length > 0
-      file_type = $('.document_button.active').text().toLowerCase()
-      unless $('.file-drop-zone-title').length > 0
-        $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
+      unless $(section_name).find('.file-drop-zone-title').length > 0
+        $(section_name).find('.file-drop-zone').prepend("<div class='file-drop-zone-title'>#{file_type}s</div>")
 
       $('.alert').remove()
       $('.page_title').after("<div class='alert alert-danger text-center'>Redundant file detected. Please do not upload files with the same name.</div>")
-      $('.document').fileinput('clear')
+      input.fileinput('clear')
     else
       input.fileinput('upload')
-      file_type = $('.document_button.active').text().toLowerCase()
 
-      unless $('.file-drop-zone-title').length > 0
-        $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
+      unless $(section_name).find('.file-drop-zone-title').length > 0
+        $(section_name).find('.file-drop-zone').prepend("<div class='file-drop-zone-title'>#{file_type}s</div>")
   )
 
   $('.document').on('fileuploaded', (event, data) ->
+    input = $(event.currentTarget)
     $('.alert').remove()
-    file_type = $('.document_button.active').text()
+    file_type = input.data('type')
     price = switch file_type
               when 'Resume' then 100
               when 'Cover Letter' then 100
@@ -167,14 +179,17 @@ $(document).ready ->
     )
   )
 
-  $('.document').on('fileuploaderror', (event, data) ->    
-    file_type = $('.document_button.active').text().toLowerCase()
-    unless $('.file-drop-zone-title').length > 0
-      $('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
+  $('.document').on('fileuploaderror', (event, data) ->  
+    input = $(event.currentTarget)
+    file_type = input.data('type')
+    section_name = '#' + input.prop('id') + "_section"
+
+    unless $(section_name).find('.file-drop-zone-title').length > 0
+      $(section_name).find('.file-drop-zone').prepend("<div class='file-drop-zone-title'>Drag and drop #{file_type}s here.</div>")
     
     $('.alert').remove()
     $('.page_title').after("<div class='alert alert-danger text-center'>Invalid file type detected. Only 'txt, doc, pdf, rtf, docx' files are supported.</div>")
-    $('.document').fileinput('clear')
+    input.fileinput('clear')
   )
 
   $('.accept-checkbox').change((event) ->
