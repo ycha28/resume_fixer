@@ -26,6 +26,10 @@ module Profiles
       @document = current_user.documents.find(params[:id])
       
       if @document.update(document_params)
+        flash[:success] = "Document successfully changed!"
+        redirect_to profile_documents_path
+      else
+        flash[:danger] = "The following errors occurred while processing your request: #{@document.errors.messages[:text_file].join(', ')}."
         redirect_to profile_documents_path
       end
     end 
