@@ -4,27 +4,16 @@
   <h5 class='text-center'>Drag and drop your files below. Acceptable file types include .pdf, .txt, .doc, .docx., .rtf</h5>
 
   <div class='row'>
-    <div class='col-md-4 text-center'>
-      <h3>$100/Resume</h3>
-    </div>
-
-    <div class='col-md-4 text-center'>
-      <h3>$100/Cover Letter</h3>
-    </div>
-
-    <div class='col-md-4 text-center'>
-      <h3>$250/Essay</h3>
-    </div>    
-  </div>
-
-  <div class='row'>
     <div class='col-md-4' id='resume_section'>
+      <h3 class='text-center'>$100/Resume</h3>
       <%= file_field_tag 'text_file', multiple: true, type: :file, class: 'document', id: 'resume', :data => {:type => 'Resume'} %>
     </div>
     <div class='col-md-4' id='cover_letter_section'>
+      <h3 class='text-center'>$100/Cover Letter</h3>
       <%= file_field_tag 'text_file', multiple: true, type: :file, class: 'document', id: 'cover_letter', :data => {:type => 'Cover Letter'} %>
     </div>
     <div class='col-md-4' id='essay_section'>
+      <h3 class='text-center'>$250/Essay</h3>
       <%= file_field_tag 'text_file', multiple: true, type: :file, class: 'document', id: 'essay', :data => {:type => 'Essay'} %>
     </div>
   </div>
