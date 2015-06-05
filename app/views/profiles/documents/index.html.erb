@@ -1,6 +1,6 @@
 <section class='documents_index'>
   <div class='text-center'>
-    <h1>My Documents</h1>
+    <h1>My Documents</h1><br>
   </div>
   <%= render 'shared/flash' %>
   <% if @documents.empty? %>
@@ -9,7 +9,7 @@
     </div>
   <% else %>
     <div class='table-responsive'>
-      <table class='table'>
+      <table class='table text-center'>
         <tr>
           <th>Time Submitted</th>
           <th>File Name</th>
