@@ -1583,7 +1583,7 @@ body {
 
 /*static login*/
 .top-padding-150 {
-  padding-top:100px;
+  padding-top:20px;
 }
 
 /*vertical align using flex aboutus*/
@@ -1621,8 +1621,24 @@ body {
   }
 }
 
-@media (max-width:772px){
-#static_login .xs-margin{
-  margin-top:5px;
+
+
+.table-center{
+  display:table;
+  text-align:center;
 }
+
+#static_signup .control-label{
+  text-align:left;
+  padding-left:18px;
+  padding-bottom:7px;
 }
+
+#static_login .control-label{
+  text-align:left;
+  padding-left:18px;
+  padding-bottom:7px;
+}
+
+
+
