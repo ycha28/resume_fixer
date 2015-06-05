@@ -154,7 +154,8 @@
         <%= f.submit "Log in", class: 'btn btn-primary center-block' %>
       <% end %><br>
       <div class='text-center'>
-        Don't have an account?<br><%= link_to 'Sign up!', '#', :class => 'email-signup' %>
+        Don't have an account? <%= link_to 'Sign up', '#', :class => 'email-signup' %><br>
+        Forgot password? <%= link_to 'Find Password', '#', :class => 'email-signup' %>
       </div><br>
       <div class='text-center'>OR</div><br>
       <%= link_to image_tag("fblogin.jpg", class: 'facebook-login img-responsive center-block'), user_omniauth_authorize_path(:facebook) %>
