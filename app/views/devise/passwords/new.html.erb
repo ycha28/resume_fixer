@@ -1,16 +1,28 @@
-<h2>Forgot your password?</h2>
+<%= render 'shared/static_header' %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+<section id="static_signup" class='container'>
+	<h1 class='user_settings text-center top-padding-150'>Forgot your password?</h1>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+	<%= devise_error_messages! %>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+	<div class="form-group">
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+				<%= f.email_field :email, autofocus: true, :class => 'form-control', :placeholder => "Email Address", :required => true %>
+			</div>
+		</div>
+	</div>
 
-<%= render "devise/shared/links" %>
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+			<div class="actions">
+				<%= f.submit "Send me reset password instructions", :class => 'btn btn-primary center-block' %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</section>
+
+
+

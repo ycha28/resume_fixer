@@ -1294,11 +1294,27 @@ padding-left: 200px;
 .login-modal {
   .modal-sm {
     width: 350px;
-    height: 450px;
+    height: 500px;
   }
 
   .modal-content {
-    height: 480px;
+    height: 530px;
+  }  
+
+  .form-group {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+
+.forgotten-password-modal {
+  .modal-sm {
+    width: 350px;
+    height: 500px;
+  }
+
+  .modal-content {
+    height: 300px;
   }  
 
   .form-group {
@@ -1583,7 +1599,7 @@ body {
 
 /*static login*/
 .top-padding-150 {
-  padding-top:100px;
+  padding-top:20px;
 }
 
 /*vertical align using flex aboutus*/
@@ -1623,4 +1639,21 @@ body {
 
 th {
   text-align: center;
+}
+
+.table-center{
+  display:table;
+  text-align:center;
+}
+
+#static_signup .control-label{
+  text-align:left;
+  padding-left:18px;
+  padding-bottom:7px;
+}
+
+#static_login .control-label{
+  text-align:left;
+  padding-left:18px;
+  padding-bottom:7px;
 }
