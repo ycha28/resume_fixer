@@ -1307,6 +1307,22 @@ padding-left: 200px;
   }
 }
 
+.forgotten-password-modal {
+  .modal-sm {
+    width: 350px;
+    height: 500px;
+  }
+
+  .modal-content {
+    height: 300px;
+  }  
+
+  .form-group {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+
   #portfolio .portfolio-card {
       margin: 0 auto;
       padding: 10px;
